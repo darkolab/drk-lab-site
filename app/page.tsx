@@ -1,6 +1,5 @@
 // app/page.tsx
 import Link from "next/link";
-import Image from "next/image";
 import { products } from "@/lib/products";
 import { Hero } from "@/components/hero";
 
@@ -23,7 +22,7 @@ export default function Home() {
 
     return (
     <main className="min-h-screen">
-     
+
      {/* HERO COMPLET – text + slide sincronitzat */}
       <Hero />
 
@@ -58,7 +57,7 @@ export default function Home() {
                 Impressió amb materials tècnics
               </p>
               <p className="mt-3 text-[0.95rem] md:text-base text-slate-300">
-                PLA d&apos;alta qualitat, compostos amb fibra i materials
+                PLA d'alta qualitat, compostos amb fibra i materials
                 pensats per aguantar cops, calor i maltracte de set.
               </p>
             </div>
@@ -101,7 +100,7 @@ export default function Home() {
                       href={`/products/${product.slug}`}
                       className="hover:text-red-400"
                     >
-                      {product.code} · {product.shortName}
+                      {product.code} · {product.shortName ?? product.name}
                     </Link>
                   </h3>
                   <p className="mt-3 text-[0.95rem] md:text-base text-slate-300">
@@ -109,7 +108,7 @@ export default function Home() {
                   </p>
                 </div>
                 <p className="mt-4 text-xs text-slate-400">
-                  {product.status}
+                  {product.statusLabel}
                 </p>
               </article>
             ))}
@@ -158,7 +157,7 @@ export default function Home() {
             DRK LAB és el projecte personal de Fran, tècnic audiovisual i
             director de fotografia. Treballant diàriament amb càmeres, òptiques
             i llum en un rental, he vist de prop què es trenca, què es perd i
-            què falta a les maletes. D&apos;aquí neixen les peces de DRK LAB:
+            què falta a les maletes. D'aquí neixen les peces de DRK LAB:
             solucions petites que resolen problemes molt concrets.
           </p>
         </div>
