@@ -6,9 +6,18 @@ import { useMemo, useState } from "react";
 import { products } from "@/lib/products";
 
 const statusStyles = {
-  default: "border-slate-700 text-slate-200",
-  prototype: "border-amber-400/70 text-amber-200",
-  production: "border-red-400/80 text-red-200",
+  default: {
+    badge: "border-slate-700/70 bg-slate-900/60 text-slate-200",
+    dot: "bg-slate-400/80",
+  },
+  prototype: {
+    badge: "border-slate-700/70 bg-slate-900/60 text-slate-200",
+    dot: "bg-amber-400",
+  },
+  production: {
+    badge: "border-slate-700/70 bg-slate-900/60 text-slate-200",
+    dot: "bg-cyan-300",
+  },
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -149,18 +158,21 @@ export default function ProductsPage() {
                     </div>
 
                     <div className="mt-6 flex items-center justify-between pt-4 text-sm">
-                      <span
-                        className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[12px] uppercase tracking-[0.14em] ${getStatusStyle(
-                          product.status,
-                        )}`}
-                      >
-                        <span className="h-2 w-2 rounded-full bg-current opacity-70" />
-                        {product.status}
-                      </span>
+                      {(() => {
+                        const statusStyle = getStatusStyle(product.status);
+                        return (
+                          <span
+                            className={`inline-flex items-center gap-2 rounded-2xl border px-2.5 py-1.5 text-[10px] uppercase tracking-[0.14em] ${statusStyle.badge}`}
+                          >
+                            <span className={`h-2 w-2 rounded-full ${statusStyle.dot} opacity-80`} />
+                            <span className="text-slate-200">{product.status}</span>
+                          </span>
+                        );
+                      })()}
 
                       <Link
                         href={`/products/${product.slug}`}
-                        className="inline-flex items-center gap-2 rounded-full bg-red-500 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white transition duration-300 hover:translate-x-[2px] hover:bg-red-600 hover:shadow-[0_12px_30px_-18px_rgba(248,113,113,0.7)]"
+                        className="inline-flex items-center gap-2 rounded-2xl border border-red-500/60 bg-black/20 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-red-200 transition duration-300 hover:translate-x-[2px] hover:border-red-500 hover:bg-red-500 hover:text-white hover:shadow-[0_12px_30px_-18px_rgba(248,113,113,0.7)]"
                       >
                         Veure fitxa
                         <span aria-hidden>→</span>
