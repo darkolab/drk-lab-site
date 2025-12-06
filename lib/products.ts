@@ -11,6 +11,7 @@ export type Product = {
   name: string;
   shortName: string;
   category: string;
+  categoryKey?: string;
   status: string;
   shortDescription: string;
   longDescription: string;
