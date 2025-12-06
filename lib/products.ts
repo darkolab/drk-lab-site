@@ -15,6 +15,7 @@ export type Product = {
   shortDescription: string;
   longDescription: string;
   features: string[];
+  image?: string;
   notes?: string;
   technicalSpecs?: ProductTechnicalSpec[];
   availability?: "in-stock" | "made-to-order" | "prototype";
@@ -36,6 +37,7 @@ export const products: Product[] = [
       "Tapes de protecció per a caps LED Bowens (Aputure, Forza, SmallRig...). Protegeixen el COB durant transport i magatzem.",
     longDescription:
       "Tapes de protecció dissenyades específicament per a caps LED amb muntura Bowens. Ajust precís, interior suau i opció de personalització amb logo del rental o productora. Pensades per aguantar el ritme de maletes, furgonetes i rodatges intensius.",
+    image: "/hero/drk-bowens-led.jpg",
     features: [
       "Compatible amb muntura Bowens estàndard",
       "Opció de logo personalitzat",
@@ -70,6 +72,7 @@ export const products: Product[] = [
       "Càixes compactes i robustes per a targetes SD, CFexpress i CFast, amb interiors configurables.",
     longDescription:
       "Sistema de caixes modular per organitzar i protegir targetes SD, CFexpress tipus B i CFast. Cada caixa pot configurar-se per capacitat i tipus de targeta, amb opcions de codi de color i identificació ràpida per a equip o producció.",
+    image: "/hero/drk-sd-cases.jpg",
     features: [
       "Interiors configurables segons tipus de targeta",
       "Format compacte pensat per flightcases",
@@ -99,6 +102,7 @@ export const products: Product[] = [
       "Parasol a mida per al monitor Atomos Shinobi 7\", amb encaix precís sense adhesius.",
     longDescription:
       "Parasol dissenyat específicament per al monitor Atomos Shinobi 7\". Millora la visibilitat en exteriors i aporta una capa extra de protecció contra cops i ratllades. El sistema d’encaix no requereix adhesius ni modificacions al monitor.",
+    image: "/hero/drk-hood-sh7.jpg",
     features: [
       "Disseny específic per a Shinobi 7\"",
       "Encaix mecànic, sense adhesius",
@@ -130,7 +134,8 @@ export const products: Product[] = [
       "Niu d’abella per al flaix Godox V1s, amb sistema d’encaix per pressió, sense imants ni adhesius. Angle de llum 40°, disponible en altres angulacions.",
     longDescription:
       "Honeycomb dissenyat específicament per al capçal rodó del flaix Godox V1s. El sistema d’encaix per pressió evita l’ús d’imants o adhesius, garantint una subjecció segura fins i tot en sessions de treball ràpides. Redueix l’angle de llum a 40°, aportant més control, evitant spill i millorant la direccionalitat en retrat i fotografia de producte. Fabricat amb material resistent a altes temperatures i cops, pensat per a un ús intensiu en estudis i rodatges.",
-    features: [
+    image: "/hero/drk-bowens-cap.jpg",
+      features: [
       "Compatible amb Godox V1s",
       "Sistema d’encaix per pressió, sense imants ni adhesius",
       "Angle de llum 40° (altres angulacions sota comanda)",
@@ -163,7 +168,7 @@ export const products: Product[] = [
     shortDescription:
       "Caixa modular per a targetes SD, CFexpress A, CFexpress B i CFast. Interiors completament configurables.",
     longDescription:
-      "El DRK-CASE MEDIA és un sistema modular de caixes per organitzar i protegir targetes SD, CFexpress tipus A, CFexpress tipus B i CFast. El cos exterior és sempre el mateix: compacte, robust i pensat per cabre fàcilment en flightcases i bosses tècniques. L’interior és 100% configurable segons les necessitats de cada equip, rental o producció. Es pot fabricar amb qualsevol combinació de targetes, incloent-hi formats mixtos o layouts personalitzats per càmera.",
+      "El DRK-CASE MEDIA és un sistema modular de caixes per organitzar i protegir targetes SD, CFexpress tipus A, CFexpress tipus B i CFast. El cos exterior és sempre el mateix: compacte, robust i pensat per cabre fàcilment en flightcases i bosses tècniques. L’interior és 100% configurable segons les necessitats de cada equip, rental o producció. Es pot fabricar amb qualsevol combinació de targetes, incloent-hi formats mixtes o layouts personalitzats per càmera.",
     features: [
       "Interiors configurables per SD, CFexpress A, CFexpress B i/o CFast",
       "Sistema modular per adaptar-se a qualsevol combinació",
