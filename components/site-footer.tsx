@@ -5,76 +5,50 @@ const socials = [
   { name: "Instagram", href: "https://instagram.com/drk-lab" },
   { name: "TikTok", href: "https://tiktok.com/@drk-lab" },
   { name: "LinkedIn", href: "https://www.linkedin.com/company/drk-lab" },
-] as const;
+];
 
 export function SiteFooter() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="border-t border-slate-800 bg-black/40">
-      <div className="mx-auto w-full max-w-8xl px-4 py-10 text-slate-300 sm:px-6 lg:px-8">
-        {/* bloque superior: izquierda / derecha */}
-        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-          {/* IZQUIERDA: logo + texto + secciones */}
-          <div className="space-y-6 md:max-w-xl">
-            <div className="flex items-center">
-              <Image
-                src="/drklab_logo.png"
-                alt="DRK LAB"
-                width={180}
-                height={54}
-                className="h-10 w-auto md:h-12"
-                priority
-              />
+      <div className="mx-auto max-w-7xl px-6 py-12 text-slate-300">
+        <div className="grid gap-8 md:grid-cols-[2fr,1.2fr,1fr]">
+          <div className="space-y-4">
+            <div className="relative h-10 w-40 md:h-12 md:w-48">
+              <Image src="/drklab_logo.png" alt="DRK LAB" fill className="object-contain" />
             </div>
-
             <p className="max-w-md text-sm text-slate-400">
-              Enginyeria per a rodatges, accessoris a mida i peces pensades
-              per aguantar ritmes de rental i set.
+              Enginyeria per a rodatges, accessoris a mida i peces pensades per aguantar ritmes de rental i set.
             </p>
-
-            <div className="space-y-3 text-sm">
-              <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-200">
-                Seccions
-              </h2>
-              <ul className="space-y-2 text-slate-300">
-                <li>
-                  <Link href="/" className="hover:text-white">
-                    Inici
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/products" className="hover:text-white">
-                    Productes
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-white">
-                    Contacte
-                  </Link>
-                </li>
-              </ul>
-            </div>
           </div>
 
-          {/* DERECHA: social alineado a la derecha */}
-          <div className="space-y-3 text-sm md:text-right">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-200">
-              Social
-            </h2>
+          <div className="space-y-3 text-sm">
+            <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-200">Seccions</h2>
+            <ul className="space-y-2 text-slate-300">
+              <li>
+                <Link href="/" className="hover:text-white">
+                  Inici
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-white">
+                  Productes
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-white">
+                  Contacte
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-3 text-sm">
+            <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-200">Social</h2>
             <ul className="space-y-2 text-slate-300">
               {socials.map((social) => (
                 <li key={social.name}>
-                  <a
-                    href={social.href}
-                    className="inline-flex items-center gap-2 hover:text-white md:justify-end md:inline-flex"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span
-                      className="h-2 w-2 rounded-full bg-red-500"
-                      aria-hidden
-                    />
+                  <a href={social.href} className="inline-flex items-center gap-2 hover:text-white" target="_blank" rel="noreferrer">
+                    <span className="h-2 w-2 rounded-full bg-red-500" aria-hidden />
                     {social.name}
                   </a>
                 </li>
@@ -83,11 +57,8 @@ export function SiteFooter() {
           </div>
         </div>
 
-        {/* línea inferior */}
         <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-slate-800 pt-6 text-xs text-slate-500 md:flex-row">
-          <p>
-            © {year} DRK LAB · Disseny i fabricació d&apos;accessoris tècnics.
-          </p>
+          <p>© {new Date().getFullYear()} DRK LAB · Disseny i fabricació d'accessoris tècnics.</p>
           <p className="text-slate-500">Construït a mà en mode dark.</p>
         </div>
       </div>
