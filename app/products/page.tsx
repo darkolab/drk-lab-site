@@ -7,8 +7,8 @@ import { products } from "@/lib/products";
 
 const statusStyles = {
   default: "border-slate-700 text-slate-200",
-  prototype: "border-orange-400/70 text-orange-200",
-  production: "border-lime-400/70 text-lime-200",
+  prototype: "border-amber-400/70 text-amber-200",
+  production: "border-red-400/80 text-red-200",
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -83,28 +83,29 @@ export default function ProductsPage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 xl:gap-16 2xl:gap-20">
             {filteredProducts.map((product) => {
               const categoryKey = getCategoryKey(product.categoryKey, product.category);
 
               return (
                 <article
                   key={product.slug}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-950/90 via-[#04040b] to-black p-6 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.75)]"
+                  className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-900/80 bg-gradient-to-br from-[#0a0a12] via-[#050509] to-black p-6 shadow-[0_32px_80px_-42px_rgba(0,0,0,0.8)]"
                 >
-                  <div className="relative h-80 overflow-hidden rounded-2xl border border-slate-800/70 bg-gradient-to-b from-slate-900 via-slate-950 to-black">
+                  <div className="relative h-80 overflow-hidden rounded-2xl border border-slate-800/70 bg-gradient-to-b from-slate-950 via-[#0a0a14] to-[#03030a]">
                     <div className="absolute inset-0 overflow-hidden" aria-hidden>
                       <div
-                        className={`absolute inset-0 scale-100 bg-cover bg-center opacity-75 transition duration-700 ease-out group-hover:scale-[1.1] group-hover:opacity-100 ${
+                        className={`absolute inset-0 scale-100 bg-cover bg-center opacity-75 transition duration-700 ease-out group-hover:scale-[1.08] group-hover:opacity-100 ${
                           product.image ? "" : "bg-gradient-to-br from-slate-900 via-slate-950 to-black"
                         }`}
                         style={product.image ? { backgroundImage: `url(${product.image})` } : undefined}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/45 to-[#050509]/95" />
-                      <div className="absolute inset-x-8 top-8 h-px bg-white/10" />
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/45 to-[#050509]/95" />
+                      <div className="absolute inset-x-6 top-6 h-px bg-white/10" />
                       <div className="absolute inset-x-10 bottom-8 h-px bg-white/5" />
-                      <div className="absolute left-6 top-1/2 h-12 w-px -translate-y-1/2 bg-white/10" />
-                      <div className="absolute right-6 top-1/2 h-12 w-px -translate-y-1/2 bg-white/10" />
+                      <div className="absolute left-6 top-1/2 h-16 w-px -translate-y-1/2 bg-white/10" />
+                      <div className="absolute right-6 top-1/2 h-16 w-px -translate-y-1/2 bg-white/10" />
+                      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#050509]/90 via-black/40 to-transparent" />
                     </div>
 
                     <div className="relative z-10 flex h-full flex-col justify-between p-6 text-slate-100">
@@ -125,7 +126,7 @@ export default function ProductsPage() {
                     </div>
                   </div>
 
-                  <div className="relative mt-6 flex flex-1 flex-col justify-between rounded-2xl border border-slate-800 bg-black/80 p-6 shadow-inner transition duration-500 ease-out group-hover:-translate-y-1 group-hover:border-slate-700 group-hover:shadow-[0_25px_45px_-32px_rgba(0,0,0,0.8)]">
+                  <div className="relative mt-6 flex flex-1 flex-col justify-between rounded-2xl border border-slate-800 bg-gradient-to-br from-black/80 via-[#0b0b13]/90 to-[#050509]/90 p-6 shadow-inner transition duration-500 ease-out group-hover:-translate-y-1 group-hover:border-slate-700 group-hover:shadow-[0_28px_48px_-34px_rgba(0,0,0,0.8)]">
                     <div className="space-y-4">
                       <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-slate-400">
                         <span className="rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1 text-white/90">
@@ -136,7 +137,7 @@ export default function ProductsPage() {
                       </div>
 
                       <div className="space-y-2">
-                        <h2 className="text-xl font-semibold text-white">
+                        <h2 className="text-xl font-semibold text-white md:text-2xl">
                           <Link href={`/products/${product.slug}`} className="transition hover:text-red-400">
                             {product.shortName}
                           </Link>
@@ -159,7 +160,7 @@ export default function ProductsPage() {
 
                       <Link
                         href={`/products/${product.slug}`}
-                        className="inline-flex items-center gap-2 rounded-full bg-red-500 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white transition duration-300 hover:translate-x-[2px] hover:bg-red-600"
+                        className="inline-flex items-center gap-2 rounded-full bg-red-500 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white transition duration-300 hover:translate-x-[2px] hover:bg-red-600 hover:shadow-[0_12px_30px_-18px_rgba(248,113,113,0.7)]"
                       >
                         Veure fitxa
                         <span aria-hidden>→</span>

@@ -21,8 +21,7 @@ export default function ProductDetailPage() {
           <h1 className="text-2xl font-semibold text-red-400">Producte no trobat</h1>
 
           <p className="text-sm text-slate-300">
-            slug rebut:{" "}
-            <span className="font-mono text-slate-100">{slug || "(sense slug)"}</span>
+            slug rebut: <span className="font-mono text-slate-100">{slug || "(sense slug)"}</span>
           </p>
 
           <div className="space-y-2 text-sm">
