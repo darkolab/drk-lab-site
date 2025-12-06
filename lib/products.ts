@@ -33,12 +33,13 @@ export const products: Product[] = [
     name: "Tapes Bowens per a caps LED",
     shortName: "Tapes Bowens",
     category: "Llum",
+    categoryKey: "llum",
     status: "En producció sota comanda",
     shortDescription:
       "Tapes de protecció per a caps LED Bowens (Aputure, Forza, SmallRig...). Protegeixen el COB durant transport i magatzem.",
     longDescription:
       "Tapes de protecció dissenyades específicament per a caps LED amb muntura Bowens. Ajust precís, interior suau i opció de personalització amb logo del rental o productora. Pensades per aguantar el ritme de maletes, furgonetes i rodatges intensius.",
-    image: "/hero/drk-bowens-led.jpg",
+    image: "/hero/drk-bowens-cap.jpg",
     features: [
       "Compatible amb muntura Bowens estàndard",
       "Opció de logo personalitzat",
@@ -68,6 +69,7 @@ export const products: Product[] = [
     name: "Càixes per a targetes SD / CFexpress / CFast",
     shortName: "Càixes targetes",
     category: "Media / emmagatzematge",
+    categoryKey: "media",
     status: "Nova sèrie prevista gener 2026",
     shortDescription:
       "Càixes compactes i robustes per a targetes SD, CFexpress i CFast, amb interiors configurables.",
@@ -98,6 +100,7 @@ export const products: Product[] = [
     name: "Parasol per a Atomos Shinobi 7\"",
     shortName: "Parasol Shinobi 7\"",
     category: "Monitors",
+    categoryKey: "monitors",
     status: "Producció sota comanda",
     shortDescription:
       "Parasol a mida per al monitor Atomos Shinobi 7\", amb encaix precís sense adhesius.",
@@ -130,13 +133,13 @@ export const products: Product[] = [
     name: "Honeycomb per a Godox V1s",
     shortName: "Honeycomb V1s",
     category: "Llum",
+    categoryKey: "llum",
     status: "En producció sota comanda",
     shortDescription:
       "Niu d’abella per al flaix Godox V1s, amb sistema d’encaix per pressió, sense imants ni adhesius. Angle de llum 40°, disponible en altres angulacions.",
     longDescription:
       "Honeycomb dissenyat específicament per al capçal rodó del flaix Godox V1s. El sistema d’encaix per pressió evita l’ús d’imants o adhesius, garantint una subjecció segura fins i tot en sessions de treball ràpides. Redueix l’angle de llum a 40°, aportant més control, evitant spill i millorant la direccionalitat en retrat i fotografia de producte. Fabricat amb material resistent a altes temperatures i cops, pensat per a un ús intensiu en estudis i rodatges.",
-    image: "/hero/drk-bowens-cap.jpg",
-      features: [
+    features: [
       "Compatible amb Godox V1s",
       "Sistema d’encaix per pressió, sense imants ni adhesius",
       "Angle de llum 40° (altres angulacions sota comanda)",
@@ -165,11 +168,12 @@ export const products: Product[] = [
     name: "Sistema modular de caixes per targetes",
     shortName: "Case Media System",
     category: "Media / emmagatzematge",
+    categoryKey: "media",
     status: "En producció sota comanda",
     shortDescription:
       "Caixa modular per a targetes SD, CFexpress A, CFexpress B i CFast. Interiors completament configurables.",
     longDescription:
-      "El DRK-CASE MEDIA és un sistema modular de caixes per organitzar i protegir targetes SD, CFexpress tipus A, CFexpress tipus B i CFast. El cos exterior és sempre el mateix: compacte, robust i pensat per cabre fàcilment en flightcases i bosses tècniques. L’interior és 100% configurable segons les necessitats de cada equip, rental o producció. Es pot fabricar amb qualsevol combinació de targetes, incloent-hi formats mixtes o layouts personalitzats per càmera.",
+      "El DRK-CASE MEDIA és un sistema modular de caixes per organitzar i protegir targetes SD, CFexpress tipus A, CFexpress tipus B i CFast. El cos exterior és sempre el mateix: compacte, robust i pensat per cabre fàcilment en flightcases i bosses tècniques. L’interior és 100% configurable segons les necessitats de cada equip, rental o producció. Es pot fabricar amb qualsevol combinació de targetes, incloent-hi formats mixtos o layouts personalitzats per càmera.",
     features: [
       "Interiors configurables per SD, CFexpress A, CFexpress B i/o CFast",
       "Sistema modular per adaptar-se a qualsevol combinació",
@@ -200,6 +204,7 @@ export const products: Product[] = [
     name: "Merch funcional i personalitzat per a rentals i productores",
     shortName: "Merch funcional",
     category: "Corporate / Merchandising",
+    categoryKey: "merch",
     status: "Sota comanda",
     shortDescription:
       "Llavors, eines i accessoris personalitzats amb logo: merch útil pensat per a tècnics, no per oblidar en un calaix.",
@@ -233,6 +238,7 @@ export const products: Product[] = [
     name: "Rail NATO 150mm per a càmeres i accessoris",
     shortName: "NATO 150mm",
     category: "Càmera / Accessoris",
+    categoryKey: "camera",
     status: "Prototip validat · Producció sota comanda",
     shortDescription:
       "Rail NATO de 150mm pensat per a Sony FX3/FX30, lleuger, rígid i imprimt en PAHT-CF per suportar accessoris professionals.",
@@ -266,6 +272,7 @@ export const products: Product[] = [
     name: "Bisagra de recanvi per a marcs Lastolite",
     shortName: "Bisagra Lastolite",
     category: "Recanvis / Grip",
+    categoryKey: "grip",
     status: "En producció sota comanda",
     shortDescription:
       "Bisagra de recanvi per als panells plegables Lastolite, amb rosca reforçada i encaix compatible amb els marcs originals.",

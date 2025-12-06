@@ -63,8 +63,8 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <section className="bg-[#050509] py-14">
-        <div className="mx-auto max-w-7xl px-6 space-y-10">
+      <section className="bg-[#050509] py-16">
+        <div className="mx-auto max-w-7xl px-6 space-y-12">
           <div className="flex flex-wrap gap-3">
             {categoryFilters.map((filter) => (
               <button
@@ -83,46 +83,59 @@ export default function ProductsPage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
             {filteredProducts.map((product) => {
               const categoryKey = getCategoryKey(product.categoryKey, product.category);
 
               return (
                 <article
                   key={product.slug}
-                  className="group relative flex h-full flex-col rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-950/80 via-black to-[#050509] p-6 shadow-[0_25px_60px_-35px_rgba(0,0,0,0.7)]"
+                  className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-950/90 via-[#04040b] to-black p-6 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.75)]"
                 >
-                  <div className="relative h-64 overflow-hidden rounded-2xl border border-slate-800/70 bg-gradient-to-b from-slate-900 via-slate-950 to-black">
-                    {product.image && (
-                      <div className="absolute inset-0 overflow-hidden" aria-hidden>
-                        <div
-                          className="absolute inset-0 scale-100 bg-cover bg-center opacity-80 transition duration-700 ease-out group-hover:scale-[1.07] group-hover:opacity-100"
-                          style={{ backgroundImage: `url(${product.image})` }}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/30 to-[#050509]/90" />
-                      </div>
-                    )}
+                  <div className="relative h-80 overflow-hidden rounded-2xl border border-slate-800/70 bg-gradient-to-b from-slate-900 via-slate-950 to-black">
+                    <div className="absolute inset-0 overflow-hidden" aria-hidden>
+                      <div
+                        className={`absolute inset-0 scale-100 bg-cover bg-center opacity-75 transition duration-700 ease-out group-hover:scale-[1.1] group-hover:opacity-100 ${
+                          product.image ? "" : "bg-gradient-to-br from-slate-900 via-slate-950 to-black"
+                        }`}
+                        style={product.image ? { backgroundImage: `url(${product.image})` } : undefined}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/45 to-[#050509]/95" />
+                      <div className="absolute inset-x-8 top-8 h-px bg-white/10" />
+                      <div className="absolute inset-x-10 bottom-8 h-px bg-white/5" />
+                      <div className="absolute left-6 top-1/2 h-12 w-px -translate-y-1/2 bg-white/10" />
+                      <div className="absolute right-6 top-1/2 h-12 w-px -translate-y-1/2 bg-white/10" />
+                    </div>
 
-                    <div className="relative z-10 flex h-full flex-col justify-between p-5 text-slate-100">
-                      <div className="flex items-center justify-between">
-                        <span className="inline-flex items-center rounded-full border border-white/20 bg-black/30 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-white/90 backdrop-blur-sm">
+                    <div className="relative z-10 flex h-full flex-col justify-between p-6 text-slate-100">
+                      <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-slate-200">
+                        <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-3 py-1 backdrop-blur">
+                          <span className="h-1.5 w-1.5 rounded-full bg-red-400" aria-hidden />
                           {product.category}
                         </span>
-                        <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.2em] text-slate-200">
+                        <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-1 font-mono tracking-[0.2em] text-white">
                           {product.code}
                         </span>
                       </div>
 
-                      <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.24em] text-slate-300">
-                        <span className="h-px w-8 bg-slate-500/60" aria-hidden />
+                      <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.26em] text-slate-300">
+                        <span className="h-px w-10 bg-slate-500/60" aria-hidden />
                         {getCategoryLabel(categoryKey)} · DRK LAB
                       </div>
                     </div>
                   </div>
 
-                  <div className="relative mt-5 flex flex-1 flex-col justify-between rounded-2xl border border-slate-800 bg-black/70 p-5 shadow-inner transition duration-500 ease-out group-hover:-translate-y-1 group-hover:shadow-[0_20px_40px_-30px_rgba(0,0,0,0.7)]">
-                    <div className="space-y-3">
-                      <div className="space-y-1">
+                  <div className="relative mt-6 flex flex-1 flex-col justify-between rounded-2xl border border-slate-800 bg-black/80 p-6 shadow-inner transition duration-500 ease-out group-hover:-translate-y-1 group-hover:border-slate-700 group-hover:shadow-[0_25px_45px_-32px_rgba(0,0,0,0.8)]">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-slate-400">
+                        <span className="rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1 text-white/90">
+                          {product.category}
+                        </span>
+                        <span className="h-px flex-1 bg-slate-700/60" aria-hidden />
+                        <span className="font-mono text-slate-300">{product.code}</span>
+                      </div>
+
+                      <div className="space-y-2">
                         <h2 className="text-xl font-semibold text-white">
                           <Link href={`/products/${product.slug}`} className="transition hover:text-red-400">
                             {product.shortName}
@@ -130,6 +143,7 @@ export default function ProductsPage() {
                         </h2>
                         <p className="text-xs uppercase tracking-[0.2em] text-slate-500">{product.status}</p>
                       </div>
+
                       <p className="text-sm leading-relaxed text-slate-200/90 md:text-base">{product.shortDescription}</p>
                     </div>
 
@@ -145,7 +159,7 @@ export default function ProductsPage() {
 
                       <Link
                         href={`/products/${product.slug}`}
-                        className="inline-flex items-center gap-2 rounded-full bg-red-500 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-red-600"
+                        className="inline-flex items-center gap-2 rounded-full bg-red-500 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white transition duration-300 hover:translate-x-[2px] hover:bg-red-600"
                       >
                         Veure fitxa
                         <span aria-hidden>→</span>
