@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "title": "DRK LAB · Ingeniería para rodajes",
+    "description": "DRK LAB diseña y fabrica accesorios técnicos para rentals, productoras y equipos de rodaje."
+  },
+  "common": {
+    "banner": {
+      "title": "DRK LAB · First Light build",
+      "message": "Web en beta · contenido en construcción · feedback bienvenido"
+    },
+    "navigation": {
+      "homeLabel": "Inicio",
+      "services": "Servicios",
+      "products": "Productos",
+      "custom": "A medida",
+      "about": "Sobre DRK LAB",
+      "contact": "Contacto",
+      "shopSoon": "Shop · próximamente",
+      "openMenu": "Abrir menú",
+      "closeMenu": "Cerrar menú",
+      "homeAria": "Inicio"
+    },
+    "footer": {
+      "tagline": "Ingeniería para rodajes, accesorios a medida y piezas pensadas para aguantar ritmos de rental y set.",
+      "navigation": {
+        "home": "Inicio",
+        "products": "Productos",
+        "about": "Sobre DRK LAB",
+        "contact": "Contacto"
+      },
+      "copyright": "DRK LAB · Diseño y fabricación de accesorios técnicos.",
+      "crafted": "Construido a mano en modo dark."
+    }
+  },
+  "hero": {
+    "slides": [
+      {
+        "id": "accessoris",
+        "eyebrow": "Ingeniería · 3D · Rodajes",
+        "title": "Accesorios técnicos",
+        "accent": "pensados para el set.",
+        "description": "Piezas 3D para cámaras, luz y monitores. Soluciones robustas, testeadas en rentals y rodajes reales.",
+        "image": "/hero/slide-accessoris.jpg",
+        "caption": "DRK-CAP · DRK-CASE · SD Cases",
+        "primaryLabel": "Ver productos",
+        "primaryHref": "/products",
+        "secondaryLabel": "Cuéntame qué necesitas",
+        "secondaryHref": "/contact"
+      },
+      {
+        "id": "desenvolupament",
+        "eyebrow": "R+D DRK LAB",
+        "title": "Productos en",
+        "accent": "desarrollo",
+        "description": "Prototipos del DRK Slider, cages y handles en materiales técnicos PAHT CF.",
+        "image": "/hero/slide-rnd.jpg",
+        "caption": "DRK Slider · PAHT CF",
+        "primaryLabel": "Roadmap",
+        "primaryHref": "/about"
+      },
+      {
+        "id": "custom",
+        "eyebrow": "Piezas a medida",
+        "title": "Soluciones 3D",
+        "accent": "para tu flujo de trabajo",
+        "description": "Adaptadores, protecciones y piezas que no existen en el catálogo de los fabricantes.",
+        "image": "/hero/slide-custom.jpg",
+        "caption": "Proyectos custom",
+        "primaryLabel": "Proyectos a medida",
+        "primaryHref": "/custom"
+      }
+    ]
+  },
+  "home": {
+    "services": {
+      "title": "¿Qué hace DRK LAB?",
+      "description": "DRK LAB nace de mezclar un almacén de rental con un laboratorio 3D. Detectamos problemas reales en set y diseñamos piezas específicas para que dejen de serlo.",
+      "items": [
+        {
+          "title": "Diseño 3D para rodajes",
+          "text": "Piezas pensadas para el día a día: protecciones, tapas, soportes, adaptadores y soluciones que no existen en el catálogo de los fabricantes."
+        },
+        {
+          "title": "Impresión con materiales técnicos",
+          "text": "PLA de alta calidad, compuestos con fibra y materiales pensados para aguantar golpes, calor y maltrato de set."
+        },
+        {
+          "title": "Prototipado rápido para rentals y productoras",
+          "text": "Del problema a la pieza funcional en pocos días, con iteraciones rápidas hasta encontrar el fit perfecto."
+        }
+      ]
+    },
+    "featured": {
+      "title": "Productos destacados",
+      "description": "Algunas de las piezas que ya están funcionando cada día en rentals y equipos de rodaje.",
+      "viewAll": "Ver todo el catálogo →",
+      "viewSheet": "Ver ficha"
+    },
+    "custom": {
+      "title": "Piezas a medida para tu equipo",
+      "description": "¿Tienes una cámara, monitor o foco que necesita una pieza específica? DRK LAB puede diseñar y fabricar una solución hecha para tu flujo de trabajo.",
+      "items": [
+        "· Adaptadores y soportes para cámaras y accesorios.",
+        "· Protecciones para transporte en flightcases.",
+        "· Piezas que ya no se fabrican o nunca han existido."
+      ]
+    },
+    "about": {
+      "title": "¿Quién está detrás de DRK LAB?",
+      "description": "DRK LAB es el proyecto personal de Fran, técnico audiovisual y director de fotografía. Trabajando a diario con cámaras, ópticas y luz en un rental, he visto de cerca qué se rompe, qué se pierde y qué falta en las maletas. De ahí nacen las piezas de DRK LAB: soluciones pequeñas que resuelven problemas muy concretos."
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Si eres un rental, productora o técnico freelance y tienes una idea o un problema en set, escríbeme y lo comentamos.",
+      "emailLabel": "Correo:",
+      "email": "fdrarkstudio@gmail.com",
+      "tagline": "Hecho en Catalunya para rodajes de todas partes."
+    }
+  },
+  "productsPage": {
+    "title": "Catálogo de productos DRK LAB",
+    "description": "Accesorios diseñados para cámaras, luz y monitores, pensados para rentals y equipos de rodaje. Piezas hechas para trabajar y resistir en set.",
+    "filters": {
+      "all": "Todos",
+      "categories": {
+        "llum": "Luz",
+        "monitors": "Monitores",
+        "media": "Media",
+        "merch": "Merch",
+        "grip": "Grip",
+        "camera": "Cámara"
+      }
+    },
+    "viewSheet": "Ver ficha"
+  },
+  "productDetail": {
+    "notFoundTitle": "Producto no encontrado",
+    "slugReceived": "slug recibido",
+    "availableSlugs": "Slugs disponibles:",
+    "backToCatalog": "← Volver al catálogo",
+    "techSheet": "FICHA TÉCNICA",
+    "description": "Descripción",
+    "features": "Características",
+    "technicalSpecs": "Especificaciones técnicas",
+    "statusTitle": "Estado del producto",
+    "code": "Código",
+    "category": "Categoría",
+    "wantProduct": "¿Quieres este producto?",
+    "cta": "Pedir información",
+    "ctaSecondary": "Volver al catálogo",
+    "ctaDescription": "DRK LAB trabaja principalmente bajo pedido para rentals, productoras y técnicos. Cuéntame qué necesitas y vemos si este modelo encaja o hay que adaptarlo.",
+    "imagePending": "Imagen de producto pendiente",
+    "prototype": "DRK LAB · prototipo funcional",
+    "slugFallback": "(sin slug)",
+    "status": "Estado"
+  },
+  "aboutPage": {
+    "title": "Sobre DRK LAB",
+    "description": "DRK LAB es el laboratorio personal de Francesc Romero, técnico de cine e impresor 3D compulsivo. Diseñando e imprimiendo desde el Maresme para rodajes de todas partes."
+  },
+  "contactPage": {
+    "title": "Contacto",
+    "description": "Cuéntame qué necesitas y te responderé con una propuesta concreta: pieza, timings y presupuesto."
+  },
+  "servicesPage": {
+    "title": "Servicios",
+    "description": "DRK LAB da soporte a rentals, productoras y foquistas con diseño y fabricación de accesorios 3D para rodajes reales.",
+    "subtitle": "Qué puedo hacer para tu rodaje",
+    "items": [
+      "· Accesorios para cámaras, rigs y monitores.",
+      "· Piezas para cabezas LED y modificadores de luz.",
+      "· Diseño a medida para necesidades muy concretas."
+    ]
+  },
+  "customPage": {
+    "title": "Proyectos a medida",
+    "description": "¿Tienes una idea rara en la cabeza? DRK LAB existe precisamente para eso: piezas únicas para problemas que el catálogo estándar no resuelve."
+  }
+}

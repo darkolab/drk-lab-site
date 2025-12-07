@@ -2,20 +2,27 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { heroSlides } from "@/lib/hero-slides";
+import Link from "next/link";
+import type { HeroSlide } from "@/lib/hero-slides";
+import type { Locale } from "@/lib/i18n";
 
-export function Hero() {
+export function Hero({ slides, locale }: { slides: HeroSlide[]; locale: Locale }) {
   const [active, setActive] = useState(0);
 
   // autoplay suau
   useEffect(() => {
     const id = setInterval(() => {
-      setActive((prev) => (prev + 1) % heroSlides.length);
+      setActive((prev) => (prev + 1) % slides.length);
     }, 6000); // 6 segons per slide
     return () => clearInterval(id);
-  }, []);
+  }, [slides.length]);
 
-  const slide = heroSlides[active];
+  const slide = slides[active];
+
+  const withLocale = (href?: string) => {
+    if (!href) return undefined;
+    return `/${locale}${href}`;
+  };
 
   return (
     <section
@@ -39,20 +46,20 @@ export function Hero() {
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
-              <a
-                href={slide.primaryHref}
+              <Link
+                href={withLocale(slide.primaryHref) ?? "#"}
                 className="rounded-full bg-red-500 px-6 py-3 text-sm font-medium text-white transition hover:bg-red-600"
               >
                 {slide.primaryLabel}
-              </a>
+              </Link>
 
               {slide.secondaryHref && slide.secondaryLabel && (
-                <a
-                  href={slide.secondaryHref}
+                <Link
+                  href={withLocale(slide.secondaryHref)}
                   className="rounded-full border border-slate-600 px-6 py-3 text-sm font-medium text-slate-200 transition hover:border-slate-300"
                 >
                   {slide.secondaryLabel}
-                </a>
+                </Link>
               )}
             </div>
           </div>
@@ -81,7 +88,7 @@ export function Hero() {
         {/* Punts de navegació centrats sota tot el contingut */}
         <div className="flex w-full justify-center">
           <div className="flex items-center gap-3">
-            {heroSlides.map((s, idx) => {
+            {slides.map((s, idx) => {
               const isActive = idx === active;
               return (
                 <button
