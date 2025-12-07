@@ -1,6 +1,5 @@
 // app/[locale]/layout.tsx
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -8,7 +7,6 @@ import {
   defaultLocale,
   getDictionary,
   isLocale,
-  locales,
   type Locale,
 } from "@/lib/i18n";
 
@@ -18,12 +16,8 @@ type LocaleParams = {
 
 type LocaleLayoutProps = LocaleParams & { children: React.ReactNode };
 
-function resolveLocaleFromParams(params: LocaleParams["params"]): Locale {
-  if (isLocale(params.locale)) {
-    return params.locale as Locale;
-  }
-  return defaultLocale;
-}
+const resolveLocaleFromParams = (params: LocaleParams["params"]): Locale =>
+  isLocale(params.locale) ? (params.locale as Locale) : defaultLocale;
 
 export async function generateMetadata(
   { params }: LocaleParams
@@ -49,10 +43,6 @@ export default async function LocaleLayout({
   params,
 }: LocaleLayoutProps) {
   const locale = resolveLocaleFromParams(params);
-
-  if (!isLocale(locale)) {
-    notFound();
-  }
 
   const dictionary = await getDictionary(locale);
 
