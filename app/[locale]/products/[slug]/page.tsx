@@ -1,11 +1,11 @@
 // app/[locale]/products/[slug]/page.tsx
 import Link from "next/link";
 
-import { getDictionary, type Locale, locales } from "@/lib/i18n";
+import { getDictionary, resolveLocale, type Locale, locales } from "@/lib/i18n";
 import { products } from "@/lib/products";
 
 type ProductDetailPageProps = {
-  params: { locale: Locale; slug: string };
+  params: { locale: string; slug: string };
 };
 
 export function generateStaticParams() {
@@ -20,7 +20,7 @@ export function generateStaticParams() {
 export default async function ProductDetailPage({
   params,
 }: ProductDetailPageProps) {
-  const locale = params.locale;
+  const locale: Locale = resolveLocale(params.locale);
   const dictionary = await getDictionary(locale);
 
   const product = products.find((p) => p.slug === params.slug);
