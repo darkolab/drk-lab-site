@@ -1,31 +1,35 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { products, getProductBySlug } from "@/lib/products";
+import { notFound } from "next/navigation";
+import { getProductBySlug, products } from "@/lib/products";
+import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
 
-export default function ProductDetailPage() {
-  // Sacamos el slug de la URL: /products/drk-cap-led → "drk-cap-led"
-  const pathname = usePathname();
-  const slug = pathname?.split("/").filter(Boolean).pop() ?? "";
+export default async function ProductDetailPage({
+  params,
+}: {
+  params: { locale: string; slug: string };
+}) {
+  if (!isLocale(params.locale)) {
+    notFound();
+  }
 
-  const product = slug ? getProductBySlug(slug) : undefined;
+  const locale = params.locale as Locale;
+  const product = params.slug ? getProductBySlug(params.slug) : undefined;
+  const dictionary = await getDictionary(locale);
 
   const categoryLabel = product?.category ? product.category.toUpperCase() : "";
 
-  // 🧪 DEBUG SI NO ENCUENTRA PRODUCTE
   if (!product) {
     return (
       <main className="min-h-screen bg-[#050509] text-slate-100">
         <div className="mx-auto max-w-4xl space-y-6 px-6 py-16">
-          <h1 className="text-2xl font-semibold text-red-400">Producte no trobat</h1>
+          <h1 className="text-2xl font-semibold text-red-400">{dictionary.productDetail.notFoundTitle}</h1>
 
           <p className="text-sm text-slate-300">
-            slug rebut: <span className="font-mono text-slate-100">{slug || "(sense slug)"}</span>
+            {dictionary.productDetail.slugReceived}: <span className="font-mono text-slate-100">{params.slug || dictionary.productDetail.slugFallback}</span>
           </p>
 
           <div className="space-y-2 text-sm">
-            <p className="text-slate-400">Slugs disponibles:</p>
+            <p className="text-slate-400">{dictionary.productDetail.availableSlugs}</p>
             <ul className="ml-4 list-disc space-y-1">
               {products.map((p) => (
                 <li key={p.slug} className="font-mono text-xs">
@@ -36,23 +40,22 @@ export default function ProductDetailPage() {
           </div>
 
           <Link
-            href="/products"
+            href={`/${locale}/products`}
             className="inline-flex rounded-full border border-slate-600 px-4 py-2 text-xs hover:border-slate-300"
           >
-            ← Tornar al catàleg
+            {dictionary.productDetail.backToCatalog}
           </Link>
         </div>
       </main>
     );
   }
 
-  // 🎬 FICHA “DE GALA”
   return (
     <main className="min-h-screen bg-[#050509]">
       {/* CABECERA */}
       <section className="border-b border-slate-900 bg-gradient-to-b from-black to-[#050509]">
         <div className="mx-auto max-w-6xl px-6 py-10">
-          <p className="text-xs uppercase tracking-[0.35em] text-slate-400">FITXA TÈCNICA · {categoryLabel}</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-slate-400">{dictionary.productDetail.techSheet} · {categoryLabel}</p>
 
           <h1 className="mt-4 text-2xl font-semibold text-white md:text-3xl">
             {product.code} · <span className="text-slate-100">{product.name}</span>
@@ -71,21 +74,21 @@ export default function ProductDetailPage() {
             <div className="relative h-72 overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 to-black shadow-2xl md:h-80">
               <div className="absolute inset-4 rounded-3xl border border-slate-700/80" />
               <div className="flex h-full items-end justify-between px-8 pb-7">
-                <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Imatge de producte pendent</p>
-                <p className="text-[0.65rem] text-slate-500">DRK LAB · prototip funcional</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-400">{dictionary.productDetail.imagePending}</p>
+                <p className="text-[0.65rem] text-slate-500">{dictionary.productDetail.prototype}</p>
               </div>
             </div>
 
             {/* DESCRIPCIÓ */}
             <div className="space-y-3">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Descripció</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">{dictionary.productDetail.description}</h2>
               <p className="text-sm text-slate-200 md:text-base">{product.longDescription}</p>
             </div>
 
             {/* CARACTERÍSTIQUES */}
             {product.features?.length > 0 && (
               <div className="space-y-3">
-                <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Característiques</h2>
+                <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">{dictionary.productDetail.features}</h2>
                 <ul className="space-y-2 text-sm text-slate-200 md:text-base">
                   {product.features.map((feature) => (
                     <li key={feature} className="flex gap-2">
@@ -100,7 +103,7 @@ export default function ProductDetailPage() {
             {/* ESPECIFICACIONS */}
             {product.technicalSpecs?.length ? (
               <div className="space-y-3">
-                <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Especificacions tècniques</h2>
+                <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">{dictionary.productDetail.technicalSpecs}</h2>
                 <div className="divide-y divide-slate-800 overflow-hidden rounded-2xl border border-slate-800">
                   {product.technicalSpecs.map((spec) => (
                     <div
@@ -121,7 +124,7 @@ export default function ProductDetailPage() {
           {/* DRETA: estat + CTA */}
           <aside className="space-y-4">
             <div className="space-y-4 rounded-2xl border border-slate-800 bg-black/40 p-5">
-              <h2 className="text-sm font-semibold text-slate-100">Estat del producte</h2>
+              <h2 className="text-sm font-semibold text-slate-100">{dictionary.productDetail.statusTitle}</h2>
 
               <p className="inline-flex items-center rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-200">
                 {product.status}
@@ -129,22 +132,19 @@ export default function ProductDetailPage() {
 
               <div className="grid grid-cols-2 gap-4 pt-3 text-xs text-slate-300 md:text-sm">
                 <div className="space-y-1">
-                  <p className="text-[0.7rem] uppercase tracking-[0.18em] text-slate-500">Codi</p>
+                  <p className="text-[0.7rem] uppercase tracking-[0.18em] text-slate-500">{dictionary.productDetail.code}</p>
                   <p className="font-medium text-slate-100">{product.code}</p>
                 </div>
                 <div className="space-y-1">
-                  <p className="text-[0.7rem] uppercase tracking-[0.18em] text-slate-500">Categoria</p>
+                  <p className="text-[0.7rem] uppercase tracking-[0.18em] text-slate-500">{dictionary.productDetail.category}</p>
                   <p className="font-medium text-slate-100">{product.category}</p>
                 </div>
               </div>
             </div>
 
             <div className="space-y-3 rounded-2xl border border-slate-800 bg-black/40 p-5">
-              <h2 className="text-sm font-semibold text-slate-100">Vols aquest producte?</h2>
-              <p className="text-sm text-slate-300">
-                DRK LAB treballa principalment sota comanda per a rentals, productores i tècnics. Explica&apos;m què necessites i mirem
-                si aquest model encaixa o cal adaptar-lo.
-              </p>
+              <h2 className="text-sm font-semibold text-slate-100">{dictionary.productDetail.wantProduct}</h2>
+              <p className="text-sm text-slate-300">{dictionary.productDetail.ctaDescription}</p>
 
               <div className="mt-2 flex flex-wrap gap-3">
                 <a
@@ -153,13 +153,13 @@ export default function ProductDetailPage() {
                   )}`}
                   className="rounded-full bg-red-500 px-5 py-2 text-xs font-medium text-white transition hover:bg-red-600 md:text-sm"
                 >
-                  Demanar informació
+                  {dictionary.productDetail.cta}
                 </a>
                 <Link
-                  href="/products"
+                  href={`/${locale}/products`}
                   className="rounded-full border border-slate-600 px-5 py-2 text-xs font-medium text-slate-200 transition hover:border-slate-300 md:text-sm"
                 >
-                  Tornar al catàleg
+                  {dictionary.productDetail.ctaSecondary}
                 </Link>
               </div>
             </div>

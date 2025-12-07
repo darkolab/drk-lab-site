@@ -1,6 +1,7 @@
 // components/site-footer.tsx
 import Link from "next/link";
 import Image from "next/image";
+import type { Locale } from "@/lib/i18n";
 
 const socials = [
   {
@@ -20,7 +21,27 @@ const socials = [
   },
 ];
 
-export function SiteFooter() {
+export type FooterDictionary = {
+  tagline: string;
+  navigation: {
+    home: string;
+    products: string;
+    about: string;
+    contact: string;
+  };
+  copyright: string;
+  crafted: string;
+};
+
+export function SiteFooter({
+  locale,
+  dictionary,
+}: {
+  locale: Locale;
+  dictionary: FooterDictionary;
+}) {
+  const withLocale = (href: string) => `/${locale}${href}`;
+
   return (
     <footer className="border-t border-slate-800 bg-black/40">
       <div className="mx-auto max-w-8xl px-6 py-10 text-slate-300">
@@ -35,10 +56,7 @@ export function SiteFooter() {
                 className="object-contain"
               />
             </div>
-            <p className="max-w-md text-xs text-slate-400 md:text-sm">
-              Enginyeria per a rodatges, accessoris a mida i peces pensades per
-              aguantar ritmes de rental i set.
-            </p>
+            <p className="max-w-md text-xs text-slate-400 md:text-sm">{dictionary.tagline}</p>
           </div>
 
           <div className="flex w-full items-center justify-start gap-3 md:w-auto md:justify-end">
@@ -62,26 +80,25 @@ export function SiteFooter() {
         {/* Bottom: nav centrado + copyright / tagline */}
         <div className="mt-8 border-t border-slate-800 pt-4">
           <nav className="flex flex-wrap justify-center gap-6 text-[11px] font-medium uppercase tracking-[0.18em] text-slate-400">
-            <Link href="/" className="hover:text-white">
-              Inici
+            <Link href={`/${locale}`} className="hover:text-white">
+              {dictionary.navigation.home}
             </Link>
-            <Link href="/products" className="hover:text-white">
-              Productes
+            <Link href={withLocale("/products")} className="hover:text-white">
+              {dictionary.navigation.products}
             </Link>
-            <Link href="/about" className="hover:text-white">
-              Sobre DRK LAB
+            <Link href={withLocale("/about")} className="hover:text-white">
+              {dictionary.navigation.about}
             </Link>
-            <Link href="/contact" className="hover:text-white">
-              Contacte
+            <Link href={withLocale("/contact")} className="hover:text-white">
+              {dictionary.navigation.contact}
             </Link>
           </nav>
 
           <div className="mt-4 flex flex-col items-center justify-between gap-2 text-[11px] text-slate-500 md:flex-row">
             <p>
-              © {new Date().getFullYear()} DRK LAB · Disseny i fabricació
-              d&apos;accessoris tècnics.
+              © {new Date().getFullYear()} {dictionary.copyright}
             </p>
-            <p className="md:text-right">Construït a mà en mode dark.</p>
+            <p className="md:text-right">{dictionary.crafted}</p>
           </div>
         </div>
       </div>
