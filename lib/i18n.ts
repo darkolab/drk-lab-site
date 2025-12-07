@@ -6,9 +6,13 @@ export function isLocale(value: string): value is Locale {
   return locales.includes(value as Locale);
 }
 
-export function resolveLocale(value?: string): Locale {
-  if (value && isLocale(value)) {
-    return value as Locale;
+export function resolveLocale(raw: unknown): Locale {
+  if (typeof raw === "string") {
+    const normalized = raw.toLowerCase().split("-")[0];
+
+    if (isLocale(normalized)) {
+      return normalized;
+    }
   }
 
   return defaultLocale;

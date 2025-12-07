@@ -1,17 +1,26 @@
 import Link from "next/link";
-import { getProductBySlug, products } from "@/lib/products";
-import { getDictionary, resolveLocale } from "@/lib/i18n";
 
-export default async function ProductDetailPage({
-  params,
-}: {
+import { getDictionary, resolveLocale, type Locale, locales } from "@/lib/i18n";
+import { products } from "@/lib/products";
+
+type ProductDetailPageProps = {
   params: { locale: string; slug: string };
-}) {
-  const locale = resolveLocale(params.locale);
-  const slugParam = Array.isArray(params.slug) ? params.slug[0] : params.slug;
-  const product = slugParam ? getProductBySlug(slugParam) : undefined;
+};
+
+export async function generateStaticParams() {
+  return locales.flatMap((locale) =>
+    products.map((product) => ({
+      locale,
+      slug: product.slug,
+    })),
+  );
+}
+
+export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
+  const locale: Locale = resolveLocale(params.locale);
   const dictionary = await getDictionary(locale);
 
+  const product = products.find((p) => p.slug === params.slug);
   const categoryLabel = product?.category ? product.category.toUpperCase() : "";
 
   if (!product) {
@@ -21,7 +30,10 @@ export default async function ProductDetailPage({
           <h1 className="text-2xl font-semibold text-red-400">{dictionary.productDetail.notFoundTitle}</h1>
 
           <p className="text-sm text-slate-300">
-            {dictionary.productDetail.slugReceived}: <span className="font-mono text-slate-100">{slugParam || dictionary.productDetail.slugFallback}</span>
+            {dictionary.productDetail.slugReceived}:{" "}
+            <span className="font-mono text-slate-100">
+              {params.slug || dictionary.productDetail.slugFallback}
+            </span>
           </p>
 
           <div className="space-y-2 text-sm">
@@ -51,7 +63,9 @@ export default async function ProductDetailPage({
       {/* CABECERA */}
       <section className="border-b border-slate-900 bg-gradient-to-b from-black to-[#050509]">
         <div className="mx-auto max-w-6xl px-6 py-10">
-          <p className="text-xs uppercase tracking-[0.35em] text-slate-400">{dictionary.productDetail.techSheet} · {categoryLabel}</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-slate-400">
+            {dictionary.productDetail.techSheet} · {categoryLabel}
+          </p>
 
           <h1 className="mt-4 text-2xl font-semibold text-white md:text-3xl">
             {product.code} · <span className="text-slate-100">{product.name}</span>
