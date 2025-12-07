@@ -1,4 +1,27 @@
 import type { Metadata } from "next";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import {
+  defaultLocale,
+  getDictionary,
+  isLocale,
+  locales,
+  type Locale,
+} from "@/lib/i18n";
+
+type LocaleParams = {
+  params: { locale: string };
+};
+
+type LocaleLayoutProps = LocaleParams & { children: React.ReactNode };
+
+function resolveLocaleFromParams(params: LocaleParams["params"]): Locale {
+  if (isLocale(params.locale)) {
+    return params.locale;
+  }
+
+  return defaultLocale;
+}
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -8,6 +31,9 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+export async function generateMetadata({ params }: LocaleParams): Promise<Metadata> {
+  const locale = resolveLocaleFromParams(params);
+  const dictionary = await getDictionary(locale);
 export async function generateMetadata({
   params,
 }: {
@@ -29,6 +55,8 @@ export async function generateMetadata({
   };
 }
 
+export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
+  const locale = resolveLocaleFromParams(params);
 export default async function LocaleLayout({
   children,
   params,

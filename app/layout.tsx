@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { cookies } from "next/headers";
+import { defaultLocale, isLocale, type Locale } from "@/lib/i18n";
 import { defaultLocale, locales, type Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
@@ -14,6 +15,24 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
 };
+
+async function getLocaleFromCookies(): Promise<Locale> {
+  const cookieStore = await cookies();
+  const cookieLocale = cookieStore.get("NEXT_LOCALE")?.value?.trim();
+
+  if (cookieLocale && isLocale(cookieLocale)) {
+    return cookieLocale;
+  }
+
+  return defaultLocale;
+}
+
+type RootLayoutProps = {
+  children: React.ReactNode;
+};
+
+export default async function RootLayout({ children }: RootLayoutProps) {
+  const locale = await getLocaleFromCookies();
 
 function getLocaleFromCookies(): Locale {
   const cookieLocale = cookies().get("NEXT_LOCALE")?.value;
