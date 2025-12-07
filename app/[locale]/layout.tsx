@@ -1,4 +1,7 @@
+// app/[locale]/layout.tsx
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import {
@@ -17,30 +20,16 @@ type LocaleLayoutProps = LocaleParams & { children: React.ReactNode };
 
 function resolveLocaleFromParams(params: LocaleParams["params"]): Locale {
   if (isLocale(params.locale)) {
-    return params.locale;
+    return params.locale as Locale;
   }
-
   return defaultLocale;
 }
-import { notFound } from "next/navigation";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
 
-export async function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
-
-export async function generateMetadata({ params }: LocaleParams): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: LocaleParams
+): Promise<Metadata> {
   const locale = resolveLocaleFromParams(params);
   const dictionary = await getDictionary(locale);
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
-  const locale = isLocale(params.locale) ? params.locale : undefined;
-  const dictionary = await getDictionary(locale ?? locales[0]);
 
   return {
     title: dictionary.meta.title,
@@ -55,20 +44,16 @@ export async function generateMetadata({
   };
 }
 
-export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
-  const locale = resolveLocaleFromParams(params);
 export default async function LocaleLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
-  if (!isLocale(params.locale)) {
+}: LocaleLayoutProps) {
+  const locale = resolveLocaleFromParams(params);
+
+  if (!isLocale(locale)) {
     notFound();
   }
 
-  const locale = params.locale as Locale;
   const dictionary = await getDictionary(locale);
 
   return (
@@ -81,13 +66,21 @@ export default async function LocaleLayout({
             <span>{dictionary.common.banner.title}</span>
           </span>
 
-          <span className="hidden text-black/80 md:inline">{dictionary.common.banner.message}</span>
+          <span className="hidden text-black/80 md:inline">
+            {dictionary.common.banner.message}
+          </span>
         </div>
       </div>
 
-      <SiteHeader locale={locale} dictionary={dictionary.common.navigation} />
+      <SiteHeader
+        locale={locale}
+        dictionary={dictionary.common.navigation}
+      />
       {children}
-      <SiteFooter locale={locale} dictionary={dictionary.common.footer} />
+      <SiteFooter
+        locale={locale}
+        dictionary={dictionary.common.footer}
+      />
     </>
   );
 }

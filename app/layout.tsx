@@ -1,8 +1,10 @@
+// app/layout.tsx
 import type { Metadata } from "next";
-import "./globals.css";
+import type { ReactNode } from "react";
 import { cookies } from "next/headers";
+
+import "./globals.css";
 import { defaultLocale, isLocale, type Locale } from "@/lib/i18n";
-import { defaultLocale, locales, type Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "DRK LAB · Enginyeria per a rodatges",
@@ -21,33 +23,18 @@ async function getLocaleFromCookies(): Promise<Locale> {
   const cookieLocale = cookieStore.get("NEXT_LOCALE")?.value?.trim();
 
   if (cookieLocale && isLocale(cookieLocale)) {
-    return cookieLocale;
+    return cookieLocale as Locale;
   }
 
   return defaultLocale;
 }
 
 type RootLayoutProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export default async function RootLayout({ children }: RootLayoutProps) {
   const locale = await getLocaleFromCookies();
-
-function getLocaleFromCookies(): Locale {
-  const cookieLocale = cookies().get("NEXT_LOCALE")?.value;
-  if (cookieLocale && locales.includes(cookieLocale as Locale)) {
-    return cookieLocale as Locale;
-  }
-  return defaultLocale;
-}
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const locale = getLocaleFromCookies();
 
   return (
     <html lang={locale}>

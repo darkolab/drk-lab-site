@@ -1,24 +1,35 @@
 // app/[locale]/page.tsx
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { Hero } from "@/components/hero";
 import { products } from "@/lib/products";
-import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
+import {
+  defaultLocale,
+  getDictionary,
+  isLocale,
+  locales,
+  type Locale,
+} from "@/lib/i18n";
 
-export default async function Home({
-  params,
-}: {
+type HomePageProps = {
   params: { locale: string };
-}) {
-  if (!isLocale(params.locale)) {
-    notFound();
-  }
+};
 
-  const locale = params.locale as Locale;
+export async function generateStaticParams() {
+  // Le decimos a Next explícitamente qué locales existen
+  return locales.map((locale) => ({ locale }));
+}
+
+export default async function Home({ params }: HomePageProps) {
+  const locale: Locale = isLocale(params.locale)
+    ? (params.locale as Locale)
+    : defaultLocale;
+
   const dictionary = await getDictionary(locale);
   const featuredSlugs = ["drk-cap-led", "drk-case-media", "drk-merch-pro"];
 
-  let featuredProducts = products.filter((p) => featuredSlugs.includes(p.slug));
+  let featuredProducts = products.filter((p) =>
+    featuredSlugs.includes(p.slug),
+  );
 
   // Fallback por si un día borras alguno de esos slugs
   if (featuredProducts.length === 0) {
