@@ -1,18 +1,13 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { getProductBySlug, products } from "@/lib/products";
-import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
+import { getDictionary, resolveLocale } from "@/lib/i18n";
 
 export default async function ProductDetailPage({
   params,
 }: {
   params: { locale: string; slug: string };
 }) {
-  if (!isLocale(params.locale)) {
-    notFound();
-  }
-
-  const locale = params.locale as Locale;
+  const locale = resolveLocale(params.locale);
   const product = params.slug ? getProductBySlug(params.slug) : undefined;
   const dictionary = await getDictionary(locale);
 

@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { cookies } from "next/headers";
 
 import "./globals.css";
-import { defaultLocale, isLocale, type Locale } from "@/lib/i18n";
+import { defaultLocale, resolveLocale, type Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "DRK LAB · Enginyeria per a rodatges",
@@ -22,8 +22,8 @@ async function getLocaleFromCookies(): Promise<Locale> {
   const cookieStore = await cookies();
   const cookieLocale = cookieStore.get("NEXT_LOCALE")?.value?.trim();
 
-  if (cookieLocale && isLocale(cookieLocale)) {
-    return cookieLocale as Locale;
+  if (cookieLocale) {
+    return resolveLocale(cookieLocale);
   }
 
   return defaultLocale;
