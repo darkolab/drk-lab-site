@@ -40,7 +40,13 @@ export function SiteFooter({
   locale: Locale;
   dictionary: FooterDictionary;
 }) {
-  const withLocale = (href: string) => `/${locale}${href}`;
+  const withLocale = (href: string) => {
+    if (href.startsWith("http")) return href;
+    if (href.startsWith(`/${locale}`)) return href;
+    if (href.startsWith("/")) return `/${locale}${href}`;
+    if (href.startsWith("#")) return `/${locale}${href}`;
+    return `/${locale}/${href}`;
+  };
 
   return (
     <footer className="border-t border-slate-800 bg-black/40">

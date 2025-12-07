@@ -1,19 +1,15 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { getProductBySlug, products } from "@/lib/products";
-import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
+import { getDictionary, resolveLocale } from "@/lib/i18n";
 
 export default async function ProductDetailPage({
   params,
 }: {
   params: { locale: string; slug: string };
 }) {
-  if (!isLocale(params.locale)) {
-    notFound();
-  }
-
-  const locale = params.locale as Locale;
-  const product = params.slug ? getProductBySlug(params.slug) : undefined;
+  const locale = resolveLocale(params.locale);
+  const slugParam = Array.isArray(params.slug) ? params.slug[0] : params.slug;
+  const product = slugParam ? getProductBySlug(slugParam) : undefined;
   const dictionary = await getDictionary(locale);
 
   const categoryLabel = product?.category ? product.category.toUpperCase() : "";
@@ -25,7 +21,7 @@ export default async function ProductDetailPage({
           <h1 className="text-2xl font-semibold text-red-400">{dictionary.productDetail.notFoundTitle}</h1>
 
           <p className="text-sm text-slate-300">
-            {dictionary.productDetail.slugReceived}: <span className="font-mono text-slate-100">{params.slug || dictionary.productDetail.slugFallback}</span>
+            {dictionary.productDetail.slugReceived}: <span className="font-mono text-slate-100">{slugParam || dictionary.productDetail.slugFallback}</span>
           </p>
 
           <div className="space-y-2 text-sm">
