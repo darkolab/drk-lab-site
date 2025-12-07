@@ -1,9 +1,9 @@
 "use client";
 
-// app/products/page.tsx
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { products } from "@/lib/products";
+import type { Product } from "@/lib/products";
+import type { Locale } from "@/lib/i18n";
 
 const statusStyles = {
   default: {
@@ -20,19 +20,21 @@ const statusStyles = {
   },
 };
 
-const CATEGORY_LABELS: Record<string, string> = {
-  llum: "Llum",
-  monitors: "Monitors",
-  media: "Media",
-  merch: "Merch",
-  grip: "Grip",
-  camera: "Càmera",
+export type ProductsDictionary = {
+  title: string;
+  description: string;
+  filters: {
+    all: string;
+    categories: Record<string, string>;
+  };
+  viewSheet: string;
 };
 
 function getStatusStyle(status: string) {
   const normalized = status.toLowerCase();
-  if (normalized.includes("prototip")) return statusStyles.prototype;
-  if (normalized.includes("producció")) return statusStyles.production;
+  if (normalized.includes("prototip") || normalized.includes("prototype")) return statusStyles.prototype;
+  if (normalized.includes("producció") || normalized.includes("produccion") || normalized.includes("production"))
+    return statusStyles.production;
   return statusStyles.default;
 }
 
@@ -40,35 +42,42 @@ function getCategoryKey(categoryKey?: string, category?: string) {
   return (categoryKey || category || "").toLowerCase();
 }
 
-function getCategoryLabel(key: string) {
-  return CATEGORY_LABELS[key] || key.charAt(0).toUpperCase() + key.slice(1);
+function getCategoryLabel(key: string, categories: Record<string, string>) {
+  return categories[key] || key.charAt(0).toUpperCase() + key.slice(1);
 }
 
-export default function ProductsPage() {
+export function ProductsCatalog({
+  products,
+  dictionary,
+  locale,
+}: {
+  products: Product[];
+  dictionary: ProductsDictionary;
+  locale: Locale;
+}) {
   const categoryFilters = useMemo(() => {
     const uniqueKeys = Array.from(
       new Set(products.map((product) => getCategoryKey(product.categoryKey, product.category))),
     ).filter(Boolean);
 
-    return [{ key: "all", label: "Tots" }, ...uniqueKeys.map((key) => ({ key, label: getCategoryLabel(key) }))];
-  }, []);
+    return [{ key: "all", label: dictionary.filters.all }, ...uniqueKeys.map((key) => ({ key, label: getCategoryLabel(key, dictionary.filters.categories) }))];
+  }, [dictionary.filters.all, dictionary.filters.categories, products]);
 
   const [activeCategory, setActiveCategory] = useState<string>("all");
 
   const filteredProducts = useMemo(() => {
     if (activeCategory === "all") return products;
     return products.filter((product) => getCategoryKey(product.categoryKey, product.category) === activeCategory);
-  }, [activeCategory]);
+  }, [activeCategory, products]);
+
+  const withLocale = (href: string) => `/${locale}${href}`;
 
   return (
-    <main className="min-h-screen bg-[#050509] text-slate-100">
+    <>
       <section className="border-b border-slate-900 bg-black/40 py-10">
         <div className="mx-auto max-w-7xl px-6">
-          <h1 className="text-2xl font-semibold text-white">Catàleg de productes DRK LAB</h1>
-          <p className="mt-3 max-w-4xl text-sm text-slate-300">
-            Accessoris dissenyats per a càmeres, llum i monitors, pensats per a rentals i equips de rodatge. Peces fetes per
-            treballar i resistir en set.
-          </p>
+          <h1 className="text-2xl font-semibold text-white">{dictionary.title}</h1>
+          <p className="mt-3 max-w-4xl text-sm text-slate-300">{dictionary.description}</p>
         </div>
       </section>
 
@@ -130,7 +139,7 @@ export default function ProductsPage() {
 
                       <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.26em] text-slate-300">
                         <span className="h-px w-10 bg-slate-500/60" aria-hidden />
-                        {getCategoryLabel(categoryKey)} · DRK LAB
+                        {getCategoryLabel(categoryKey, dictionary.filters.categories)} · DRK LAB
                       </div>
                     </div>
                   </div>
@@ -147,7 +156,7 @@ export default function ProductsPage() {
 
                       <div className="space-y-2">
                         <h2 className="text-xl font-semibold text-white md:text-2xl">
-                          <Link href={`/products/${product.slug}`} className="transition hover:text-red-400">
+                          <Link href={withLocale(`/products/${product.slug}`)} className="transition hover:text-red-400">
                             {product.shortName}
                           </Link>
                         </h2>
@@ -171,10 +180,10 @@ export default function ProductsPage() {
                       })()}
 
                       <Link
-                        href={`/products/${product.slug}`}
+                        href={withLocale(`/products/${product.slug}`)}
                         className="inline-flex items-center gap-2 rounded-2xl border border-red-500/60 bg-black/20 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-red-200 transition duration-300 hover:translate-x-[2px] hover:border-red-500 hover:bg-red-500 hover:text-white hover:shadow-[0_12px_30px_-18px_rgba(248,113,113,0.7)]"
                       >
-                        Veure fitxa
+                        {dictionary.viewSheet}
                         <span aria-hidden>→</span>
                       </Link>
                     </div>
@@ -187,6 +196,6 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }
