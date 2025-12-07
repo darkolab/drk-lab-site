@@ -1,6 +1,5 @@
 // app/[locale]/layout.tsx
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
