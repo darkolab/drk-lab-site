@@ -6,8 +6,12 @@ export function isLocale(value: string): value is Locale {
   return locales.includes(value as Locale);
 }
 
-export function resolveLocale(value: string): Locale {
-  return isLocale(value) ? (value as Locale) : defaultLocale;
+export function resolveLocale(value?: string): Locale {
+  if (value && isLocale(value)) {
+    return value as Locale;
+  }
+
+  return defaultLocale;
 }
 
 const dictionaries = {
