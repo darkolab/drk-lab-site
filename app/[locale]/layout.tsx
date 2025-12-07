@@ -4,10 +4,14 @@ import type React from "react";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { locales, getDictionary, type Locale } from "@/lib/i18n";
+import {
+  locales,
+  getDictionary,
+  resolveLocale,
+} from "@/lib/i18n";
 
 type LocaleParams = {
-  params: { locale: Locale };
+  params: { locale: string };
 };
 
 type LocaleLayoutProps = LocaleParams & {
@@ -22,7 +26,8 @@ export function generateStaticParams() {
 export async function generateMetadata(
   { params }: LocaleParams,
 ): Promise<Metadata> {
-  const dictionary = await getDictionary(params.locale);
+  const locale = resolveLocale(params.locale);
+  const dictionary = await getDictionary(locale);
 
   return {
     title: dictionary.meta.title,
@@ -41,7 +46,7 @@ export default async function LocaleLayout({
   children,
   params,
 }: LocaleLayoutProps) {
-  const locale = params.locale;
+  const locale = resolveLocale(params.locale);
   const dictionary = await getDictionary(locale);
 
   return (

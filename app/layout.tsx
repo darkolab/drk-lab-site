@@ -2,6 +2,8 @@
 import type { Metadata } from "next";
 import type React from "react";
 
+import { defaultLocale } from "@/lib/i18n";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ca">
+    <html lang={defaultLocale}>
       <body className="bg-[#050509] text-slate-100">{children}</body>
     </html>
   );

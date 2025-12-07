@@ -1,4 +1,6 @@
 // lib/i18n.ts
+import { notFound } from "next/navigation";
+
 import ca from "@/locales/ca.json";
 import es from "@/locales/es.json";
 import en from "@/locales/en.json";
@@ -35,5 +37,5 @@ export function resolveLocale(rawLocale: string | undefined | null): Locale {
     return normalized;
   }
 
-  return defaultLocale;
+  notFound();
 }
