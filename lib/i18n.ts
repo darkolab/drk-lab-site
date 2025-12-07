@@ -1,30 +1,39 @@
+// lib/i18n.ts
+import ca from "@/locales/ca.json";
+import es from "@/locales/es.json";
+import en from "@/locales/en.json";
+
 export const locales = ["ca", "es", "en"] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "ca";
 
 export function isLocale(value: string): value is Locale {
-  return locales.includes(value as Locale);
+  return (locales as readonly string[]).includes(value as Locale);
 }
 
-export function resolveLocale(raw: unknown): Locale {
-  if (typeof raw === "string") {
-    const normalized = raw.toLowerCase().split("-")[0];
+// Los diccionarios se cargan de forma ESTÁTICA y SINCRONA
+const dictionaries = {
+  ca,
+  es,
+  en,
+} as const;
 
-    if (isLocale(normalized)) {
-      return normalized;
-    }
+export function getDictionary(locale: Locale) {
+  return dictionaries[locale] ?? dictionaries[defaultLocale];
+}
+
+/**
+ * Normaliza un string cualquiera a un Locale válido del array `locales`.
+ * Si no coincide con nada, cae a `defaultLocale`.
+ */
+export function resolveLocale(rawLocale: string | undefined | null): Locale {
+  if (!rawLocale) return defaultLocale;
+
+  const normalized = rawLocale.toLowerCase().split("-")[0];
+
+  if (isLocale(normalized)) {
+    return normalized;
   }
 
   return defaultLocale;
-}
-
-const dictionaries = {
-  ca: () => import("@/locales/ca.json").then((module) => module.default),
-  es: () => import("@/locales/es.json").then((module) => module.default),
-  en: () => import("@/locales/en.json").then((module) => module.default),
-};
-
-export async function getDictionary(locale: Locale) {
-  const loadDictionary = dictionaries[locale] ?? dictionaries[defaultLocale];
-  return loadDictionary();
 }

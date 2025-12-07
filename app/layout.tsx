@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import type React from "react";
 
@@ -21,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="ca">
       <body className="bg-[#050509] text-slate-100">{children}</body>
     </html>
   );

@@ -1,37 +1,28 @@
 // app/[locale]/layout.tsx
 import type { Metadata } from "next";
+import type React from "react";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import {
-  getDictionary,
-  resolveLocale,
-  type Locale,
-  locales,
-
-} from "@/lib/i18n";
+import { locales, getDictionary, type Locale } from "@/lib/i18n";
 
 type LocaleParams = {
-  params: { locale: string };
+  params: { locale: Locale };
 };
 
-type LocaleLayoutProps = LocaleParams & { children: React.ReactNode };
+type LocaleLayoutProps = LocaleParams & {
+  children: React.ReactNode;
+};
 
-function resolveLocaleFromParams(params: LocaleParams["params"]): Locale {
-  if (!locales.includes(params.locale as Locale)) {
-    notFound();
-  }
-
-  return resolveLocale(params.locale);
-}
-
-export async function generateStaticParams() {
+export function generateStaticParams() {
+  // Generamos /ca, /es, /en
   return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params }: LocaleParams): Promise<Metadata> {
-  const locale = resolveLocaleFromParams(params);
-  const dictionary = await getDictionary(locale);
+export async function generateMetadata(
+  { params }: LocaleParams,
+): Promise<Metadata> {
+  const dictionary = await getDictionary(params.locale);
 
   return {
     title: dictionary.meta.title,
@@ -50,7 +41,7 @@ export default async function LocaleLayout({
   children,
   params,
 }: LocaleLayoutProps) {
-  const locale = resolveLocaleFromParams(params);
+  const locale = params.locale;
   const dictionary = await getDictionary(locale);
 
   return (
@@ -69,9 +60,17 @@ export default async function LocaleLayout({
         </div>
       </div>
 
-      <SiteHeader locale={locale} dictionary={dictionary.common.navigation} />
+      <SiteHeader
+        locale={locale}
+        dictionary={dictionary.common.navigation}
+      />
+
       {children}
-      <SiteFooter locale={locale} dictionary={dictionary.common.footer} />
+
+      <SiteFooter
+        locale={locale}
+        dictionary={dictionary.common.footer}
+      />
     </>
   );
 }

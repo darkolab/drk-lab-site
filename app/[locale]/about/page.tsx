@@ -1,12 +1,12 @@
 // app/[locale]/about/page.tsx
-import { getDictionary, resolveLocale } from "@/lib/i18n";
+import { getDictionary, resolveLocale, type Locale } from "@/lib/i18n";
 
-export default async function AboutPage({
-  params,
-}: {
+type PageParams = {
   params: { locale: string };
-}) {
-  const locale = resolveLocale(params.locale);
+};
+
+export default async function Home({ params }: PageParams) {
+  const locale: Locale = resolveLocale(params.locale);
   const dictionary = await getDictionary(locale);
 
   return (
