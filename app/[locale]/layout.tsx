@@ -3,12 +3,7 @@ import type { Metadata } from "next";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import {
-  defaultLocale,
-  getDictionary,
-  isLocale,
-  type Locale,
-} from "@/lib/i18n";
+import { getDictionary, resolveLocale, type Locale } from "@/lib/i18n";
 
 type LocaleParams = {
   params: { locale: string };
@@ -17,7 +12,7 @@ type LocaleParams = {
 type LocaleLayoutProps = LocaleParams & { children: React.ReactNode };
 
 const resolveLocaleFromParams = (params: LocaleParams["params"]): Locale =>
-  isLocale(params.locale) ? (params.locale as Locale) : defaultLocale;
+  resolveLocale(params.locale);
 
 export async function generateMetadata(
   { params }: LocaleParams

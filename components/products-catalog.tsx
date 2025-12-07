@@ -70,7 +70,13 @@ export function ProductsCatalog({
     return products.filter((product) => getCategoryKey(product.categoryKey, product.category) === activeCategory);
   }, [activeCategory, products]);
 
-  const withLocale = (href: string) => `/${locale}${href}`;
+  const withLocale = (href: string) => {
+    if (href.startsWith("http")) return href;
+    if (href.startsWith(`/${locale}`)) return href;
+    if (href.startsWith("/")) return `/${locale}${href}`;
+    if (href.startsWith("#")) return `/${locale}${href}`;
+    return `/${locale}/${href}`;
+  };
 
   return (
     <>

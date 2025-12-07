@@ -2,13 +2,7 @@
 import Link from "next/link";
 import { Hero } from "@/components/hero";
 import { products } from "@/lib/products";
-import {
-  defaultLocale,
-  getDictionary,
-  isLocale,
-  locales,
-  type Locale,
-} from "@/lib/i18n";
+import { getDictionary, locales, resolveLocale, type Locale } from "@/lib/i18n";
 
 type HomePageProps = {
   params: { locale: string };
@@ -20,9 +14,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Home({ params }: HomePageProps) {
-  const locale: Locale = isLocale(params.locale)
-    ? (params.locale as Locale)
-    : defaultLocale;
+  const locale: Locale = resolveLocale(params.locale);
 
   const dictionary = await getDictionary(locale);
   const featuredSlugs = ["drk-cap-led", "drk-case-media", "drk-merch-pro"];

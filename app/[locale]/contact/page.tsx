@@ -1,14 +1,12 @@
 // app/[locale]/contact/page.tsx
-import { defaultLocale, getDictionary, isLocale, type Locale } from "@/lib/i18n";
+import { getDictionary, resolveLocale } from "@/lib/i18n";
 
 export default async function ContactPage({
   params,
 }: {
   params: { locale: string };
 }) {
-  const locale = isLocale(params.locale)
-    ? (params.locale as Locale)
-    : defaultLocale;
+  const locale = resolveLocale(params.locale);
   const dictionary = await getDictionary(locale);
 
   return (
