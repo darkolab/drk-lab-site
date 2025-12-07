@@ -5,11 +5,11 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import {
-  defaultLocale,
   getDictionary,
-  isLocale,
-  locales,
+  resolveLocale,
   type Locale,
+  locales,
+
 } from "@/lib/i18n";
 
 type LocaleParams = {
@@ -19,15 +19,18 @@ type LocaleParams = {
 type LocaleLayoutProps = LocaleParams & { children: React.ReactNode };
 
 function resolveLocaleFromParams(params: LocaleParams["params"]): Locale {
-  if (isLocale(params.locale)) {
-    return params.locale as Locale;
+  if (!locales.includes(params.locale as Locale)) {
+    notFound();
   }
-  return defaultLocale;
+
+  return resolveLocale(params.locale);
 }
 
-export async function generateMetadata(
-  { params }: LocaleParams
-): Promise<Metadata> {
+export async function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params }: LocaleParams): Promise<Metadata> {
   const locale = resolveLocaleFromParams(params);
   const dictionary = await getDictionary(locale);
 
@@ -49,11 +52,6 @@ export default async function LocaleLayout({
   params,
 }: LocaleLayoutProps) {
   const locale = resolveLocaleFromParams(params);
-
-  if (!isLocale(locale)) {
-    notFound();
-  }
-
   const dictionary = await getDictionary(locale);
 
   return (
@@ -72,15 +70,9 @@ export default async function LocaleLayout({
         </div>
       </div>
 
-      <SiteHeader
-        locale={locale}
-        dictionary={dictionary.common.navigation}
-      />
+      <SiteHeader locale={locale} dictionary={dictionary.common.navigation} />
       {children}
-      <SiteFooter
-        locale={locale}
-        dictionary={dictionary.common.footer}
-      />
+      <SiteFooter locale={locale} dictionary={dictionary.common.footer} />
     </>
   );
 }

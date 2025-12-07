@@ -1,17 +1,12 @@
 // app/[locale]/custom/page.tsx
-import { notFound } from "next/navigation";
-import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
+import { getDictionary, resolveLocale } from "@/lib/i18n";
 
 export default async function CustomPage({
   params,
 }: {
   params: { locale: string };
 }) {
-  if (!isLocale(params.locale)) {
-    notFound();
-  }
-
-  const locale = params.locale as Locale;
+  const locale = resolveLocale(params.locale);
   const dictionary = await getDictionary(locale);
 
   return (

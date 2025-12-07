@@ -6,6 +6,18 @@ export function isLocale(value: string): value is Locale {
   return locales.includes(value as Locale);
 }
 
+export function resolveLocale(raw: unknown): Locale {
+  if (typeof raw === "string") {
+    const normalized = raw.toLowerCase().split("-")[0];
+
+    if (isLocale(normalized)) {
+      return normalized;
+    }
+  }
+
+  return defaultLocale;
+}
+
 const dictionaries = {
   ca: () => import("@/locales/ca.json").then((module) => module.default),
   es: () => import("@/locales/es.json").then((module) => module.default),
