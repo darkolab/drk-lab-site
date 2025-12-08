@@ -12,7 +12,7 @@ import {
 } from "@/lib/i18n";
 
 type LocaleParams = {
-  params: { locale?: string };
+  params: Promise<{ locale?: string }>;
 };
 
 type LocaleLayoutProps = LocaleParams & {
@@ -26,7 +26,8 @@ export function generateStaticParams() {
 export async function generateMetadata(
   { params }: LocaleParams,
 ): Promise<Metadata> {
-  const locale: Locale = resolveLocale(params?.locale);
+  const { locale: rawLocale } = await params;
+  const locale: Locale = resolveLocale(rawLocale);
   const dictionary = await getDictionary(locale);
 
   return {
@@ -46,7 +47,8 @@ export default async function LocaleLayout({
   children,
   params,
 }: LocaleLayoutProps) {
-  const locale: Locale = resolveLocale(params?.locale);
+  const { locale: rawLocale } = await params;
+  const locale: Locale = resolveLocale(rawLocale);
   const dictionary = await getDictionary(locale);
 
   return (

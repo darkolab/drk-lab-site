@@ -1,11 +1,12 @@
 // app/[locale]/products/[slug]/page.tsx
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { getDictionary, resolveLocale, type Locale, locales } from "@/lib/i18n";
 import { products } from "@/lib/products";
 
 type ProductDetailPageProps = {
-  params: { locale: string; slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 };
 
 export function generateStaticParams() {
@@ -20,10 +21,15 @@ export function generateStaticParams() {
 export default async function ProductDetailPage({
   params,
 }: ProductDetailPageProps) {
-  const locale: Locale = resolveLocale(params.locale);
+  const { locale: rawLocale, slug } = await params;
+  const locale: Locale = resolveLocale(rawLocale);
+
+  if (!slug) {
+    notFound();
+  }
   const dictionary = await getDictionary(locale);
 
-  const product = products.find((p) => p.slug === params.slug);
+  const product = products.find((p) => p.slug === slug);
   const categoryLabel = product?.category
     ? product.category.toUpperCase()
     : "";
@@ -39,7 +45,7 @@ export default async function ProductDetailPage({
           <p className="text-sm text-slate-300">
             {dictionary.productDetail.slugReceived}:{" "}
             <span className="font-mono text-slate-100">
-              {params.slug || dictionary.productDetail.slugFallback}
+              {slug || dictionary.productDetail.slugFallback}
             </span>
           </p>
 
