@@ -137,14 +137,6 @@
       "name": "Tapas Bowens",
       "description": "Tapa de protección para cabezas LED Bowens. Protege el COB durante transporte y almacenaje."
     },
-    "drk-case-media": {
-      "name": "Cajas tarjetas",
-      "description": "Cajas compactas y robustas para tarjetas SD, CFexpress y CFast con interiores configurables."
-    },
-    "drk-hood-sh7": {
-      "name": "Parasol Shinobi 7\"",
-      "description": "Parasol a medida para el monitor Atomos Shinobi 7\" con encaje preciso sin adhesivos."
-    },
     "viewSheet": "Ver ficha",
     "items": {
       "drk-cap-led": {
@@ -389,7 +381,7 @@
       ],
       "status": "Prototipo validado · Producción bajo pedido",
       "category": "Cámara / Accesorios",
-      "notes": "Disponible también en longitudes personalizadas bajo pedido. Compatibilidad futura con cheese plates universales, sistemas ARRI y montajes híbridos — en desarrollo."
+      "notes": "Disponible también en longitudes personalizadas bajo pedido. Compatibilidad futura con cheese plates universales, sistemas ARRI y montajes híbridos (en desarrollo)."
     },
     "drk-hinge-ls": {
       "name": "DRK-HINGE LS · Bisagra Lastolite",
