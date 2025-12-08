@@ -126,10 +126,16 @@
         "llum": "Llum",
         "monitors": "Monitors",
         "media": "Media",
-        "merch": "Merch",
-        "grip": "Grip",
-        "camera": "Càmera"
-      }
+      "merch": "Merch",
+      "grip": "Grip",
+      "camera": "Càmera"
+    }
+  },
+  "viewSheet": "Veure fitxa",
+  "items": {
+    "drk-cap-led": {
+      "name": "Tapes Bowens",
+      "description": "Tapes de protecció per a caps LED Bowens. Protegeixen el COB durant transport i magatzem."
     },
     "viewSheet": "Veure fitxa",
     "items": {
