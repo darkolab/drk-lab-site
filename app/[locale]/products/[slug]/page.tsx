@@ -1,5 +1,6 @@
 // app/[locale]/products/[slug]/page.tsx
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { getDictionary, resolveLocale, type Locale, locales } from "@/lib/i18n";
 import { products } from "@/lib/products";
@@ -21,9 +22,14 @@ export default async function ProductDetailPage({
   params,
 }: ProductDetailPageProps) {
   const locale: Locale = resolveLocale(params.locale);
+  const slug = params.slug;
+
+  if (!slug) {
+    notFound();
+  }
   const dictionary = await getDictionary(locale);
 
-  const product = products.find((p) => p.slug === params.slug);
+  const product = products.find((p) => p.slug === slug);
   const categoryLabel = product?.category
     ? product.category.toUpperCase()
     : "";

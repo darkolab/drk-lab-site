@@ -1,7 +1,7 @@
 // middleware.ts
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { locales, resolveLocale } from "@/lib/i18n";
+import { locales, resolveLocale, type Locale } from "@/lib/i18n";
 
 const PUBLIC_FILE = /\.(.*)$/;
 
@@ -18,10 +18,10 @@ export function middleware(request: NextRequest) {
   }
 
   const segments = pathname.split("/");
-  const firstSegment = segments[1]; // '', 'ca', 'es', 'en', etc.
+  const firstSegment = segments[1] as Locale | undefined; // '', 'ca', 'es', 'en', etc.
 
   // Si la primera parte NO es un locale, redirigimos añadiendo uno
-  if (!locales.includes(firstSegment as any)) {
+  if (!firstSegment || !locales.includes(firstSegment)) {
     const detected = resolveLocale(
       request.cookies.get("NEXT_LOCALE")?.value ??
         request.headers.get("accept-language"),
@@ -39,7 +39,7 @@ export function middleware(request: NextRequest) {
 
   // Si ya lleva locale, lo guardamos en cookie y seguimos
   const res = NextResponse.next();
-  res.cookies.set("NEXT_LOCALE", firstSegment as any, { path: "/" });
+  res.cookies.set("NEXT_LOCALE", firstSegment, { path: "/" });
   return res;
 }
 
