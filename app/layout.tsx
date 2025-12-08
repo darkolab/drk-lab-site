@@ -1,10 +1,8 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import type React from "react";
-
-import { defaultLocale } from "@/lib/i18n";
-
 import "./globals.css";
+import { DEFAULT_LOCALE } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "DRK LAB · Enginyeria per a rodatges",
@@ -24,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang={defaultLocale}>
+    <html lang={DEFAULT_LOCALE}>
       <body className="bg-[#050509] text-slate-100">{children}</body>
     </html>
   );

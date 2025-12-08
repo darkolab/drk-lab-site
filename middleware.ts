@@ -1,29 +1,14 @@
+// middleware.ts
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { defaultLocale, locales, type Locale } from "./lib/i18n";
+import { locales, resolveLocale } from "@/lib/i18n";
 
 const PUBLIC_FILE = /\.(.*)$/;
-
-function getPreferredLocale(request: NextRequest): Locale {
-  const acceptLang = request.headers.get("accept-language") ?? "";
-  const userLanguages = acceptLang
-    .split(",")
-    .map((lang) => lang.split(";")[0]?.trim())
-    .filter(Boolean);
-
-  for (const lang of userLanguages) {
-    const normalized = lang.toLowerCase().split("-")[0] as Locale;
-    if (locales.includes(normalized)) {
-      return normalized;
-    }
-  }
-
-  return defaultLocale;
-}
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // No tocar estáticos / API
   if (
     pathname.startsWith("/_next") ||
     pathname.includes("/api/") ||
@@ -32,32 +17,30 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const pathnameIsMissingLocale = locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
-  );
+  const segments = pathname.split("/");
+  const firstSegment = segments[1]; // '', 'ca', 'es', 'en', etc.
 
-  if (pathnameIsMissingLocale) {
-    const locale = getPreferredLocale(request);
+  // Si la primera parte NO es un locale, redirigimos añadiendo uno
+  if (!locales.includes(firstSegment as any)) {
+    const detected = resolveLocale(
+      request.cookies.get("NEXT_LOCALE")?.value ??
+        request.headers.get("accept-language"),
+    );
+
     const redirectUrl = new URL(
-      `/${locale}${pathname === "/" ? "" : pathname}`,
+      `/${detected}${pathname === "/" ? "" : pathname}`,
       request.url,
     );
-    const response = NextResponse.redirect(redirectUrl);
-    response.cookies.set("NEXT_LOCALE", locale, { path: "/" });
-    return response;
+
+    const res = NextResponse.redirect(redirectUrl);
+    res.cookies.set("NEXT_LOCALE", detected, { path: "/" });
+    return res;
   }
 
-  const matchedLocale = locales.find(
-    (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
-  );
-
-  if (matchedLocale) {
-    const response = NextResponse.next();
-    response.cookies.set("NEXT_LOCALE", matchedLocale, { path: "/" });
-    return response;
-  }
-
-  return NextResponse.next();
+  // Si ya lleva locale, lo guardamos en cookie y seguimos
+  const res = NextResponse.next();
+  res.cookies.set("NEXT_LOCALE", firstSegment as any, { path: "/" });
+  return res;
 }
 
 export const config = {

@@ -6,12 +6,13 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import {
   locales,
-  getDictionary,
   resolveLocale,
+  getDictionary,
+  type Locale,
 } from "@/lib/i18n";
 
 type LocaleParams = {
-  params: { locale: string };
+  params: { locale?: string };
 };
 
 type LocaleLayoutProps = LocaleParams & {
@@ -19,14 +20,13 @@ type LocaleLayoutProps = LocaleParams & {
 };
 
 export function generateStaticParams() {
-  // Generamos /ca, /es, /en
   return locales.map((locale) => ({ locale }));
 }
 
 export async function generateMetadata(
   { params }: LocaleParams,
 ): Promise<Metadata> {
-  const locale = resolveLocale(params.locale);
+  const locale: Locale = resolveLocale(params?.locale);
   const dictionary = await getDictionary(locale);
 
   return {
@@ -46,7 +46,7 @@ export default async function LocaleLayout({
   children,
   params,
 }: LocaleLayoutProps) {
-  const locale = resolveLocale(params.locale);
+  const locale: Locale = resolveLocale(params?.locale);
   const dictionary = await getDictionary(locale);
 
   return (

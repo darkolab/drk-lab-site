@@ -1,41 +1,36 @@
 // lib/i18n.ts
-import { notFound } from "next/navigation";
-
-import ca from "@/locales/ca.json";
-import es from "@/locales/es.json";
-import en from "@/locales/en.json";
+import "server-only";
 
 export const locales = ["ca", "es", "en"] as const;
 export type Locale = (typeof locales)[number];
-export const defaultLocale: Locale = "ca";
 
-export function isLocale(value: string): value is Locale {
-  return (locales as readonly string[]).includes(value as Locale);
+export const DEFAULT_LOCALE: Locale = "ca";
+
+const dictionaries: Record<Locale, () => Promise<any>> = {
+  ca: () => import("@/locales/ca.json").then((m) => m.default),
+  es: () => import("@/locales/es.json").then((m) => m.default),
+  en: () => import("@/locales/en.json").then((m) => m.default),
+};
+
+// Normaliza cualquier string a uno de nuestros locales
+export function resolveLocale(input?: string | null): Locale {
+  if (!input) return DEFAULT_LOCALE;
+
+  const normalized = input.toLowerCase().split("-")[0] as Locale;
+  if (locales.includes(normalized)) return normalized;
+
+  return DEFAULT_LOCALE;
 }
 
-// Los diccionarios se cargan de forma ESTÁTICA y SINCRONA
-const dictionaries = {
-  ca,
-  es,
-  en,
-} as const;
+// Helper cómodo: acepta string, Locale o nada
+export async function getDictionary(
+  localeOrRaw?: string | Locale | null,
+) {
+  const locale = resolveLocale(
+    typeof localeOrRaw === "string"
+      ? localeOrRaw
+      : (localeOrRaw as Locale | undefined),
+  );
 
-export function getDictionary(locale: Locale) {
-  return dictionaries[locale] ?? dictionaries[defaultLocale];
-}
-
-/**
- * Normaliza un string cualquiera a un Locale válido del array `locales`.
- * Si no coincide con nada, cae a `defaultLocale`.
- */
-export function resolveLocale(rawLocale: string | undefined | null): Locale {
-  if (!rawLocale) return defaultLocale;
-
-  const normalized = rawLocale.toLowerCase().split("-")[0];
-
-  if (isLocale(normalized)) {
-    return normalized;
-  }
-
-  notFound();
+  return dictionaries[locale]();
 }
