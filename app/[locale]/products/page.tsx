@@ -4,20 +4,7 @@ import { products } from "@/lib/products";
 import { getDictionary, resolveLocale, type Locale } from "@/lib/i18n";
 
 type ProductsPageProps = {
-  // Igual que en las demás páginas con params asíncronos
   params: Promise<{ locale: string }>;
-};
-
-// Misma idea de copia traducible que en la ficha
-type ProductCopy = {
-  name?: string;
-  shortDescription?: string;
-  longDescription?: string;
-  features?: string[];
-  technicalSpecs?: { label: string; value: string }[];
-  status?: string;
-  category?: string;
-  notes?: string;
 };
 
 export default async function ProductsPage({ params }: ProductsPageProps) {

@@ -8,12 +8,7 @@ export type Locale = (typeof locales)[number];
 // 👉 Locale por defecto
 export const DEFAULT_LOCALE: Locale = "ca";
 
-// 👉 Usamos el JSON en inglés como “shape” del diccionario
-import type en from "@/locales/en.json";
-export type Dictionary = typeof en;
-
-// Loader tipado de cada diccionario
-type DictionaryLoader = () => Promise<Dictionary>;
+type DictionaryLoader = () => Promise<Record<string, unknown>>;
 
 const dictionaries: Record<Locale, DictionaryLoader> = {
   ca: () => import("@/locales/ca.json").then((m) => m.default),
@@ -25,11 +20,8 @@ const dictionaries: Record<Locale, DictionaryLoader> = {
 export function resolveLocale(input?: string | null): Locale {
   if (!input) return DEFAULT_LOCALE;
 
-  const normalized = input.toLowerCase().split("-")[0]; // "es-ES" -> "es"
-
-  if (locales.includes(normalized as Locale)) {
-    return normalized as Locale;
-  }
+  const normalized = input.toLowerCase().split("-")[0];
+  if (locales.includes(normalized as Locale)) return normalized as Locale;
 
   return DEFAULT_LOCALE;
 }

@@ -11,7 +11,6 @@ import {
 import { products } from "@/lib/products";
 
 type ProductDetailPageProps = {
-  // OJO: aquí volvemos a usar Promise, como en la versión que te funcionaba
   params: Promise<{ locale: string; slug: string }>;
 };
 
@@ -39,17 +38,18 @@ type ProductCopy = {
 export default async function ProductDetailPage({
   params,
 }: ProductDetailPageProps) {
-  // Desestructuramos desde la Promise, como antes
   const { locale: rawLocale, slug } = await params;
   const locale: Locale = resolveLocale(rawLocale);
 
   if (!slug) {
-    return notFound();
+    notFound();
   }
-
   const dictionary = await getDictionary(locale);
 
   const product = products.find((p) => p.slug === slug);
+  const categoryLabel = product?.category
+    ? product.category.toUpperCase()
+    : "";
 
   if (!product) {
     // Estado de "producto no encontrado", con debugging de slugs
