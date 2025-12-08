@@ -2,13 +2,19 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { getDictionary, resolveLocale, type Locale, locales } from "@/lib/i18n";
+import {
+  getDictionary,
+  resolveLocale,
+  type Locale,
+  locales,
+} from "@/lib/i18n";
 import { products } from "@/lib/products";
 
 type ProductDetailPageProps = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
+// Para que Next genere las rutas estáticas /ca/products/slug, /es/..., /en/...
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     products.map((product) => ({
@@ -17,6 +23,17 @@ export function generateStaticParams() {
     })),
   );
 }
+
+// Tipo auxiliar para la copia traducible
+type ProductCopy = {
+  name?: string;
+  longDescription?: string;
+  features?: string[];
+  technicalSpecs?: { label: string; value: string }[];
+  status?: string;
+  category?: string;
+  notes?: string;
+};
 
 export default async function ProductDetailPage({
   params,
@@ -43,6 +60,7 @@ export default async function ProductDetailPage({
   const categoryLabel = category ? category.toUpperCase() : "";
 
   if (!product) {
+    // Estado de "producto no encontrado", con debugging de slugs
     return (
       <main className="min-h-screen bg-[#050509] text-slate-100">
         <div className="mx-auto max-w-4xl space-y-6 px-6 py-16">
@@ -81,6 +99,25 @@ export default async function ProductDetailPage({
     );
   }
 
+  // --- Capa de traducción por slug ---
+  // Espera que en el diccionario haya algo tipo:
+  // "productCopy": { "drk-cap-led": { name: "...", longDescription: "...", ... } }
+  const productCopy =
+    (dictionary as any).productCopy?.[
+      slug as keyof (typeof dictionary)["productCopy"]
+    ] as ProductCopy | undefined;
+
+  const name = productCopy?.name ?? product.name;
+  const longDescription =
+    productCopy?.longDescription ?? product.longDescription;
+  const features = productCopy?.features ?? product.features ?? [];
+  const technicalSpecs =
+    productCopy?.technicalSpecs ?? product.technicalSpecs ?? [];
+  const status = productCopy?.status ?? product.status;
+  const category = productCopy?.category ?? product.category;
+  const notes = productCopy?.notes ?? product.notes;
+  const categoryLabel = category ? category.toUpperCase() : "";
+
   return (
     <main className="min-h-screen bg-[#050509]">
       {/* CABECERA */}
@@ -101,10 +138,10 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      {/* CONTINGUT */}
+      {/* CONTENIDO */}
       <section className="bg-[#050509]">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-10 lg:grid-cols-[minmax(0,2fr),minmax(0,1.2fr)]">
-          {/* ESQUERRA */}
+          {/* IZQUIERDA */}
           <div className="space-y-8">
             {/* FOTO / VISUAL */}
             <div className="relative h-72 overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 to-black shadow-2xl md:h-80">
@@ -119,7 +156,7 @@ export default async function ProductDetailPage({
               </div>
             </div>
 
-            {/* DESCRIPCIÓ */}
+            {/* DESCRIPCIÓN */}
             <div className="space-y-3">
               <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
                 {dictionary.productDetail.description}
@@ -173,7 +210,7 @@ export default async function ProductDetailPage({
             {notes && <p className="text-xs text-slate-500">{notes}</p>}
           </div>
 
-          {/* DRETA: estat + CTA */}
+          {/* DERECHA: estado + CTA */}
           <aside className="space-y-4">
             <div className="space-y-4 rounded-2xl border border-slate-800 bg-black/40 p-5">
               <h2 className="text-sm font-semibold text-slate-100">
