@@ -175,5 +175,27 @@
   "customPage": {
     "title": "Bespoke projects",
     "description": "Got a weird idea in mind? DRK LAB exists for that: unique parts for problems the standard catalogue doesn't solve."
+  },
+  "productCopy": {
+    "drk-cap-led": {
+      "name": "DRK-CAP LED · Protective Bowens cap",
+      "longDescription": "Protective cap for Bowens-mount LED heads, designed to travel inside flightcases and survive daily rental abuse.",
+      "features": [
+        "Compatible with most Bowens-mount COB LED fixtures",
+        "Protects the LED surface and front optics during transport",
+        "Impact-resistant 3D-printed body with reinforced front lip"
+      ],
+      "technicalSpecs": [
+        { "label": "Mount", "value": "Bowens S" },
+        {
+          "label": "Material",
+          "value": "Technical filament (PAHT CF / PLA Pro depending on batch)"
+        },
+        { "label": "Finish", "value": "DRK LAB matte black" }
+      ],
+      "status": "Prototype in daily rental use",
+      "category": "Light",
+      "notes": "Designed from real-world use at a professional rental; dimensions and fit can be adapted for other fixtures on request."
+    }
   }
 }

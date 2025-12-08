@@ -175,5 +175,27 @@
   "customPage": {
     "title": "Proyectos a medida",
     "description": "¿Tienes una idea rara en la cabeza? DRK LAB existe precisamente para eso: piezas únicas para problemas que el catálogo estándar no resuelve."
+  },
+  "productCopy": {
+    "drk-cap-led": {
+      "name": "DRK-CAP LED · Tapa de protección Bowens",
+      "longDescription": "Tapa de protección para cabezas LED con montura Bowens, pensada para viajar en flightcases y aguantar el trote diario de un rental.",
+      "features": [
+        "Compatible con la mayoría de focos COB con montura Bowens S",
+        "Protege la superficie del LED y la óptica frontal durante el transporte",
+        "Cuerpo 3D en material técnico con labio frontal reforzado"
+      ],
+      "technicalSpecs": [
+        { "label": "Montura", "value": "Bowens S" },
+        {
+          "label": "Material",
+          "value": "Filamento técnico (PAHT CF / PLA Pro según tirada)"
+        },
+        { "label": "Acabado", "value": "Negro mate DRK LAB" }
+      ],
+      "status": "Prototipo en uso diario en rental",
+      "category": "Luz",
+      "notes": "Diseñada a partir de uso real en un rental profesional; se pueden adaptar medidas y modelos bajo pedido."
+    }
   }
 }
