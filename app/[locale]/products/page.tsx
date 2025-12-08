@@ -12,9 +12,31 @@ export default async function ProductsPage({ params }: ProductsPageProps) {
   const locale: Locale = resolveLocale(rawLocale);
   const dictionary = await getDictionary(locale);
 
+  // Mapa opcional de copias por slug:
+  // "productCopy": { "drk-cap-led": { name: "...", shortDescription: "..." } }
+  const productCopyMap =
+    (dictionary as any).productCopy as
+      | Record<string, ProductCopy>
+      | undefined;
+
+  const translatedProducts = products.map((product) => {
+    const copy =
+      productCopyMap?.[
+        product.slug as keyof typeof productCopyMap
+      ] as ProductCopy | undefined;
+
+    if (!copy) return product;
+
+    // Hacemos override solo de los campos de texto que vengan en la copia
+    return {
+      ...product,
+      ...copy,
+    };
+  });
+
   return (
     <ProductsCatalog
-      products={products}
+      products={translatedProducts}
       dictionary={dictionary.productsPage}
       locale={locale}
     />
