@@ -126,12 +126,46 @@
         "llum": "Llum",
         "monitors": "Monitors",
         "media": "Media",
-        "merch": "Merch",
-        "grip": "Grip",
-        "camera": "Càmera"
-      }
+      "merch": "Merch",
+      "grip": "Grip",
+      "camera": "Càmera"
+    }
+  },
+  "viewSheet": "Veure fitxa",
+  "items": {
+    "drk-cap-led": {
+      "name": "Tapes Bowens",
+      "description": "Tapes de protecció per a caps LED Bowens. Protegeixen el COB durant transport i magatzem."
     },
-    "viewSheet": "Veure fitxa"
+    "drk-case-media": {
+      "name": "Càixes targetes",
+      "description": "Càixes compactes i robustes per a targetes SD, CFexpress i CFast amb interiors configurables."
+    },
+    "drk-hood-sh7": {
+      "name": "Parasol Shinobi 7\"",
+      "description": "Parasol a mida per al monitor Atomos Shinobi 7\" amb encaix precís sense adhesius."
+    },
+    "drk-honeycomb-v1s": {
+      "name": "Honeycomb V1s",
+      "description": "Niu d’abella per al flaix Godox V1s amb angle de 40° i encaix per pressió sense adhesius."
+    },
+    "drk-case-media-system": {
+      "name": "Case Media System",
+      "description": "Caixa modular per a targetes SD, CFexpress A/B i CFast amb interiors 100% configurables."
+    },
+    "drk-merch-pro": {
+      "name": "Merch funcional",
+      "description": "Merch personalitzat per a rentals i productores: eines útils amb logo, dissenyades per al set."
+    },
+    "drk-nato-150": {
+      "name": "NATO 150mm",
+      "description": "Rail NATO de 150mm en PAHT-CF, lleuger i rígid per a rigs FX3/FX30 i configuracions híbrides."
+    },
+    "drk-hinge-ls": {
+      "name": "Bisagra Lastolite",
+      "description": "Bisagra de recanvi per a panells Lastolite amb rosca reforçada i encaix compatible."
+    }
+  }
   },
   "productDetail": {
     "notFoundTitle": "Producte no trobat",
@@ -196,6 +230,176 @@
       "status": "Prototip en ús diari en rental",
       "category": "Llum",
       "notes": "Dissenyada a partir d'ús real en un rental professional; es poden adaptar mesures i models sota comanda."
+    },
+    "drk-case-media": {
+      "name": "DRK-CASE Media · Càixes per a targetes",
+      "longDescription": "Sistema modular de caixes per organitzar i protegir targetes SD, CFexpress B i CFast. Interiors configurables, pensats per cabre en flightcases i aguantar el ritme d'un rental.",
+      "features": [
+        "Interiors configurables segons tipus de targeta",
+        "Format compacte pensat per flightcases",
+        "Opció de codi de color per producció o càmeres",
+        "Tancament ferm i fàcil d’obrir amb guants"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible amb", "value": "Targetes SD, CFexpress B i CFast" },
+        { "label": "Models provats", "value": "Sony Tough CFexpress B, Angelbird, ProGrade SD" },
+        { "label": "Material", "value": "Polímer tècnic resistent a cops" },
+        { "label": "Color", "value": "Negre carbó amb opcions de color interior" },
+        { "label": "Pes aproximat", "value": "85 g per caixa" },
+        { "label": "Diàmetre interior útil", "value": "Layout adaptable segons combinació" },
+        { "label": "Gruix de paret", "value": "2.8 mm" },
+        { "label": "Rang de temperatura recomanat", "value": "-10 ºC a 70 ºC" }
+      ],
+      "status": "Prototip funcional",
+      "category": "Media / emmagatzematge"
+    },
+    "drk-hood-sh7": {
+      "name": "DRK-HOOD SH7 · Parasol per a Shinobi 7\"",
+      "longDescription": "Parasol dissenyat a mida per al monitor Atomos Shinobi 7\". Millora la visibilitat en exteriors i afegeix protecció extra, amb encaix mecànic sense adhesius.",
+      "features": [
+        "Disseny específic per a Shinobi 7\"",
+        "Encaix mecànic, sense adhesius",
+        "Millora la lectura en exteriors",
+        "Afegix protecció extra a la pantalla"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible amb", "value": "Atomos Shinobi 7\"" },
+        { "label": "Models provats", "value": "Atomos Shinobi 7\" en rigs FX3/FX30" },
+        { "label": "Material", "value": "TPU + PA12 per zones estructurals" },
+        { "label": "Color", "value": "Negre mat" },
+        { "label": "Pes aproximat", "value": "95 g" },
+        { "label": "Diàmetre interior útil", "value": "Finestra adaptada al marc Shinobi" },
+        { "label": "Gruix de paret", "value": "2.5 mm amb reforços" },
+        { "label": "Rang de temperatura recomanat", "value": "-5 ºC a 60 ºC" }
+      ],
+      "status": "Producció sota comanda",
+      "category": "Monitors",
+      "notes": "Actualment en ús en entorn de rental."
+    },
+    "drk-honeycomb-v1s": {
+      "name": "DRK-HONEY V1S · Honeycomb per a Godox V1s",
+      "longDescription": "Honeycomb per al flaix Godox V1s amb sistema d’encaix per pressió, sense imants ni adhesius. Redueix l’angle de llum a 40° per controlar spill i millorar la direccionalitat.",
+      "features": [
+        "Compatible amb Godox V1s",
+        "Sistema d’encaix per pressió, sense imants ni adhesius",
+        "Angle de llum 40° (altres angulacions sota comanda)",
+        "Material lleuger i resistent a la calor",
+        "Millora el control i direccionalitat de la llum",
+        "Evita spill i reflexes no desitjats"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible amb", "value": "Flaix Godox V1s (capçal rodó)" },
+        { "label": "Models provats", "value": "Godox V1s i V1 per Sony" },
+        { "label": "Material", "value": "PC-ABS resistent a temperatura" },
+        { "label": "Color", "value": "Negre texturat" },
+        { "label": "Pes aproximat", "value": "55 g" },
+        { "label": "Diàmetre interior útil", "value": "76 mm" },
+        { "label": "Gruix de paret", "value": "2.2 mm" },
+        { "label": "Rang de temperatura recomanat", "value": "-5 ºC a 70 ºC" }
+      ],
+      "status": "En producció sota comanda",
+      "category": "Llum",
+      "notes": "Model provat i validat per ús en sessions de retrat i rodatges interiors."
+    },
+    "drk-case-media-system": {
+      "name": "DRK-CASE MEDIA · Sistema modular de caixes",
+      "longDescription": "Sistema modular de caixes per organitzar targetes SD, CFexpress A, CFexpress B i CFast. Cos compacte i robust amb interiors 100% configurables, pensat per flights i rodatges intensius.",
+      "features": [
+        "Interiors configurables per SD, CFexpress A, CFexpress B i/o CFast",
+        "Sistema modular per adaptar-se a qualsevol combinació",
+        "Tancament segur, opcionalment magnètic",
+        "Cos exterior compacte i resistent a cops",
+        "Disseny pensat per flightcases i set",
+        "Opció de codi de colors o gravat per producció",
+        "Versió 'Custom' per targetes especials o quantitats no estàndard"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible amb", "value": "Layouts mixtes per SD, CFexpress A/B i CFast" },
+        { "label": "Models provats", "value": "Sony FX3/FX6 media kits, Blackmagic, Canon C70" },
+        { "label": "Material", "value": "Cos en PA12; interiors segons configuració" },
+        { "label": "Color", "value": "Cos negre; interiors personalitzables" },
+        { "label": "Pes aproximat", "value": "110 g (configuració base)" },
+        { "label": "Diàmetre interior útil", "value": "Cavitats segons targetes seleccionades" },
+        { "label": "Gruix de paret", "value": "3 mm" },
+        { "label": "Rang de temperatura recomanat", "value": "-10 ºC a 70 ºC" }
+      ],
+      "status": "En producció sota comanda",
+      "category": "Media / emmagatzematge",
+      "notes": "Projectat com a sistema únic. Les variants d'interior poden crear-se sota demanda segons càmera."
+    },
+    "drk-merch-pro": {
+      "name": "DRK-MERCH PRO · Merch funcional",
+      "longDescription": "Línia de merchandising funcional per a rentals, productores i escoles: llavors-eina, plaques d’identificació i accessoris útils amb el logo integrat, dissenyats per a un ús real en set.",
+      "features": [
+        "Llavors-eina 1/4'' i 3/8'' personalitzades amb logo",
+        "Mini eines per càmera i accessoris",
+        "Peces útils per a rental amb logotip gravat o integrat",
+        "Disseny totalment personalitzat per equip, productora o escola",
+        "Fabricació robusta amb materials tècnics",
+        "Opció de codis de color per departament"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible amb", "value": "Personalització per a kits de càmera i rental" },
+        { "label": "Models provats", "value": "FX3/FX6, kits de so ENG, flightcases de rental" },
+        { "label": "Material", "value": "Depèn de la peça: TPU, PA12, alumini lleuger" },
+        { "label": "Color", "value": "Negre base amb opcions de color corporatiu" },
+        { "label": "Pes aproximat", "value": "10 g – 150 g segons peça" },
+        { "label": "Diàmetre interior útil", "value": "Variable segons disseny" },
+        { "label": "Gruix de paret", "value": "Adaptat a cada peça (mínim 2 mm)" },
+        { "label": "Rang de temperatura recomanat", "value": "-10 ºC a 70 ºC" }
+      ],
+      "status": "Sota comanda",
+      "category": "Corporate / Merchandising",
+      "notes": "Projecte obert: qualsevol peça petita es pot convertir en merch funcional amb el logo del client."
+    },
+    "drk-nato-150": {
+      "name": "DRK-NATO 150 · Rail NATO 150mm",
+      "longDescription": "Rail NATO de 150mm pensat per a rigs compactes FX3/FX30 però adaptable a qualsevol càmera. Fabricat en PAHT-CF per aportar rigidesa, toleràncies precises i pes reduït.",
+      "features": [
+        "Longitud de 150mm compatible amb rigs compactes",
+        "Material tècnic PAHT-CF: resistent, rígid i estable a temperatura",
+        "Toleràncies ajustades per a clamps NATO estàndard",
+        "Compatible amb FX3/FX30 i adaptable a qualsevol càmera",
+        "Pes reduït sense comprometre la rigidesa",
+        "Perfecte per handles, monitors i accessoris de so"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible amb", "value": "Clamps NATO estàndard i rigs FX3/FX30" },
+        { "label": "Models provats", "value": "Sony FX3/FX30 amb SmallRig i Tilta" },
+        { "label": "Material", "value": "PAHT-CF (nylon amb fibra de carboni)" },
+        { "label": "Color", "value": "Negre amb textura tècnica" },
+        { "label": "Pes aproximat", "value": "60 g" },
+        { "label": "Diàmetre interior útil", "value": "Canal NATO de 20 mm" },
+        { "label": "Gruix de paret", "value": "Variable, reforç principal 3 mm" },
+        { "label": "Rang de temperatura recomanat", "value": "-10 ºC a 90 ºC" }
+      ],
+      "status": "Prototip validat · Producció sota comanda",
+      "category": "Càmera / Accessoris",
+      "notes": "Disponible també en longituds personalitzades sota comanda. Compatibilitat futura amb cheese plates universals, sistemes ARRI i muntatges híbrids — en desenvolupament."
+    },
+    "drk-hinge-ls": {
+      "name": "DRK-HINGE LS · Bisagra Lastolite",
+      "longDescription": "Bisagra de recanvi per als panells plegables Lastolite. Rosca reforçada, encaix ajustat i material resistent per allargar la vida dels marcs sense substituir el kit complet.",
+      "features": [
+        "Compatibilitat total amb marcs Lastolite (bisagra esquerra/dreta)",
+        "Rosca reforçada i més duradora que l’original",
+        "Encaix ajustat, toleràncies testades en entorn de rental",
+        "Material resistent a cops i torsió",
+        "Ideal com a recanvi ràpid per a kits malmesos"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible amb", "value": "Marcs plegables Lastolite" },
+        { "label": "Models provats", "value": "Lastolite Skylite Rapid i Panoramic" },
+        { "label": "Material", "value": "Polímer reforçat amb fibra" },
+        { "label": "Color", "value": "Negre grafit" },
+        { "label": "Pes aproximat", "value": "35 g per bisagra" },
+        { "label": "Diàmetre interior útil", "value": "Tija central 8 mm" },
+        { "label": "Gruix de paret", "value": "3 mm amb reforç a la rosca" },
+        { "label": "Rang de temperatura recomanat", "value": "-10 ºC a 70 ºC" }
+      ],
+      "status": "En producció sota comanda",
+      "category": "Recanvis / Grip",
+      "notes": "Disponible també en packs de 2, 4 o 8 unitats per manteniment de rental."
     }
   }
 }
