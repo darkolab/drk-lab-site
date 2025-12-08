@@ -1,11 +1,12 @@
 // app/[locale]/products/[slug]/page.tsx
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { getDictionary, resolveLocale, type Locale, locales } from "@/lib/i18n";
 import { products } from "@/lib/products";
 
 type ProductDetailPageProps = {
-  params: { locale: string; slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 };
 
 export function generateStaticParams() {
@@ -20,13 +21,26 @@ export function generateStaticParams() {
 export default async function ProductDetailPage({
   params,
 }: ProductDetailPageProps) {
-  const locale: Locale = resolveLocale(params.locale);
+  const { locale: rawLocale, slug } = await params;
+  const locale: Locale = resolveLocale(rawLocale);
+
+  if (!slug) {
+    notFound();
+  }
   const dictionary = await getDictionary(locale);
 
-  const product = products.find((p) => p.slug === params.slug);
-  const categoryLabel = product?.category
-    ? product.category.toUpperCase()
-    : "";
+  const product = products.find((p) => p.slug === slug);
+  const productCopy = product ? dictionary.productCopy?.[product.slug] : null;
+
+  const name = productCopy?.name ?? product?.name;
+  const longDescription = productCopy?.longDescription ?? product?.longDescription;
+  const features = productCopy?.features ?? product?.features;
+  const technicalSpecs = productCopy?.technicalSpecs ?? product?.technicalSpecs;
+  const status = productCopy?.status ?? product?.status;
+  const category = productCopy?.category ?? product?.category;
+  const notes = productCopy?.notes ?? product?.notes;
+
+  const categoryLabel = category ? category.toUpperCase() : "";
 
   if (!product) {
     return (
@@ -39,7 +53,7 @@ export default async function ProductDetailPage({
           <p className="text-sm text-slate-300">
             {dictionary.productDetail.slugReceived}:{" "}
             <span className="font-mono text-slate-100">
-              {params.slug || dictionary.productDetail.slugFallback}
+              {slug || dictionary.productDetail.slugFallback}
             </span>
           </p>
 
@@ -78,11 +92,11 @@ export default async function ProductDetailPage({
 
           <h1 className="mt-4 text-2xl font-semibold text-white md:text-3xl">
             {product.code} ·{" "}
-            <span className="text-slate-100">{product.name}</span>
+            <span className="text-slate-100">{name}</span>
           </h1>
 
           <p className="mt-3 max-w-3xl text-sm text-slate-300 md:text-base">
-            {product.longDescription}
+            {longDescription}
           </p>
         </div>
       </section>
@@ -111,18 +125,18 @@ export default async function ProductDetailPage({
                 {dictionary.productDetail.description}
               </h2>
               <p className="text-sm text-slate-200 md:text-base">
-                {product.longDescription}
+                {longDescription}
               </p>
             </div>
 
             {/* CARACTERÍSTIQUES */}
-            {product.features?.length > 0 && (
+            {features?.length > 0 && (
               <div className="space-y-3">
                 <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
                   {dictionary.productDetail.features}
                 </h2>
                 <ul className="space-y-2 text-sm text-slate-200 md:text-base">
-                  {product.features.map((feature) => (
+                  {features.map((feature) => (
                     <li key={feature} className="flex gap-2">
                       <span className="mt-1 h-1 w-1 rounded-full bg-red-500" />
                       <span>{feature}</span>
@@ -133,13 +147,13 @@ export default async function ProductDetailPage({
             )}
 
             {/* ESPECIFICACIONS */}
-            {product.technicalSpecs?.length ? (
+            {technicalSpecs?.length ? (
               <div className="space-y-3">
                 <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
                   {dictionary.productDetail.technicalSpecs}
                 </h2>
                 <div className="divide-y divide-slate-800 overflow-hidden rounded-2xl border border-slate-800">
-                  {product.technicalSpecs.map((spec) => (
+                  {technicalSpecs.map((spec) => (
                     <div
                       key={spec.label}
                       className="grid grid-cols-1 gap-4 bg-black/40 px-4 py-3 text-sm text-slate-200 last:bg-black/60 md:grid-cols-2"
@@ -156,9 +170,7 @@ export default async function ProductDetailPage({
               </div>
             ) : null}
 
-            {product.notes && (
-              <p className="text-xs text-slate-500">{product.notes}</p>
-            )}
+            {notes && <p className="text-xs text-slate-500">{notes}</p>}
           </div>
 
           {/* DRETA: estat + CTA */}
@@ -169,7 +181,7 @@ export default async function ProductDetailPage({
               </h2>
 
               <p className="inline-flex items-center rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-200">
-                {product.status}
+                {status}
               </p>
 
               <div className="grid grid-cols-2 gap-4 pt-3 text-xs text-slate-300 md:text-sm">
@@ -185,9 +197,7 @@ export default async function ProductDetailPage({
                   <p className="text-[0.7rem] uppercase tracking-[0.18em] text-slate-500">
                     {dictionary.productDetail.category}
                   </p>
-                  <p className="font-medium text-slate-100">
-                    {product.category}
-                  </p>
+                  <p className="font-medium text-slate-100">{category}</p>
                 </div>
               </div>
             </div>

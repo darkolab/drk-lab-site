@@ -2,11 +2,12 @@
 import { getDictionary, resolveLocale, type Locale } from "@/lib/i18n";
 
 type PageParams = {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
 export default async function Home({ params }: PageParams) {
-  const locale: Locale = resolveLocale(params.locale);
+  const { locale: rawLocale } = await params;
+  const locale: Locale = resolveLocale(rawLocale);
   const dictionary = await getDictionary(locale);
   
   return (
