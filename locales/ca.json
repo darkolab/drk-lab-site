@@ -126,10 +126,24 @@
         "llum": "Llum",
         "monitors": "Monitors",
         "media": "Media",
-        "merch": "Merch",
-        "grip": "Grip",
-        "camera": "Càmera"
-      }
+      "merch": "Merch",
+      "grip": "Grip",
+      "camera": "Càmera"
+    }
+  },
+  "viewSheet": "Veure fitxa",
+  "items": {
+    "drk-cap-led": {
+      "name": "Tapes Bowens",
+      "description": "Tapes de protecció per a caps LED Bowens. Protegeixen el COB durant transport i magatzem."
+    },
+    "drk-case-media": {
+      "name": "Càixes targetes",
+      "description": "Càixes compactes i robustes per a targetes SD, CFexpress i CFast amb interiors configurables."
+    },
+    "drk-hood-sh7": {
+      "name": "Parasol Shinobi 7\"",
+      "description": "Parasol a mida per al monitor Atomos Shinobi 7\" amb encaix precís sense adhesius."
     },
     "viewSheet": "Veure fitxa",
     "items": {
