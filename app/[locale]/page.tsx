@@ -10,7 +10,7 @@ import {
 } from "@/lib/i18n";
 
 type HomePageProps = {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
 export function generateStaticParams() {
@@ -18,7 +18,8 @@ export function generateStaticParams() {
 }
 
 export default async function Home({ params }: HomePageProps) {
-  const locale = resolveLocale(params.locale);
+  const { locale: rawLocale } = await params;
+  const locale = resolveLocale(rawLocale);
 
   const dictionary = await getDictionary(locale);
   const featuredSlugs = ["drk-cap-led", "drk-case-media", "drk-merch-pro"];

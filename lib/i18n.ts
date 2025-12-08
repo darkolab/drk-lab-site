@@ -6,7 +6,9 @@ export type Locale = (typeof locales)[number];
 
 export const DEFAULT_LOCALE: Locale = "ca";
 
-const dictionaries: Record<Locale, () => Promise<any>> = {
+type DictionaryLoader = () => Promise<Record<string, unknown>>;
+
+const dictionaries: Record<Locale, DictionaryLoader> = {
   ca: () => import("@/locales/ca.json").then((m) => m.default),
   es: () => import("@/locales/es.json").then((m) => m.default),
   en: () => import("@/locales/en.json").then((m) => m.default),
@@ -16,8 +18,8 @@ const dictionaries: Record<Locale, () => Promise<any>> = {
 export function resolveLocale(input?: string | null): Locale {
   if (!input) return DEFAULT_LOCALE;
 
-  const normalized = input.toLowerCase().split("-")[0] as Locale;
-  if (locales.includes(normalized)) return normalized;
+  const normalized = input.toLowerCase().split("-")[0];
+  if (locales.includes(normalized as Locale)) return normalized as Locale;
 
   return DEFAULT_LOCALE;
 }
