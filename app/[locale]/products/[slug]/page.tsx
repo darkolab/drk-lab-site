@@ -47,9 +47,17 @@ export default async function ProductDetailPage({
   const dictionary = await getDictionary(locale);
 
   const product = products.find((p) => p.slug === slug);
-  const categoryLabel = product?.category
-    ? product.category.toUpperCase()
-    : "";
+  const productCopy = product ? dictionary.productCopy?.[product.slug] : null;
+
+  const name = productCopy?.name ?? product?.name;
+  const longDescription = productCopy?.longDescription ?? product?.longDescription;
+  const features = productCopy?.features ?? product?.features;
+  const technicalSpecs = productCopy?.technicalSpecs ?? product?.technicalSpecs;
+  const status = productCopy?.status ?? product?.status;
+  const category = productCopy?.category ?? product?.category;
+  const notes = productCopy?.notes ?? product?.notes;
+
+  const categoryLabel = category ? category.toUpperCase() : "";
 
   if (!product) {
     // Estado de "producto no encontrado", con debugging de slugs
@@ -158,8 +166,8 @@ export default async function ProductDetailPage({
               </p>
             </div>
 
-            {/* CARACTERÍSTICAS */}
-            {features.length > 0 && (
+            {/* CARACTERÍSTIQUES */}
+            {features?.length > 0 && (
               <div className="space-y-3">
                 <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
                   {dictionary.productDetail.features}
@@ -175,8 +183,8 @@ export default async function ProductDetailPage({
               </div>
             )}
 
-            {/* ESPECIFICACIONES TÉCNICAS */}
-            {technicalSpecs.length > 0 && (
+            {/* ESPECIFICACIONS */}
+            {technicalSpecs?.length ? (
               <div className="space-y-3">
                 <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
                   {dictionary.productDetail.technicalSpecs}
@@ -199,9 +207,7 @@ export default async function ProductDetailPage({
               </div>
             )}
 
-            {notes && (
-              <p className="text-xs text-slate-500">{notes}</p>
-            )}
+            {notes && <p className="text-xs text-slate-500">{notes}</p>}
           </div>
 
           {/* DERECHA: estado + CTA */}
@@ -211,11 +217,9 @@ export default async function ProductDetailPage({
                 {dictionary.productDetail.statusTitle}
               </h2>
 
-              {status && (
-                <p className="inline-flex items-center rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-200">
-                  {status}
-                </p>
-              )}
+              <p className="inline-flex items-center rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-200">
+                {status}
+              </p>
 
               <div className="grid grid-cols-2 gap-4 pt-3 text-xs text-slate-300 md:text-sm">
                 <div className="space-y-1">
@@ -230,9 +234,7 @@ export default async function ProductDetailPage({
                   <p className="text-[0.7rem] uppercase tracking-[0.18em] text-slate-500">
                     {dictionary.productDetail.category}
                   </p>
-                  <p className="font-medium text-slate-100">
-                    {category}
-                  </p>
+                  <p className="font-medium text-slate-100">{category}</p>
                 </div>
               </div>
             </div>
