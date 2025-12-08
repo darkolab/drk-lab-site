@@ -17,13 +17,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = await cookies();
+  const headerList = await headers();
+
   const detectedLocale = resolveLocale(
-    cookies().get("NEXT_LOCALE")?.value ?? headers().get("accept-language"),
+    cookieStore.get("NEXT_LOCALE")?.value ?? headerList.get("accept-language"),
   );
 
   return (
