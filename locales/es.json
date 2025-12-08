@@ -145,27 +145,41 @@
       "name": "Parasol Shinobi 7\"",
       "description": "Parasol a medida para el monitor Atomos Shinobi 7\" con encaje preciso sin adhesivos."
     },
-    "drk-honeycomb-v1s": {
-      "name": "Honeycomb V1s",
-      "description": "Nido de abeja para el flash Godox V1s con ángulo de 40° y encaje por presión sin adhesivos."
-    },
-    "drk-case-media-system": {
-      "name": "Case Media System",
-      "description": "Caja modular para tarjetas SD, CFexpress A/B y CFast con interiores 100% configurables."
-    },
-    "drk-merch-pro": {
-      "name": "Merch funcional",
-      "description": "Merch personalizado para rentals y productoras: herramientas útiles con logo, pensadas para el set."
-    },
-    "drk-nato-150": {
-      "name": "NATO 150mm",
-      "description": "Rail NATO de 150mm en PAHT-CF, ligero y rígido para rigs FX3/FX30 y montajes híbridos."
-    },
-    "drk-hinge-ls": {
-      "name": "Bisagra Lastolite",
-      "description": "Bisagra de recambio para paneles Lastolite con rosca reforzada y encaje compatible."
+    "viewSheet": "Ver ficha",
+    "items": {
+      "drk-cap-led": {
+        "name": "Tapas Bowens",
+        "description": "Tapas de protección para cabezas LED Bowens que mantienen el COB seguro en transporte y almacenaje."
+      },
+      "drk-case-media": {
+        "name": "Cajas tarjetas",
+        "description": "Cajas compactas y robustas para tarjetas SD, CFexpress y CFast con interiores configurables según combinación."
+      },
+      "drk-hood-sh7": {
+        "name": "Parasol Shinobi 7\"",
+        "description": "Parasol a medida para el monitor Atomos Shinobi 7\" con ajuste preciso, sin adhesivos y mejor lectura en exteriores."
+      },
+      "drk-honeycomb-v1s": {
+        "name": "Honeycomb V1s",
+        "description": "Nido de abeja para el flash Godox V1s con haz de 40° y encaje por presión, sin adhesivos."
+      },
+      "drk-case-media-system": {
+        "name": "Case Media System",
+        "description": "Caja modular para tarjetas SD, CFexpress A/B y CFast con interiores 100% configurables para cada equipo o producción."
+      },
+      "drk-merch-pro": {
+        "name": "Merch funcional",
+        "description": "Merch personalizado para rentals y productoras: herramientas útiles con logo pensadas para el set, no para quedarse en un cajón."
+      },
+      "drk-nato-150": {
+        "name": "NATO 150mm",
+        "description": "Rail NATO de 150mm en PAHT-CF, ligero y rígido para rigs FX3/FX30 y montajes híbridos, sin vibraciones."
+      },
+      "drk-hinge-ls": {
+        "name": "Bisagra Lastolite",
+        "description": "Bisagra de recambio para paneles Lastolite con rosca reforzada y encaje 100% compatible."
+      }
     }
-  }
   },
   "productDetail": {
     "notFoundTitle": "Producto no encontrado",

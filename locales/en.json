@@ -135,35 +135,35 @@
     "items": {
       "drk-cap-led": {
         "name": "Bowens caps",
-        "description": "Protective caps for Bowens LED heads. Keep the COB safe during transport and storage."
+        "description": "Protective caps for Bowens LED heads that keep the COB safe during transport and storage."
       },
       "drk-case-media": {
         "name": "Card cases",
-        "description": "Compact, rugged cases for SD, CFexpress and CFast cards with configurable inserts."
+        "description": "Compact, rugged cases for SD, CFexpress and CFast cards with inserts you can configure for any combo."
       },
       "drk-hood-sh7": {
         "name": "Shinobi 7\" hood",
-        "description": "Custom hood for the Atomos Shinobi 7\" with precise fit and no adhesives."
+        "description": "Custom hood for the Atomos Shinobi 7\" with a precise fit, no adhesives and better outdoor readability."
       },
       "drk-honeycomb-v1s": {
         "name": "Honeycomb V1s",
-        "description": "Honeycomb for the Godox V1s flash with 40° beam and pressure-fit mount, no adhesives."
+        "description": "Honeycomb for the Godox V1s flash with a 40° beam and pressure-fit mount, no adhesives."
       },
       "drk-case-media-system": {
         "name": "Case Media System",
-        "description": "Modular case for SD, CFexpress A/B and CFast cards with fully configurable interiors."
+        "description": "Modular case for SD, CFexpress A/B and CFast cards with fully configurable interiors for each crew."
       },
       "drk-merch-pro": {
         "name": "Functional merch",
-        "description": "Custom merch for rentals and productions: useful tools with your logo, built for set life."
+        "description": "Custom merch for rentals and productions: useful tools with your logo, built for set life—not to stay in a drawer."
       },
       "drk-nato-150": {
         "name": "NATO 150mm",
-        "description": "150mm PAHT-CF NATO rail, light and stiff for FX3/FX30 rigs and hybrid builds."
+        "description": "150mm PAHT-CF NATO rail, light and stiff for FX3/FX30 rigs and hybrid builds, with zero rattles."
       },
       "drk-hinge-ls": {
         "name": "Lastolite hinge",
-        "description": "Replacement hinge for Lastolite panels with reinforced thread and compatible fit."
+        "description": "Replacement hinge for Lastolite panels with reinforced thread and a fully compatible fit."
       }
     }
   },

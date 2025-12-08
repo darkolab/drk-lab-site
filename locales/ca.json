@@ -145,27 +145,41 @@
       "name": "Parasol Shinobi 7\"",
       "description": "Parasol a mida per al monitor Atomos Shinobi 7\" amb encaix precís sense adhesius."
     },
-    "drk-honeycomb-v1s": {
-      "name": "Honeycomb V1s",
-      "description": "Niu d’abella per al flaix Godox V1s amb angle de 40° i encaix per pressió sense adhesius."
-    },
-    "drk-case-media-system": {
-      "name": "Case Media System",
-      "description": "Caixa modular per a targetes SD, CFexpress A/B i CFast amb interiors 100% configurables."
-    },
-    "drk-merch-pro": {
-      "name": "Merch funcional",
-      "description": "Merch personalitzat per a rentals i productores: eines útils amb logo, dissenyades per al set."
-    },
-    "drk-nato-150": {
-      "name": "NATO 150mm",
-      "description": "Rail NATO de 150mm en PAHT-CF, lleuger i rígid per a rigs FX3/FX30 i configuracions híbrides."
-    },
-    "drk-hinge-ls": {
-      "name": "Bisagra Lastolite",
-      "description": "Bisagra de recanvi per a panells Lastolite amb rosca reforçada i encaix compatible."
+    "viewSheet": "Veure fitxa",
+    "items": {
+      "drk-cap-led": {
+        "name": "Tapes Bowens",
+        "description": "Tapes de protecció per a caps LED Bowens que mantenen el COB segur en transport i magatzem."
+      },
+      "drk-case-media": {
+        "name": "Càixes targetes",
+        "description": "Càixes compactes i robustes per a targetes SD, CFexpress i CFast amb interiors configurables segons combinació."
+      },
+      "drk-hood-sh7": {
+        "name": "Parasol Shinobi 7\"",
+        "description": "Parasol a mida per al monitor Atomos Shinobi 7\" amb encaix precís, sense adhesius i millor lectura en exteriors."
+      },
+      "drk-honeycomb-v1s": {
+        "name": "Honeycomb V1s",
+        "description": "Niu d’abella per al flaix Godox V1s amb angle de 40° i encaix per pressió, sense adhesius."
+      },
+      "drk-case-media-system": {
+        "name": "Case Media System",
+        "description": "Caixa modular per a targetes SD, CFexpress A/B i CFast amb interiors 100% configurables per equip o producció."
+      },
+      "drk-merch-pro": {
+        "name": "Merch funcional",
+        "description": "Merch personalitzat per a rentals i productores: eines útils amb logo pensades per al set, no per quedar al calaix."
+      },
+      "drk-nato-150": {
+        "name": "NATO 150mm",
+        "description": "Rail NATO de 150mm en PAHT-CF, lleuger i rígid per a rigs FX3/FX30 i configuracions híbrides, sense ressonàncies."
+      },
+      "drk-hinge-ls": {
+        "name": "Bisagra Lastolite",
+        "description": "Bisagra de recanvi per a panells Lastolite amb rosca reforçada i encaix 100% compatible."
+      }
     }
-  }
   },
   "productDetail": {
     "notFoundTitle": "Producte no trobat",
