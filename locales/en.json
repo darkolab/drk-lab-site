@@ -131,7 +131,41 @@
         "camera": "Camera"
       }
     },
-    "viewSheet": "View sheet"
+    "viewSheet": "View sheet",
+    "items": {
+      "drk-cap-led": {
+        "name": "Bowens caps",
+        "description": "Protective caps for Bowens LED heads that keep the COB safe during transport and storage."
+      },
+      "drk-case-media": {
+        "name": "Card cases",
+        "description": "Compact, rugged cases for SD, CFexpress and CFast cards with inserts you can configure for any combo."
+      },
+      "drk-hood-sh7": {
+        "name": "Shinobi 7\" hood",
+        "description": "Custom hood for the Atomos Shinobi 7\" with a precise fit, no adhesives and better outdoor readability."
+      },
+      "drk-honeycomb-v1s": {
+        "name": "Honeycomb V1s",
+        "description": "Honeycomb for the Godox V1s flash with a 40° beam and pressure-fit mount, no adhesives."
+      },
+      "drk-case-media-system": {
+        "name": "Case Media System",
+        "description": "Modular case for SD, CFexpress A/B and CFast cards with fully configurable interiors for each crew."
+      },
+      "drk-merch-pro": {
+        "name": "Functional merch",
+        "description": "Custom merch for rentals and productions: useful tools with your logo, built for set life—not to stay in a drawer."
+      },
+      "drk-nato-150": {
+        "name": "NATO 150mm",
+        "description": "150mm PAHT-CF NATO rail, light and stiff for FX3/FX30 rigs and hybrid builds, with zero rattles."
+      },
+      "drk-hinge-ls": {
+        "name": "Lastolite hinge",
+        "description": "Replacement hinge for Lastolite panels with reinforced thread and a fully compatible fit."
+      }
+    }
   },
   "productDetail": {
     "notFoundTitle": "Product not found",
@@ -196,6 +230,176 @@
       "status": "Prototype in daily rental use",
       "category": "Light",
       "notes": "Designed from real-world use at a professional rental; dimensions and fit can be adapted for other fixtures on request."
+    },
+    "drk-case-media": {
+      "name": "DRK-CASE Media · Card cases",
+      "longDescription": "Modular case system to organise and protect SD, CFexpress B and CFast cards. Configurable inserts, built to slot into flightcases and handle rental life.",
+      "features": [
+        "Configurable inserts by card type",
+        "Compact form factor for flightcases",
+        "Colour coding option for production or cameras",
+        "Secure latch that's easy to open with gloves"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible with", "value": "SD, CFexpress B and CFast cards" },
+        { "label": "Tested models", "value": "Sony Tough CFexpress B, Angelbird, ProGrade SD" },
+        { "label": "Material", "value": "Impact-resistant technical polymer" },
+        { "label": "Colour", "value": "Charcoal black with optional interior colours" },
+        { "label": "Approx. weight", "value": "85 g per case" },
+        { "label": "Usable inner diameter", "value": "Layout adaptable to each combination" },
+        { "label": "Wall thickness", "value": "2.8 mm" },
+        { "label": "Recommended temperature", "value": "-10 ºC to 70 ºC" }
+      ],
+      "status": "Functional prototype",
+      "category": "Media / storage"
+    },
+    "drk-hood-sh7": {
+      "name": "DRK-HOOD SH7 · Hood for Shinobi 7\"",
+      "longDescription": "Custom-fitted hood for the Atomos Shinobi 7\" monitor. Improves outdoor visibility and adds extra protection with a mechanical fit—no adhesives needed.",
+      "features": [
+        "Purpose-built for Shinobi 7\"",
+        "Mechanical fit, no adhesives",
+        "Better screen readability outdoors",
+        "Adds extra protection to the panel"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible with", "value": "Atomos Shinobi 7\"" },
+        { "label": "Tested models", "value": "Atomos Shinobi 7\" on FX3/FX30 rigs" },
+        { "label": "Material", "value": "TPU + PA12 on structural zones" },
+        { "label": "Colour", "value": "Matte black" },
+        { "label": "Approx. weight", "value": "95 g" },
+        { "label": "Usable inner diameter", "value": "Window matched to the Shinobi frame" },
+        { "label": "Wall thickness", "value": "2.5 mm with reinforcements" },
+        { "label": "Recommended temperature", "value": "-5 ºC to 60 ºC" }
+      ],
+      "status": "Made to order",
+      "category": "Monitors",
+      "notes": "Currently in use within rental environments."
+    },
+    "drk-honeycomb-v1s": {
+      "name": "DRK-HONEY V1S · Honeycomb for Godox V1s",
+      "longDescription": "Honeycomb for the Godox V1s flash with a pressure-fit system—no magnets or adhesives. Narrows beam angle to 40° to cut spill and improve light direction.",
+      "features": [
+        "Compatible with Godox V1s",
+        "Pressure-fit system, no magnets or adhesives",
+        "40° beam angle (other angles on request)",
+        "Lightweight, heat-resistant material",
+        "Better light control and directionality",
+        "Reduces spill and unwanted reflections"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible with", "value": "Godox V1s round head flash" },
+        { "label": "Tested models", "value": "Godox V1s and V1 for Sony" },
+        { "label": "Material", "value": "Heat-resistant PC-ABS" },
+        { "label": "Colour", "value": "Textured black" },
+        { "label": "Approx. weight", "value": "55 g" },
+        { "label": "Usable inner diameter", "value": "76 mm" },
+        { "label": "Wall thickness", "value": "2.2 mm" },
+        { "label": "Recommended temperature", "value": "-5 ºC to 70 ºC" }
+      ],
+      "status": "Made to order",
+      "category": "Light",
+      "notes": "Tested and validated for portrait sessions and indoor shoots."
+    },
+    "drk-case-media-system": {
+      "name": "DRK-CASE MEDIA · Modular card case system",
+      "longDescription": "Modular case system to organise SD, CFexpress A, CFexpress B and CFast cards. Compact, rugged shell with fully configurable interiors, built for flights and heavy on-set use.",
+      "features": [
+        "Configurable interiors for SD, CFexpress A, CFexpress B and/or CFast",
+        "Modular system to match any combination",
+        "Secure closure, optionally magnetic",
+        "Compact, impact-resistant outer shell",
+        "Designed for flightcases and set work",
+        "Option for colour coding or engraved production labels",
+        "'Custom' version for special cards or non-standard quantities"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible with", "value": "Mixed layouts for SD, CFexpress A/B and CFast" },
+        { "label": "Tested models", "value": "Sony FX3/FX6 media kits, Blackmagic, Canon C70" },
+        { "label": "Material", "value": "PA12 shell; interiors depending on configuration" },
+        { "label": "Colour", "value": "Black shell; customisable interiors" },
+        { "label": "Approx. weight", "value": "110 g (base configuration)" },
+        { "label": "Usable inner diameter", "value": "Cavities matched to selected cards" },
+        { "label": "Wall thickness", "value": "3 mm" },
+        { "label": "Recommended temperature", "value": "-10 ºC to 70 ºC" }
+      ],
+      "status": "Made to order",
+      "category": "Media / storage",
+      "notes": "Conceived as a single system. Interior variants can be built on demand per camera."
+    },
+    "drk-merch-pro": {
+      "name": "DRK-MERCH PRO · Functional merch",
+      "longDescription": "Functional merchandising line for rentals, production companies and film schools: tool keychains, ID plates and useful accessories with your logo, created for real on-set use.",
+      "features": [
+        "Custom 1/4'' and 3/8'' tool keychains with logo",
+        "Mini tools for cameras and accessories",
+        "Useful rental pieces with engraved or integrated logo",
+        "Fully bespoke design for each team, company or school",
+        "Rugged manufacturing with technical materials",
+        "Colour-coding option by department"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible with", "value": "Customisation for camera kits and rentals" },
+        { "label": "Tested models", "value": "FX3/FX6, ENG sound kits, rental flightcases" },
+        { "label": "Material", "value": "Depends on the piece: TPU, PA12, light aluminium" },
+        { "label": "Colour", "value": "Black base with corporate colour options" },
+        { "label": "Approx. weight", "value": "10 g – 150 g depending on piece" },
+        { "label": "Usable inner diameter", "value": "Variable per design" },
+        { "label": "Wall thickness", "value": "Adjusted per piece (minimum 2 mm)" },
+        { "label": "Recommended temperature", "value": "-10 ºC to 70 ºC" }
+      ],
+      "status": "Made to order",
+      "category": "Corporate / Merchandising",
+      "notes": "Open project: any small part can turn into functional merch with the client's logo."
+    },
+    "drk-nato-150": {
+      "name": "DRK-NATO 150 · 150mm NATO rail",
+      "longDescription": "150mm NATO rail initially built for FX3/FX30 rigs, adaptable to any camera setup. PAHT-CF construction for stiffness, precise tolerances and low weight.",
+      "features": [
+        "150mm length for compact rigs",
+        "PAHT-CF technical material: strong, rigid and temperature stable",
+        "Tight tolerances for standard NATO clamps",
+        "Compatible with FX3/FX30 and adaptable to any camera",
+        "Low weight without losing stiffness",
+        "Ideal for handles, monitors and sound accessories"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible with", "value": "Standard NATO clamps and FX3/FX30 rigs" },
+        { "label": "Tested models", "value": "Sony FX3/FX30 with SmallRig and Tilta" },
+        { "label": "Material", "value": "PAHT-CF (nylon with carbon fibre)" },
+        { "label": "Colour", "value": "Black with technical texture" },
+        { "label": "Approx. weight", "value": "60 g" },
+        { "label": "Usable inner diameter", "value": "20 mm NATO slot" },
+        { "label": "Wall thickness", "value": "Variable, main reinforcement 3 mm" },
+        { "label": "Recommended temperature", "value": "-10 ºC to 90 ºC" }
+      ],
+      "status": "Validated prototype · Made to order",
+      "category": "Camera / Accessories",
+      "notes": "Also available in custom lengths on request. Future compatibility with universal cheese plates, ARRI systems and hybrid mounts (under development)."
+    },
+    "drk-hinge-ls": {
+      "name": "DRK-HINGE LS · Lastolite hinge",
+      "longDescription": "Replacement hinge for Lastolite folding frames. Reinforced thread, precise fit and rugged material to extend frame life without replacing the entire kit.",
+      "features": [
+        "Full compatibility with Lastolite frames (left/right hinge)",
+        "Reinforced thread, more durable than the original",
+        "Tight fit with tolerances tested in rental use",
+        "Impact- and twist-resistant material",
+        "Ideal quick spare for worn kits"
+      ],
+      "technicalSpecs": [
+        { "label": "Compatible with", "value": "Lastolite folding frames" },
+        { "label": "Tested models", "value": "Lastolite Skylite Rapid and Panoramic" },
+        { "label": "Material", "value": "Fibre-reinforced polymer" },
+        { "label": "Colour", "value": "Graphite black" },
+        { "label": "Approx. weight", "value": "35 g per hinge" },
+        { "label": "Usable inner diameter", "value": "8 mm centre pin" },
+        { "label": "Wall thickness", "value": "3 mm with reinforced thread" },
+        { "label": "Recommended temperature", "value": "-10 ºC to 70 ºC" }
+      ],
+      "status": "Made to order",
+      "category": "Spare parts / Grip",
+      "notes": "Also available in packs of 2, 4 or 8 units for rental maintenance."
     }
   }
 }
