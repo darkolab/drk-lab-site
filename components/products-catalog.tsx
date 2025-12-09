@@ -28,6 +28,15 @@ export type ProductsDictionary = {
     categories: Record<string, string>;
   };
   viewSheet: string;
+  items?: Record<
+    string,
+    {
+      name?: string;
+      description?: string;
+      category?: string;
+      status?: string;
+    }
+  >;
 };
 
 function getStatusStyle(status: string) {
@@ -60,7 +69,10 @@ export function ProductsCatalog({
       new Set(products.map((product) => getCategoryKey(product.categoryKey, product.category))),
     ).filter(Boolean);
 
-    return [{ key: "all", label: dictionary.filters.all }, ...uniqueKeys.map((key) => ({ key, label: getCategoryLabel(key, dictionary.filters.categories) }))];
+    return [
+      { key: "all", label: dictionary.filters.all },
+      ...uniqueKeys.map((key) => ({ key, label: getCategoryLabel(key, dictionary.filters.categories) })),
+    ];
   }, [dictionary.filters.all, dictionary.filters.categories, products]);
 
   const [activeCategory, setActiveCategory] = useState<string>("all");
@@ -70,7 +82,15 @@ export function ProductsCatalog({
     return products.filter((product) => getCategoryKey(product.categoryKey, product.category) === activeCategory);
   }, [activeCategory, products]);
 
-  const withLocale = (href: string) => `/${locale}${href}`;
+  const catalogItems = dictionary.items ?? {};
+
+  const withLocale = (href: string) => {
+    if (href.startsWith("http")) return href;
+    if (href.startsWith(`/${locale}`)) return href;
+    if (href.startsWith("/")) return `/${locale}${href}`;
+    if (href.startsWith("#")) return `/${locale}${href}`;
+    return `/${locale}/${href}`;
+  };
 
   return (
     <>
@@ -104,6 +124,12 @@ export function ProductsCatalog({
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 xl:gap-16 2xl:gap-20">
             {filteredProducts.map((product) => {
               const categoryKey = getCategoryKey(product.categoryKey, product.category);
+              const categoryLabel = getCategoryLabel(categoryKey, dictionary.filters.categories);
+
+              const translated = catalogItems[product.slug] ?? {};
+              const displayName = translated.name ?? product.shortName ?? product.name;
+              const displayDescription =
+                translated.description ?? product.shortDescription ?? product.longDescription;
 
               return (
                 <article
@@ -130,7 +156,7 @@ export function ProductsCatalog({
                       <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-slate-200">
                         <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-3 py-1 backdrop-blur">
                           <span className="h-1.5 w-1.5 rounded-full bg-red-400" aria-hidden />
-                          {product.category}
+                          {categoryLabel}
                         </span>
                         <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-1 font-mono tracking-[0.2em] text-white">
                           {product.code}
@@ -139,7 +165,7 @@ export function ProductsCatalog({
 
                       <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.26em] text-slate-300">
                         <span className="h-px w-10 bg-slate-500/60" aria-hidden />
-                        {getCategoryLabel(categoryKey, dictionary.filters.categories)} · DRK LAB
+                        {categoryLabel} · DRK LAB
                       </div>
                     </div>
                   </div>
@@ -148,7 +174,7 @@ export function ProductsCatalog({
                     <div className="space-y-4">
                       <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-slate-400">
                         <span className="rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1 text-white/90">
-                          {product.category}
+                          {categoryLabel}
                         </span>
                         <span className="h-px flex-1 bg-slate-700/60" aria-hidden />
                         <span className="font-mono text-slate-300">{product.code}</span>
@@ -157,13 +183,15 @@ export function ProductsCatalog({
                       <div className="space-y-2">
                         <h2 className="text-xl font-semibold text-white md:text-2xl">
                           <Link href={withLocale(`/products/${product.slug}`)} className="transition hover:text-red-400">
-                            {product.shortName}
+                            {displayName}
                           </Link>
                         </h2>
                         <p className="text-xs uppercase tracking-[0.2em] text-slate-500">{product.status}</p>
                       </div>
 
-                      <p className="text-sm leading-relaxed text-slate-200/90 md:text-base">{product.shortDescription}</p>
+                      <p className="text-sm leading-relaxed text-slate-200/90 md:text-base">
+                        {displayDescription}
+                      </p>
                     </div>
 
                     <div className="mt-6 flex items-center justify-between pt-4 text-sm">

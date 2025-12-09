@@ -64,37 +64,6 @@ export const products: Product[] = [
     leadTimeWeeks: 2,
   },
   {
-    slug: "drk-case-media",
-    code: "DRK-CASE Media",
-    name: "Càixes per a targetes SD / CFexpress / CFast",
-    shortName: "Càixes targetes",
-    category: "Media / emmagatzematge",
-    categoryKey: "media",
-    status: "Nova sèrie prevista gener 2026",
-    shortDescription:
-      "Càixes compactes i robustes per a targetes SD, CFexpress i CFast, amb interiors configurables.",
-    longDescription:
-      "Sistema de caixes modular per organitzar i protegir targetes SD, CFexpress tipus B i CFast. Cada caixa pot configurar-se per capacitat i tipus de targeta, amb opcions de codi de color i identificació ràpida per a equip o producció.",
-    image: "/hero/drk-sd-cases.jpg",
-    features: [
-      "Interiors configurables segons tipus de targeta",
-      "Format compacte pensat per flightcases",
-      "Opció de codi de color per producció o càmeres",
-      "Tancament ferm i fàcil d’obrir amb guants",
-    ],
-    technicalSpecs: [
-      { label: "Compatible amb", value: "Targetes SD, CFexpress B i CFast" },
-      { label: "Models provats", value: "Sony Tough CFexpress B, Angelbird, ProGrade SD" },
-      { label: "Material", value: "Polímer tècnic resistent a cops" },
-      { label: "Color", value: "Negre carbó amb opcions de color interior" },
-      { label: "Pes aproximat", value: "85 g per caixa" },
-      { label: "Diàmetre interior útil", value: "Layout adaptable segons combinació" },
-      { label: "Gruix de paret", value: "2.8 mm" },
-      { label: "Rang de temperatura recomanat", value: "-10 ºC a 70 ºC" },
-    ],
-    availability: "prototype",
-  },
-  {
     slug: "drk-hood-sh7",
     code: "DRK-HOOD SH7",
     name: "Parasol per a Atomos Shinobi 7\"",

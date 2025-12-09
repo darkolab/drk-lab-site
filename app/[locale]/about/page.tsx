@@ -1,17 +1,13 @@
 // app/[locale]/about/page.tsx
-import { notFound } from "next/navigation";
-import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
+import { getDictionary, resolveLocale, type Locale } from "@/lib/i18n";
 
-export default async function AboutPage({
-  params,
-}: {
-  params: { locale: string };
-}) {
-  if (!isLocale(params.locale)) {
-    notFound();
-  }
+type PageParams = {
+  params: Promise<{ locale: string }>;
+};
 
-  const locale = params.locale as Locale;
+export default async function Home({ params }: PageParams) {
+  const { locale: rawLocale } = await params;
+  const locale: Locale = resolveLocale(rawLocale);
   const dictionary = await getDictionary(locale);
 
   return (

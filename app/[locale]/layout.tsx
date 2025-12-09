@@ -1,20 +1,34 @@
+// app/[locale]/layout.tsx
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import type React from "react";
+
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
+import {
+  locales,
+  resolveLocale,
+  getDictionary,
+  type Locale,
+} from "@/lib/i18n";
 
-export async function generateStaticParams() {
+type LocaleParams = {
+  params: Promise<{ locale?: string }>;
+};
+
+type LocaleLayoutProps = LocaleParams & {
+  children: React.ReactNode;
+};
+
+export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
-  const locale = isLocale(params.locale) ? params.locale : undefined;
-  const dictionary = await getDictionary(locale ?? locales[0]);
+export async function generateMetadata(
+  { params }: LocaleParams,
+): Promise<Metadata> {
+  const { locale: rawLocale } = await params;
+  const locale: Locale = resolveLocale(rawLocale);
+  const dictionary = await getDictionary(locale);
 
   return {
     title: dictionary.meta.title,
@@ -32,15 +46,9 @@ export async function generateMetadata({
 export default async function LocaleLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
-  if (!isLocale(params.locale)) {
-    notFound();
-  }
-
-  const locale = params.locale as Locale;
+}: LocaleLayoutProps) {
+  const { locale: rawLocale } = await params;
+  const locale: Locale = resolveLocale(rawLocale);
   const dictionary = await getDictionary(locale);
 
   return (
@@ -53,13 +61,23 @@ export default async function LocaleLayout({
             <span>{dictionary.common.banner.title}</span>
           </span>
 
-          <span className="hidden text-black/80 md:inline">{dictionary.common.banner.message}</span>
+          <span className="hidden text-black/80 md:inline">
+            {dictionary.common.banner.message}
+          </span>
         </div>
       </div>
 
-      <SiteHeader locale={locale} dictionary={dictionary.common.navigation} />
+      <SiteHeader
+        locale={locale}
+        dictionary={dictionary.common.navigation}
+      />
+
       {children}
-      <SiteFooter locale={locale} dictionary={dictionary.common.footer} />
+
+      <SiteFooter
+        locale={locale}
+        dictionary={dictionary.common.footer}
+      />
     </>
   );
 }

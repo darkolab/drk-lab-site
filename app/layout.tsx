@@ -1,7 +1,9 @@
+// app/layout.tsx
 import type { Metadata } from "next";
+import { headers, cookies } from "next/headers";
+import type React from "react";
 import "./globals.css";
-import { cookies } from "next/headers";
-import { defaultLocale, locales, type Locale } from "@/lib/i18n";
+import { DEFAULT_LOCALE, resolveLocale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "DRK LAB · Enginyeria per a rodatges",
@@ -15,23 +17,20 @@ export const metadata: Metadata = {
   },
 };
 
-function getLocaleFromCookies(): Locale {
-  const cookieLocale = cookies().get("NEXT_LOCALE")?.value;
-  if (cookieLocale && locales.includes(cookieLocale as Locale)) {
-    return cookieLocale as Locale;
-  }
-  return defaultLocale;
-}
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const locale = getLocaleFromCookies();
+  const cookieStore = await cookies();
+  const headerList = await headers();
+
+  const detectedLocale = resolveLocale(
+    cookieStore.get("NEXT_LOCALE")?.value ?? headerList.get("accept-language"),
+  );
 
   return (
-    <html lang={locale}>
+    <html lang={detectedLocale ?? DEFAULT_LOCALE}>
       <body className="bg-[#050509] text-slate-100">{children}</body>
     </html>
   );

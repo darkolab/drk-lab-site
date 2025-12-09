@@ -1,19 +1,57 @@
-import { notFound } from "next/navigation";
+// app/[locale]/products/page.tsx
 import { ProductsCatalog } from "@/components/products-catalog";
 import { products } from "@/lib/products";
-import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
+import { getDictionary, resolveLocale, type Locale } from "@/lib/i18n";
 
-export default async function ProductsPage({
-  params,
-}: {
-  params: { locale: string };
-}) {
-  if (!isLocale(params.locale)) {
-    notFound();
-  }
+type ProductsPageProps = {
+  // Igual que en las demás páginas con params asíncronos
+  params: Promise<{ locale: string }>;
+};
 
-  const locale = params.locale as Locale;
+// Misma idea de copia traducible que en la ficha
+type ProductCopy = {
+  name?: string;
+  shortDescription?: string;
+  longDescription?: string;
+  features?: string[];
+  technicalSpecs?: { label: string; value: string }[];
+  status?: string;
+  category?: string;
+  notes?: string;
+};
+
+export default async function ProductsPage({ params }: ProductsPageProps) {
+  const { locale: rawLocale } = await params;
+  const locale: Locale = resolveLocale(rawLocale);
   const dictionary = await getDictionary(locale);
 
-  return <ProductsCatalog products={products} dictionary={dictionary.productsPage} locale={locale} />;
+  // Mapa opcional de copias por slug:
+  // "productCopy": { "drk-cap-led": { name: "...", shortDescription: "..." } }
+  const productCopyMap =
+    (dictionary as any).productCopy as
+      | Record<string, ProductCopy>
+      | undefined;
+
+  const translatedProducts = products.map((product) => {
+    const copy =
+      productCopyMap?.[
+        product.slug as keyof typeof productCopyMap
+      ] as ProductCopy | undefined;
+
+    if (!copy) return product;
+
+    // Hacemos override solo de los campos de texto que vengan en la copia
+    return {
+      ...product,
+      ...copy,
+    };
+  });
+
+  return (
+    <ProductsCatalog
+      products={translatedProducts}
+      dictionary={dictionary.productsPage}
+      locale={locale}
+    />
+  );
 }

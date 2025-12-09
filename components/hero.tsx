@@ -21,7 +21,11 @@ export function Hero({ slides, locale }: { slides: HeroSlide[]; locale: Locale }
 
   const withLocale = (href?: string) => {
     if (!href) return undefined;
-    return `/${locale}${href}`;
+    if (href.startsWith("http")) return href;
+    if (href.startsWith(`/${locale}`)) return href;
+    if (href.startsWith("/")) return `/${locale}${href}`;
+    if (href.startsWith("#")) return `/${locale}${href}`;
+    return `/${locale}/${href}`;
   };
 
   return (

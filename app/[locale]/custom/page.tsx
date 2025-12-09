@@ -1,19 +1,15 @@
 // app/[locale]/custom/page.tsx
-import { notFound } from "next/navigation";
-import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
+import { getDictionary, resolveLocale, type Locale } from "@/lib/i18n";
 
-export default async function CustomPage({
-  params,
-}: {
-  params: { locale: string };
-}) {
-  if (!isLocale(params.locale)) {
-    notFound();
-  }
+type PageParams = {
+  params: Promise<{ locale: string }>;
+};
 
-  const locale = params.locale as Locale;
+export default async function Home({ params }: PageParams) {
+  const { locale: rawLocale } = await params;
+  const locale: Locale = resolveLocale(rawLocale);
   const dictionary = await getDictionary(locale);
-
+  
   return (
     <main className="min-h-screen bg-[#050509] text-slate-100">
       <section className="border-b border-slate-900 bg-black/40 py-10">
