@@ -21,7 +21,7 @@
       "homeAria": "Home"
     },
     "footer": {
-      "tagline": "Engineering for shoots, bespoke accessories and parts built to survive rental and set rhythms.",
+      "tagline": "Engineering for shoots, bespoke accessories and parts built to survive rental and on-set life.",
       "navigation": {
         "home": "Home",
         "products": "Products",
@@ -39,7 +39,7 @@
         "eyebrow": "Engineering · 3D · Shoots",
         "title": "Technical accessories",
         "accent": "built for set.",
-        "description": "3D parts for cameras, lights and monitors. Robust solutions tested in rentals and real shoots.",
+        "description": "3D-printed parts for cameras, lights and monitors. Robust solutions tested in rentals and real shoots.",
         "image": "/hero/slide-accessoris.jpg",
         "caption": "DRK-CAP · DRK-CASE · SD Cases",
         "primaryLabel": "See products",
@@ -52,7 +52,7 @@
         "eyebrow": "R+D DRK LAB",
         "title": "Products in",
         "accent": "development",
-        "description": "Prototypes of the DRK Slider, cages and handles in technical PAHT CF materials.",
+        "description": "Prototypes of the DRK Slider, cages and handles made with technical PAHT CF materials.",
         "image": "/hero/slide-rnd.jpg",
         "caption": "DRK Slider · PAHT CF",
         "primaryLabel": "Roadmap",
@@ -63,7 +63,7 @@
         "eyebrow": "Custom parts",
         "title": "3D solutions",
         "accent": "for your workflow",
-        "description": "Adapters, protections and parts that don't exist in manufacturers' catalogues.",
+        "description": "Adapters, protections and parts that don't exist in manufacturers’ catalogues.",
         "image": "/hero/slide-custom.jpg",
         "caption": "Custom projects",
         "primaryLabel": "Bespoke projects",
@@ -78,7 +78,7 @@
       "items": [
         {
           "title": "3D design for shoots",
-          "text": "Parts built for everyday work: protections, caps, mounts, adapters and solutions you won't find in manufacturers' catalogues."
+          "text": "Parts built for everyday work: protections, caps, mounts, adapters and solutions you won't find in manufacturers’ catalogues."
         },
         {
           "title": "Printing with technical materials",
@@ -92,7 +92,7 @@
     },
     "featured": {
       "title": "Featured products",
-      "description": "A selection of parts already working daily in rentals and crews.",
+      "description": "A selection of parts already working daily in rentals and with crews.",
       "viewAll": "View full catalogue →",
       "viewSheet": "View sheet"
     },
@@ -107,19 +107,19 @@
     },
     "about": {
       "title": "Who's behind DRK LAB?",
-      "description": "DRK LAB is the personal project of Fran, an audiovisual technician and cinematographer. Working daily with cameras, lenses and lights in a rental, I've seen first-hand what breaks, what's lost and what's missing in the cases. That's where DRK LAB parts come from: small solutions solving very specific problems."
+      "description": "DRK LAB is the personal project of Fran, an audiovisual technician and cinematographer. Working daily with cameras, lenses and lights in a rental, I've seen first-hand what breaks, what gets lost and what’s missing in the cases. DRK LAB parts come from there: small, focused solutions for very specific problems."
     },
     "contact": {
       "title": "Contact",
-      "description": "If you're a rental, production company or freelance technician and have an idea or on-set problem, write me and let's talk.",
+      "description": "If you're a rental, production company or freelance technician and have an idea or on-set problem, drop me a line and we'll see how to solve it.",
       "emailLabel": "Email:",
-      "email": "fdrarkstudio@gmail.com",
+      "email": "info@drklab.studio",
       "tagline": "Built in Catalonia for shoots everywhere."
     }
   },
   "productsPage": {
     "title": "DRK LAB product catalogue",
-    "description": "Accessories designed for cameras, lights and monitors, built for rentals and shooting crews. Parts made to work and endure on set.",
+    "description": "Accessories designed for cameras, lights and monitors, built for rentals and film crews. Parts made to work and survive on set.",
     "filters": {
       "all": "All",
       "categories": {
@@ -135,35 +135,35 @@
     "items": {
       "drk-cap-led": {
         "name": "Bowens caps",
-        "description": "Protective caps for Bowens LED heads that keep the COB safe during transport and storage."
+        "description": "Protective caps for Bowens-mount LED heads that keep the COB safe during transport and storage."
       },
       "drk-case-media": {
         "name": "Card cases",
-        "description": "Compact, rugged cases for SD, CFexpress and CFast cards with inserts you can configure for any combo."
+        "description": "Compact, rugged cases for SD, CFexpress and CFast cards with configurable interiors."
       },
       "drk-hood-sh7": {
         "name": "Shinobi 7\" hood",
-        "description": "Custom hood for the Atomos Shinobi 7\" with a precise fit, no adhesives and better outdoor readability."
+        "description": "Custom hood for the Atomos Shinobi 7\" monitor with precise fit, no adhesives and better outdoor readability."
       },
       "drk-honeycomb-v1s": {
         "name": "Honeycomb V1s",
-        "description": "Honeycomb for the Godox V1s flash with a 40° beam and pressure-fit mount, no adhesives."
+        "description": "Honeycomb grid for the Godox V1s flash with 40° beam and pressure fit, no adhesives."
       },
       "drk-case-media-system": {
         "name": "Case Media System",
-        "description": "Modular case for SD, CFexpress A/B and CFast cards with fully configurable interiors for each crew."
+        "description": "Modular case system for SD, CFexpress A/B and CFast cards with 100% configurable interiors per kit or production."
       },
       "drk-merch-pro": {
         "name": "Functional merch",
-        "description": "Custom merch for rentals and productions: useful tools with your logo, built for set life—not to stay in a drawer."
+        "description": "Custom merch for rentals and production companies: useful tools with your logo, made to live on set—not in a drawer."
       },
       "drk-nato-150": {
         "name": "NATO 150mm",
-        "description": "150mm PAHT-CF NATO rail, light and stiff for FX3/FX30 rigs and hybrid builds, with zero rattles."
+        "description": "150mm NATO rail in PAHT-CF, light and rigid for FX3/FX30 rigs and hybrid configurations, without vibration."
       },
       "drk-hinge-ls": {
         "name": "Lastolite hinge",
-        "description": "Replacement hinge for Lastolite panels with reinforced thread and a fully compatible fit."
+        "description": "Replacement hinge for Lastolite frames with reinforced thread and 100% compatible fit."
       }
     }
   },
@@ -182,23 +182,23 @@
     "wantProduct": "Want this product?",
     "cta": "Request info",
     "ctaSecondary": "Back to catalogue",
-    "ctaDescription": "DRK LAB mostly works on demand for rentals, production companies and technicians. Tell me what you need and let's see if this model fits or needs adapting.",
-    "imagePending": "Product image pending",
+    "ctaDescription": "DRK LAB mostly works on demand for rentals, production companies and technicians. Tell me what you need and we'll see if this model fits or needs adapting.",
+    "imagePending": "Product image coming soon",
     "prototype": "DRK LAB · functional prototype",
     "slugFallback": "(no slug)",
     "status": "Status"
   },
   "aboutPage": {
     "title": "About DRK LAB",
-    "description": "DRK LAB is the personal lab of Francesc Romero, film technician and compulsive 3D printer. Designing and printing from Maresme for shoots everywhere."
+    "description": "DRK LAB is the personal lab of Francesc Romero, film technician and compulsive 3D printer. Designing and printing from the Maresme coast for shoots everywhere."
   },
   "contactPage": {
     "title": "Contact",
-    "description": "Tell me what you need and I'll reply with a concrete proposal: part, timings and budget."
+    "description": "Tell me what you need and I'll reply with a clear proposal: part, timings and budget tailored to your project."
   },
   "servicesPage": {
     "title": "Services",
-    "description": "DRK LAB supports rentals, production companies and focus pullers with design and manufacturing of 3D accessories for real shoots.",
+    "description": "DRK LAB supports rentals, production companies and focus pullers with design and manufacturing of 3D accessories for real-world shoots.",
     "subtitle": "What I can do for your shoot",
     "items": [
       "· Accessories for cameras, rigs and monitors.",
@@ -208,7 +208,7 @@
   },
   "customPage": {
     "title": "Bespoke projects",
-    "description": "Got a weird idea in mind? DRK LAB exists for that: unique parts for problems the standard catalogue doesn't solve."
+    "description": "Got a weird idea in mind? DRK LAB exists for exactly that: unique parts for problems the standard catalogue doesn't solve."
   },
   "productCopy": {
     "drk-cap-led": {
@@ -237,7 +237,7 @@
       "features": [
         "Configurable inserts by card type",
         "Compact form factor for flightcases",
-        "Colour coding option for production or cameras",
+        "Colour-coding option for production or cameras",
         "Secure latch that's easy to open with gloves"
       ],
       "technicalSpecs": [
@@ -288,7 +288,7 @@
         "Reduces spill and unwanted reflections"
       ],
       "technicalSpecs": [
-        { "label": "Compatible with", "value": "Godox V1s round head flash" },
+        { "label": "Compatible with", "value": "Godox V1s round-head flash" },
         { "label": "Tested models", "value": "Godox V1s and V1 for Sony" },
         { "label": "Material", "value": "Heat-resistant PC-ABS" },
         { "label": "Colour", "value": "Textured black" },
@@ -310,8 +310,8 @@
         "Secure closure, optionally magnetic",
         "Compact, impact-resistant outer shell",
         "Designed for flightcases and set work",
-        "Option for colour coding or engraved production labels",
-        "'Custom' version for special cards or non-standard quantities"
+        "Option for colour-coding or engraved production labels",
+        "“Custom” version for special cards or non-standard quantities"
       ],
       "technicalSpecs": [
         { "label": "Compatible with", "value": "Mixed layouts for SD, CFexpress A/B and CFast" },
@@ -331,7 +331,7 @@
       "name": "DRK-MERCH PRO · Functional merch",
       "longDescription": "Functional merchandising line for rentals, production companies and film schools: tool keychains, ID plates and useful accessories with your logo, created for real on-set use.",
       "features": [
-        "Custom 1/4'' and 3/8'' tool keychains with logo",
+        "Custom 1/4\" and 3/8\" tool keychains with logo",
         "Mini tools for cameras and accessories",
         "Useful rental pieces with engraved or integrated logo",
         "Fully bespoke design for each team, company or school",
@@ -357,7 +357,7 @@
       "longDescription": "150mm NATO rail initially built for FX3/FX30 rigs, adaptable to any camera setup. PAHT-CF construction for stiffness, precise tolerances and low weight.",
       "features": [
         "150mm length for compact rigs",
-        "PAHT-CF technical material: strong, rigid and temperature stable",
+        "PAHT-CF technical material: strong, rigid and temperature-stable",
         "Tight tolerances for standard NATO clamps",
         "Compatible with FX3/FX30 and adaptable to any camera",
         "Low weight without losing stiffness",

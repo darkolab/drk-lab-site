@@ -21,7 +21,7 @@
       "homeAria": "Inicio"
     },
     "footer": {
-      "tagline": "Ingeniería para rodajes, accesorios a medida y piezas pensadas para aguantar ritmos de rental y set.",
+      "tagline": "Ingeniería para rodajes, accesorios a medida y piezas diseñadas para aguantar el ritmo de rental y set.",
       "navigation": {
         "home": "Inicio",
         "products": "Productos",
@@ -74,7 +74,7 @@
   "home": {
     "services": {
       "title": "¿Qué hace DRK LAB?",
-      "description": "DRK LAB nace de mezclar un almacén de rental con un laboratorio 3D. Detectamos problemas reales en set y diseñamos piezas específicas para que dejen de serlo.",
+      "description": "DRK LAB nace de mezclar un almacén de rental con un laboratorio 3D. Detectamos problemas reales en set y diseñamos piezas específicas para que dejen de ser un problema.",
       "items": [
         {
           "title": "Diseño 3D para rodajes",
@@ -86,7 +86,7 @@
         },
         {
           "title": "Prototipado rápido para rentals y productoras",
-          "text": "Del problema a la pieza funcional en pocos días, con iteraciones rápidas hasta encontrar el fit perfecto."
+          "text": "Del problema a la pieza funcional en pocos días, con iteraciones rápidas hasta encontrar el encaje perfecto."
         }
       ]
     },
@@ -107,13 +107,13 @@
     },
     "about": {
       "title": "¿Quién está detrás de DRK LAB?",
-      "description": "DRK LAB es el proyecto personal de Fran, técnico audiovisual y director de fotografía. Trabajando a diario con cámaras, ópticas y luz en un rental, he visto de cerca qué se rompe, qué se pierde y qué falta en las maletas. De ahí nacen las piezas de DRK LAB: soluciones pequeñas que resuelven problemas muy concretos."
+      "description": "DRK LAB es el proyecto personal de Fran, técnico audiovisual y director de fotografía. Trabajando a diario con cámaras, ópticas y luz en un rental, he visto de cerca qué se rompe, qué se pierde y qué falta en las maletas. De ahí nacen las piezas de DRK LAB: soluciones pequeñas y muy concretas pensadas para facilitar el trabajo en set."
     },
     "contact": {
       "title": "Contacto",
       "description": "Si eres un rental, productora o técnico freelance y tienes una idea o un problema en set, escríbeme y lo comentamos.",
       "emailLabel": "Correo:",
-      "email": "fdrarkstudio@gmail.com",
+      "email": "info@drklab.studio",
       "tagline": "Hecho en Catalunya para rodajes de todas partes."
     }
   },
@@ -126,38 +126,32 @@
         "llum": "Luz",
         "monitors": "Monitores",
         "media": "Media",
-      "merch": "Merch",
-      "grip": "Grip",
-      "camera": "Cámara"
-    }
-  },
-  "viewSheet": "Ver ficha",
-  "items": {
-    "drk-cap-led": {
-      "name": "Tapas Bowens",
-      "description": "Tapa de protección para cabezas LED Bowens. Protege el COB durante transporte y almacenaje."
+        "merch": "Merch",
+        "grip": "Grip",
+        "camera": "Cámara"
+      }
     },
     "viewSheet": "Ver ficha",
     "items": {
       "drk-cap-led": {
         "name": "Tapas Bowens",
-        "description": "Tapas de protección para cabezas LED Bowens que mantienen el COB seguro en transporte y almacenaje."
+        "description": "Tapas de protección para cabezas LED Bowens que mantienen el COB seguro durante el transporte y el almacenaje."
       },
       "drk-case-media": {
-        "name": "Cajas tarjetas",
+        "name": "Cajas para tarjetas",
         "description": "Cajas compactas y robustas para tarjetas SD, CFexpress y CFast con interiores configurables según combinación."
       },
       "drk-hood-sh7": {
         "name": "Parasol Shinobi 7\"",
-        "description": "Parasol a medida para el monitor Atomos Shinobi 7\" con ajuste preciso, sin adhesivos y mejor lectura en exteriores."
+        "description": "Parasol a medida para el monitor Atomos Shinobi 7\" con encaje preciso, sin adhesivos y mejor lectura en exteriores."
       },
       "drk-honeycomb-v1s": {
         "name": "Honeycomb V1s",
-        "description": "Nido de abeja para el flash Godox V1s con haz de 40° y encaje por presión, sin adhesivos."
+        "description": "Nido de abeja para el flash Godox V1s con ángulo de 40° y encaje por presión, sin adhesivos."
       },
       "drk-case-media-system": {
         "name": "Case Media System",
-        "description": "Caja modular para tarjetas SD, CFexpress A/B y CFast con interiores 100% configurables para cada equipo o producción."
+        "description": "Caja modular para tarjetas SD, CFexpress A/B y CFast con interiores 100% configurables por equipo o producción."
       },
       "drk-merch-pro": {
         "name": "Merch funcional",
@@ -165,7 +159,7 @@
       },
       "drk-nato-150": {
         "name": "NATO 150mm",
-        "description": "Rail NATO de 150mm en PAHT-CF, ligero y rígido para rigs FX3/FX30 y montajes híbridos, sin vibraciones."
+        "description": "Rail NATO de 150mm en PAHT-CF, ligero y rígido para rigs FX3/FX30 y configuraciones híbridas, sin resonancias."
       },
       "drk-hinge-ls": {
         "name": "Bisagra Lastolite",
@@ -175,7 +169,7 @@
   },
   "productDetail": {
     "notFoundTitle": "Producto no encontrado",
-    "slugReceived": "slug recibido",
+    "slugReceived": "Slug recibido",
     "availableSlugs": "Slugs disponibles:",
     "backToCatalog": "← Volver al catálogo",
     "techSheet": "FICHA TÉCNICA",
@@ -260,7 +254,7 @@
       "category": "Media / almacenamiento"
     },
     "drk-hood-sh7": {
-      "name": "DRK-HOOD SH7 · Parasoles para Shinobi 7\"",
+      "name": "DRK-HOOD SH7 · Parasol para Shinobi 7\"",
       "longDescription": "Parasol diseñado a medida para el monitor Atomos Shinobi 7\". Mejora la visibilidad en exteriores y añade protección extra, con encaje mecánico sin adhesivos.",
       "features": [
         "Diseño específico para Shinobi 7\"",
@@ -309,19 +303,19 @@
     },
     "drk-case-media-system": {
       "name": "DRK-CASE MEDIA · Sistema modular de cajas",
-      "longDescription": "Sistema modular de cajas para organizar tarjetas SD, CFexpress A, CFexpress B y CFast. Cuerpo compacto y robusto con interiores 100% configurables, pensado para flights y rodajes intensivos.",
+      "longDescription": "Sistema modular de cajas para organizar tarjetas SD, CFexpress A, CFexpress B y CFast. Cuerpo compacto y robusto con interiores 100% configurables, pensado para vuelos y rodajes intensivos.",
       "features": [
         "Interiores configurables para SD, CFexpress A, CFexpress B y/o CFast",
         "Sistema modular para adaptarse a cualquier combinación",
         "Cierre seguro, opcionalmente magnético",
         "Cuerpo exterior compacto y resistente a golpes",
-        "Diseño pensado para flightcases y set",
+        "Diseño pensado para flightcases y trabajo en set",
         "Opción de código de colores o grabado por producción",
-        "Versión 'Custom' para tarjetas especiales o cantidades no estándar"
+        "Versión \"Custom\" para tarjetas especiales o cantidades no estándar"
       ],
       "technicalSpecs": [
         { "label": "Compatible con", "value": "Layouts mixtos para SD, CFexpress A/B y CFast" },
-        { "label": "Modelos probados", "value": "Sony FX3/FX6 media kits, Blackmagic, Canon C70" },
+        { "label": "Modelos probados", "value": "Kits de media para Sony FX3/FX6, Blackmagic, Canon C70" },
         { "label": "Material", "value": "Cuerpo en PA12; interiores según configuración" },
         { "label": "Color", "value": "Cuerpo negro; interiores personalizables" },
         { "label": "Peso aproximado", "value": "110 g (configuración base)" },
@@ -337,7 +331,7 @@
       "name": "DRK-MERCH PRO · Merch funcional",
       "longDescription": "Línea de merchandising funcional para rentals, productoras y escuelas: llaveros-herramienta, placas de identificación y accesorios útiles con el logo integrado, pensados para uso real en set.",
       "features": [
-        "Llaveros-herramienta 1/4'' y 3/8'' personalizados con logo",
+        "Llaveros-herramienta 1/4\" y 3/8\" personalizados con logo",
         "Mini herramientas para cámara y accesorios",
         "Piezas útiles para rental con logotipo grabado o integrado",
         "Diseño totalmente personalizado por equipo, productora o escuela",

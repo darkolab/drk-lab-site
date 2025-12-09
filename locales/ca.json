@@ -21,7 +21,7 @@
       "homeAria": "Inici"
     },
     "footer": {
-      "tagline": "Enginyeria per a rodatges, accessoris a mida i peces pensades per aguantar ritmes de rental i set.",
+      "tagline": "Enginyeria per a rodatges, accessoris a mida i peces pensades per aguantar el ritme de rental i set.",
       "navigation": {
         "home": "Inici",
         "products": "Productes",
@@ -39,7 +39,7 @@
         "eyebrow": "Enginyeria · 3D · Rodatges",
         "title": "Accessoris tècnics",
         "accent": "pensats per al set.",
-        "description": "Peces 3D per a càmeres, llum i monitors. Solucions robustes, testejades en rentals i rodatges reals.",
+        "description": "Peces 3D per a càmeres, llum i monitors. Solucions robustes, testejades a rentals i rodatges reals.",
         "image": "/hero/slide-accessoris.jpg",
         "caption": "DRK-CAP · DRK-CASE · SD Cases",
         "primaryLabel": "Veure productes",
@@ -52,7 +52,7 @@
         "eyebrow": "R+D DRK LAB",
         "title": "Productes en",
         "accent": "desenvolupament",
-        "description": "Prototips del DRK Slider, cages i handles en materials tècnics PAHT CF.",
+        "description": "Prototips del DRK Slider, cages i handles en materials tècnics com Nylon 6, PAHT CF (nylon12) o PPA CF.",
         "image": "/hero/slide-rnd.jpg",
         "caption": "DRK Slider · PAHT CF",
         "primaryLabel": "Roadmap",
@@ -63,7 +63,7 @@
         "eyebrow": "Peces a mida",
         "title": "Solucions 3D",
         "accent": "per al teu flux de treball",
-        "description": "Adaptadors, proteccions i peces que no existeixen al catàleg dels fabricants.",
+        "description": "Adaptadors, proteccions, peces i rigs que no existeixen al catàleg dels fabricants.",
         "image": "/hero/slide-custom.jpg",
         "caption": "Projectes custom",
         "primaryLabel": "Projectes a mida",
@@ -74,7 +74,7 @@
   "home": {
     "services": {
       "title": "Què fa DRK LAB?",
-      "description": "DRK LAB neix de la barreja entre un magatzem de rental i un laboratori 3D. Detectem problemes reals a set i dissenyem peces específiques perquè deixin de ser un problema.",
+      "description": "DRK LAB neix de la barreja entre un magatzem de rental i un laboratori 3D. Detectem problemes reals al set i dissenyem peces específiques perquè deixin de ser un problema.",
       "items": [
         {
           "title": "Disseny 3D per a rodatges",
@@ -82,17 +82,17 @@
         },
         {
           "title": "Impressió amb materials tècnics",
-          "text": "PLA d'alta qualitat, compostos amb fibra i materials pensats per aguantar cops, calor i maltracte de set."
+          "text": "PLA d'alta qualitat, compostos amb fibra i materials pensats per aguantar cops, calor i maltracte del set."
         },
         {
           "title": "Prototipatge ràpid per a rentals i productores",
-          "text": "Del problema a la peça funcional en pocs dies, amb iteracions ràpides fins trobar el fit perfecte."
+          "text": "Del problema a la peça funcional en pocs dies, amb iteracions ràpides fins a trobar l'encaix perfecte."
         }
       ]
     },
     "featured": {
       "title": "Productes destacats",
-      "description": "Algunes de les peces que ja estan funcionant cada dia en rentals i equips de rodatge.",
+      "description": "Algunes de les peces que ja estan funcionant cada dia a rentals i equips de rodatge.",
       "viewAll": "Veure tot el catàleg →",
       "viewSheet": "Veure fitxa"
     },
@@ -101,55 +101,50 @@
       "description": "Tens una càmera, un monitor o un focus que necessita una peça específica? DRK LAB pot dissenyar i fabricar una solució feta per al teu flux de treball.",
       "items": [
         "· Adaptadors i suports per a càmeres i accessoris.",
-        "· Proteccions per a transport en flightcases.",
-        "· Peces que ja no es fabriquen o mai han existit."
+        "· Proteccions per al transport en flightcases.",
+        "· Peces que ja no es fabriquen o que mai han existit.",
+        "· Fetes en materials tècnis d'ingenyeria"
       ]
     },
     "about": {
       "title": "Qui hi ha darrere de DRK LAB?",
-      "description": "DRK LAB és el projecte personal de Fran, tècnic audiovisual i director de fotografia. Treballant diàriament amb càmeres, òptiques i llum en un rental, he vist de prop què es trenca, què es perd i què falta a les maletes. D'aquí neixen les peces de DRK LAB: solucions petites que resolen problemes molt concrets."
+      "description": "DRK LAB és el projecte personal de'n Fran Romero, tècnic audiovisual i director de fotografia. Treballant cada dia amb càmeres, òptiques i llum en un rental, he vist de prop què es trenca, què es perd i què falta a les maletes. D’aquí neixen les peces de DRK LAB: solucions petites i molt concretes pensades per fer més fàcil la feina en set."
     },
     "contact": {
       "title": "Contacte",
-      "description": "Si ets un rental, una productora o un tècnic freelance i tens una idea o un problema a set, escriu-me i en parlem.",
+      "description": "Si ets un rental, una productora o un tècnic freelance i tens una idea o un problema al set, escriu-me i en parlem.",
       "emailLabel": "Correu:",
-      "email": "fdrarkstudio@gmail.com",
-      "tagline": "Fet a Catalunya per a rodatges de tot arreu."
+      "email": "info@drklab.studio",
+      "tagline": "Fet a Catalunya per a rodatges d'arreu."
     }
   },
   "productsPage": {
     "title": "Catàleg de productes DRK LAB",
-    "description": "Accessoris dissenyats per a càmeres, llum i monitors, pensats per a rentals i equips de rodatge. Peces fetes per treballar i resistir en set.",
+    "description": "Accessoris dissenyats per a càmeres, llum i monitors, pensats per a rentals i equips de rodatge. Peces fetes per treballar i resistir al set.",
     "filters": {
       "all": "Tots",
       "categories": {
         "llum": "Llum",
         "monitors": "Monitors",
         "media": "Media",
-      "merch": "Merch",
-      "grip": "Grip",
-      "camera": "Càmera"
-    }
-  },
-  "viewSheet": "Veure fitxa",
-  "items": {
-    "drk-cap-led": {
-      "name": "Tapes Bowens",
-      "description": "Tapes de protecció per a caps LED Bowens. Protegeixen el COB durant transport i magatzem."
+        "merch": "Merch",
+        "grip": "Grip",
+        "camera": "Càmera"
+      }
     },
     "viewSheet": "Veure fitxa",
     "items": {
       "drk-cap-led": {
         "name": "Tapes Bowens",
-        "description": "Tapes de protecció per a caps LED Bowens que mantenen el COB segur en transport i magatzem."
+        "description": "Tapes de protecció per a caps LED Bowens que mantenen el COB segur durant el transport i l'enmagatzematge."
       },
       "drk-case-media": {
-        "name": "Càixes targetes",
-        "description": "Càixes compactes i robustes per a targetes SD, CFexpress i CFast amb interiors configurables segons combinació."
+        "name": "Caixes de targetes",
+        "description": "Caixes compactes i robustes per a qualsevol tarjeta, targetes SD, CFexpress i CFast amb interiors configurables segons combinació."
       },
       "drk-hood-sh7": {
         "name": "Parasol Shinobi 7\"",
-        "description": "Parasol a mida per al monitor Atomos Shinobi 7\" amb encaix precís, sense adhesius i millor lectura en exteriors."
+        "description": "Marc per parasol a mida per al monitor Atomos Shinobi 7\" amb encaix precís, sense adhesius, millor lectura en exteriors i protecció extra."
       },
       "drk-honeycomb-v1s": {
         "name": "Honeycomb V1s",
@@ -157,7 +152,7 @@
       },
       "drk-case-media-system": {
         "name": "Case Media System",
-        "description": "Caixa modular per a targetes SD, CFexpress A/B i CFast amb interiors 100% configurables per equip o producció."
+        "description": "Caixa modular per a qualsevol targeta. Targetes SD, CFexpress A/B, CFast... amb interiors 100% configurables per equip o producció."
       },
       "drk-merch-pro": {
         "name": "Merch funcional",
@@ -168,14 +163,14 @@
         "description": "Rail NATO de 150mm en PAHT-CF, lleuger i rígid per a rigs FX3/FX30 i configuracions híbrides, sense ressonàncies."
       },
       "drk-hinge-ls": {
-        "name": "Bisagra Lastolite",
-        "description": "Bisagra de recanvi per a panells Lastolite amb rosca reforçada i encaix 100% compatible."
+        "name": "Frontissa Lastolite",
+        "description": "Frontissa de recanvi per a panells Lastolite amb rosca reforçada i encaix 100% compatible."
       }
     }
   },
   "productDetail": {
     "notFoundTitle": "Producte no trobat",
-    "slugReceived": "slug rebut",
+    "slugReceived": "Slug rebut",
     "availableSlugs": "Slugs disponibles:",
     "backToCatalog": "← Tornar al catàleg",
     "techSheet": "FITXA TÈCNICA",
@@ -196,7 +191,7 @@
   },
   "aboutPage": {
     "title": "Sobre DRK LAB",
-    "description": "DRK LAB és el laboratori personal de Francesc Romero, tècnic de cinema i impressor 3D compulsiu. Dissenyant i imprimint des del Maresme per a rodatges d'arreu."
+    "description": "DRK LAB és el laboratori personal de'n Francesc Romero, tècnic audiovisual, fotògraf i impressor 3D compulsiu. Dissenyant i imprimint des del Maresme per a rodatges d'arreu."
   },
   "contactPage": {
     "title": "Contacte",
@@ -204,7 +199,7 @@
   },
   "servicesPage": {
     "title": "Serveis",
-    "description": "DRK LAB dona suport a rentals, productores i foquistes amb disseny i fabricació d'accessoris 3D per a rodatges reals.",
+    "description": "DRK LAB dona suport a rentals, productores i tècnics amb disseny i fabricació d'accessoris 3D per a rodatges reals.",
     "subtitle": "Què puc fer per al teu rodatge",
     "items": [
       "· Accessoris per a càmeres, rigs i monitors.",
@@ -226,30 +221,30 @@
         "Cos 3D en material tècnic amb vora frontal reforçada"
       ],
       "technicalSpecs": [
-        { "label": "Muntura", "value": "Bowens S" },
+        { "label": "Montura", "value": "Bowens" },
         {
           "label": "Material",
-          "value": "Filament tècnic (PAHT CF / PLA Pro segons tirada)"
+          "value": "PETG Translúcid"
         },
-        { "label": "Acabat", "value": "Negre mat DRK LAB" }
+        { "label": "Acabat", "value": "Translúcid semi-transparent" }
       ],
-      "status": "Prototip en ús diari en rental",
+      "status": "Prototip en ús diari a rental",
       "category": "Llum",
       "notes": "Dissenyada a partir d'ús real en un rental professional; es poden adaptar mesures i models sota comanda."
     },
     "drk-case-media": {
-      "name": "DRK-CASE Media · Càixes per a targetes",
+      "name": "DRK-CASE Media · Caixes per a targetes",
       "longDescription": "Sistema modular de caixes per organitzar i protegir targetes SD, CFexpress B i CFast. Interiors configurables, pensats per cabre en flightcases i aguantar el ritme d'un rental.",
       "features": [
         "Interiors configurables segons tipus de targeta",
-        "Format compacte pensat per flightcases",
+        "Format compacte pensat per a flightcases",
         "Opció de codi de color per producció o càmeres",
         "Tancament ferm i fàcil d’obrir amb guants"
       ],
       "technicalSpecs": [
         { "label": "Compatible amb", "value": "Targetes SD, CFexpress B i CFast" },
         { "label": "Models provats", "value": "Sony Tough CFexpress B, Angelbird, ProGrade SD" },
-        { "label": "Material", "value": "Polímer tècnic resistent a cops" },
+        { "label": "Material", "value": "Polímer tècnic resistent als cops" },
         { "label": "Color", "value": "Negre carbó amb opcions de color interior" },
         { "label": "Pes aproximat", "value": "85 g per caixa" },
         { "label": "Diàmetre interior útil", "value": "Layout adaptable segons combinació" },
@@ -266,12 +261,12 @@
         "Disseny específic per a Shinobi 7\"",
         "Encaix mecànic, sense adhesius",
         "Millora la lectura en exteriors",
-        "Afegix protecció extra a la pantalla"
+        "Afegeix protecció extra a la pantalla"
       ],
       "technicalSpecs": [
         { "label": "Compatible amb", "value": "Atomos Shinobi 7\"" },
         { "label": "Models provats", "value": "Atomos Shinobi 7\" en rigs FX3/FX30" },
-        { "label": "Material", "value": "TPU + PA12 per zones estructurals" },
+        { "label": "Material", "value": "TPU + PA12 per a les zones estructurals" },
         { "label": "Color", "value": "Negre mat" },
         { "label": "Pes aproximat", "value": "95 g" },
         { "label": "Diàmetre interior útil", "value": "Finestra adaptada al marc Shinobi" },
@@ -284,19 +279,19 @@
     },
     "drk-honeycomb-v1s": {
       "name": "DRK-HONEY V1S · Honeycomb per a Godox V1s",
-      "longDescription": "Honeycomb per al flaix Godox V1s amb sistema d’encaix per pressió, sense imants ni adhesius. Redueix l’angle de llum a 40° per controlar spill i millorar la direccionalitat.",
+      "longDescription": "Honeycomb per al flaix Godox V1s amb sistema d’encaix per pressió, sense imants ni adhesius. Redueix l’angle de llum a 40° per controlar el spill i millorar la direccionalitat.",
       "features": [
         "Compatible amb Godox V1s",
         "Sistema d’encaix per pressió, sense imants ni adhesius",
         "Angle de llum 40° (altres angulacions sota comanda)",
         "Material lleuger i resistent a la calor",
-        "Millora el control i direccionalitat de la llum",
-        "Evita spill i reflexes no desitjats"
+        "Millora el control i la direccionalitat de la llum",
+        "Evita spill i reflexos no desitjats"
       ],
       "technicalSpecs": [
         { "label": "Compatible amb", "value": "Flaix Godox V1s (capçal rodó)" },
         { "label": "Models provats", "value": "Godox V1s i V1 per Sony" },
-        { "label": "Material", "value": "PC-ABS resistent a temperatura" },
+        { "label": "Material", "value": "PC-ABS resistent a la temperatura" },
         { "label": "Color", "value": "Negre texturat" },
         { "label": "Pes aproximat", "value": "55 g" },
         { "label": "Diàmetre interior útil", "value": "76 mm" },
@@ -305,23 +300,23 @@
       ],
       "status": "En producció sota comanda",
       "category": "Llum",
-      "notes": "Model provat i validat per ús en sessions de retrat i rodatges interiors."
+      "notes": "Model provat i validat per a sessions de retrat i rodatges interiors."
     },
     "drk-case-media-system": {
       "name": "DRK-CASE MEDIA · Sistema modular de caixes",
-      "longDescription": "Sistema modular de caixes per organitzar targetes SD, CFexpress A, CFexpress B i CFast. Cos compacte i robust amb interiors 100% configurables, pensat per flights i rodatges intensius.",
+      "longDescription": "Sistema modular de caixes per organitzar targetes SD, CFexpress A, CFexpress B i CFast. Cos compacte i robust amb interiors 100% configurables, pensat per a vols i rodatges intensius.",
       "features": [
         "Interiors configurables per SD, CFexpress A, CFexpress B i/o CFast",
         "Sistema modular per adaptar-se a qualsevol combinació",
         "Tancament segur, opcionalment magnètic",
-        "Cos exterior compacte i resistent a cops",
-        "Disseny pensat per flightcases i set",
+        "Cos exterior compacte i resistent als cops",
+        "Disseny pensat per a flightcases i treball en set",
         "Opció de codi de colors o gravat per producció",
-        "Versió 'Custom' per targetes especials o quantitats no estàndard"
+        "Versió \"Custom\" per a targetes especials o quantitats no estàndard"
       ],
       "technicalSpecs": [
-        { "label": "Compatible amb", "value": "Layouts mixtes per SD, CFexpress A/B i CFast" },
-        { "label": "Models provats", "value": "Sony FX3/FX6 media kits, Blackmagic, Canon C70" },
+        { "label": "Compatible amb", "value": "Layouts mixtes per a SD, CFexpress A/B i CFast" },
+        { "label": "Models provats", "value": "Kits de media per a Sony FX3/FX6, Blackmagic, Canon C70" },
         { "label": "Material", "value": "Cos en PA12; interiors segons configuració" },
         { "label": "Color", "value": "Cos negre; interiors personalitzables" },
         { "label": "Pes aproximat", "value": "110 g (configuració base)" },
@@ -331,14 +326,14 @@
       ],
       "status": "En producció sota comanda",
       "category": "Media / emmagatzematge",
-      "notes": "Projectat com a sistema únic. Les variants d'interior poden crear-se sota demanda segons càmera."
+      "notes": "Projectat com a sistema únic. Les variants d'interior es poden crear sota demanda segons càmera."
     },
     "drk-merch-pro": {
       "name": "DRK-MERCH PRO · Merch funcional",
-      "longDescription": "Línia de merchandising funcional per a rentals, productores i escoles: llavors-eina, plaques d’identificació i accessoris útils amb el logo integrat, dissenyats per a un ús real en set.",
+      "longDescription": "Línia de merchandising funcional per a rentals, productores i escoles: claus-eina, plaques d’identificació i accessoris útils amb el logo integrat, dissenyats per a un ús real en set.",
       "features": [
-        "Llavors-eina 1/4'' i 3/8'' personalitzades amb logo",
-        "Mini eines per càmera i accessoris",
+        "Claus-eina 1/4'' i 3/8'' personalitzades amb logo",
+        "Mini eines per a càmera i accessoris",
         "Peces útils per a rental amb logotip gravat o integrat",
         "Disseny totalment personalitzat per equip, productora o escola",
         "Fabricació robusta amb materials tècnics",
@@ -348,7 +343,7 @@
         { "label": "Compatible amb", "value": "Personalització per a kits de càmera i rental" },
         { "label": "Models provats", "value": "FX3/FX6, kits de so ENG, flightcases de rental" },
         { "label": "Material", "value": "Depèn de la peça: TPU, PA12, alumini lleuger" },
-        { "label": "Color", "value": "Negre base amb opcions de color corporatiu" },
+        { "label": "Color", "value": "Base negra amb opcions de color corporatiu" },
         { "label": "Pes aproximat", "value": "10 g – 150 g segons peça" },
         { "label": "Diàmetre interior útil", "value": "Variable segons disseny" },
         { "label": "Gruix de paret", "value": "Adaptat a cada peça (mínim 2 mm)" },
@@ -363,11 +358,11 @@
       "longDescription": "Rail NATO de 150mm pensat per a rigs compactes FX3/FX30 però adaptable a qualsevol càmera. Fabricat en PAHT-CF per aportar rigidesa, toleràncies precises i pes reduït.",
       "features": [
         "Longitud de 150mm compatible amb rigs compactes",
-        "Material tècnic PAHT-CF: resistent, rígid i estable a temperatura",
+        "Material tècnic PAHT-CF: resistent, rígid i estable en temperatura",
         "Toleràncies ajustades per a clamps NATO estàndard",
         "Compatible amb FX3/FX30 i adaptable a qualsevol càmera",
         "Pes reduït sense comprometre la rigidesa",
-        "Perfecte per handles, monitors i accessoris de so"
+        "Perfecte per a handles, monitors i accessoris de so"
       ],
       "technicalSpecs": [
         { "label": "Compatible amb", "value": "Clamps NATO estàndard i rigs FX3/FX30" },
@@ -390,7 +385,7 @@
         "Compatibilitat total amb marcs Lastolite (bisagra esquerra/dreta)",
         "Rosca reforçada i més duradora que l’original",
         "Encaix ajustat, toleràncies testades en entorn de rental",
-        "Material resistent a cops i torsió",
+        "Material resistent als cops i a la torsió",
         "Ideal com a recanvi ràpid per a kits malmesos"
       ],
       "technicalSpecs": [
@@ -405,7 +400,7 @@
       ],
       "status": "En producció sota comanda",
       "category": "Recanvis / Grip",
-      "notes": "Disponible també en packs de 2, 4 o 8 unitats per manteniment de rental."
+      "notes": "Disponible també en packs de 2, 4 o 8 unitats per a manteniment de rental."
     }
   }
 }
