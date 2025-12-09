@@ -19,14 +19,18 @@ export function Hero({ slides, locale }: { slides: HeroSlide[]; locale: Locale }
 
   const slide = slides[active];
 
-  const withLocale = (href?: string) => {
-    if (!href) return undefined;
+  // Siempre recibe string y siempre devuelve string
+  const withLocale = (href: string) => {
     if (href.startsWith("http")) return href;
     if (href.startsWith(`/${locale}`)) return href;
     if (href.startsWith("/")) return `/${locale}${href}`;
     if (href.startsWith("#")) return `/${locale}${href}`;
     return `/${locale}/${href}`;
   };
+
+  // Copias locales para que TS las estreche bien en el condicional
+  const secondaryHref = slide.secondaryHref;
+  const secondaryLabel = slide.secondaryLabel;
 
   return (
     <section
@@ -50,19 +54,20 @@ export function Hero({ slides, locale }: { slides: HeroSlide[]; locale: Locale }
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
+              {/* primaryHref asumimos que siempre viene definido en los slides */}
               <Link
-                href={withLocale(slide.primaryHref) ?? "#"}
+                href={withLocale(slide.primaryHref)}
                 className="rounded-full bg-red-500 px-6 py-3 text-sm font-medium text-white transition hover:bg-red-600"
               >
                 {slide.primaryLabel}
               </Link>
 
-              {slide.secondaryHref && slide.secondaryLabel && (
+              {secondaryHref && secondaryLabel && (
                 <Link
-                  href={withLocale(slide.secondaryHref)}
+                  href={withLocale(secondaryHref)}
                   className="rounded-full border border-slate-600 px-6 py-3 text-sm font-medium text-slate-200 transition hover:border-slate-300"
                 >
-                  {slide.secondaryLabel}
+                  {secondaryLabel}
                 </Link>
               )}
             </div>
