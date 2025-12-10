@@ -189,9 +189,32 @@
     "status": "Status"
   },
   "aboutPage": {
-    "title": "About DRK LAB",
-    "description": "DRK LAB is the personal lab of Francesc Romero, film technician and compulsive 3D printer. Designing and printing from the Maresme coast for shoots everywhere."
-  },
+  "heroKicker": "DRK LAB · 3D-engineered for set work",
+  "heroTitle": "3D-engineered solutions for the audiovisual world",
+  "heroSubtitle": "DRK LAB was born from a dangerous mix: a rental technician surrounded by cameras all day, an obsession with well-designed solutions and a 3D printer that almost never stops. I design parts made for real-world use: robust, functional and with zero tolerance for cheap plastic that breaks on the first shoot.",
+  "whoTitle": "Who’s behind DRK LAB",
+  "whoBody": "My name is Fran. I’m an audiovisual technician, Director of Photography and a bit of a maker addict. I work every day at Avisual Pro, a professional rental house, which gives me something very valuable: I see up close what breaks, what’s missing and what could be much better designed. DRK LAB is my personal lab, where I turn those needs into real parts: card cases, protectors, mounts, grips and custom pieces that don’t exist in any catalogue but make life easier on set.",
+  "howTitle": "How DRK LAB works",
+  "howItem1Title": "Starting from real problems",
+  "howItem1Body": "Everything starts with something annoying: a cap that keeps falling off, an adapter that doesn’t exist or an official accessory that’s too expensive for what it does. From there we define what needs to be solved and in which real-world context it will be used.",
+  "howItem2Title": "Technical, parametric design",
+  "howItem2Body": "I work in Fusion 360 with parametric models. That allows me to tweak dimensions, tolerances and variants for different cameras, rigs or workflows without redesigning everything from scratch every time.",
+  "howItem3Title": "Tested in real productions",
+  "howItem3Body": "Parts are tested in rental environments and on real sets. If something doesn’t survive the pace of a shooting day, it gets redesigned. The goal is not only to look good in photos, but to work in the hands of a stressed technician.",
+  "howItem4Title": "Controlled in-house production",
+  "howItem4Body": "I print mainly on Bambu Lab printers and switch to technical materials when needed: matte PLA for general product, reinforced materials for parts that need to withstand impacts, heat or continuous load.",
+  "forWhoTitle": "Who DRK LAB is for",
+  "forWhoBody": "DRK LAB is built for people who actually live in the audiovisual world and need more than generic accessories from a catalogue.",
+  "forWhoItem1": "Rental houses looking for tailored solutions for their camera and monitor fleet.",
+  "forWhoItem2": "Production companies and operators who need robust accessories for specific workflows.",
+  "forWhoItem3": "Technicians who are tired of fixing everything with zip ties, gaffer tape and parts that almost fit.",
+  "philosophyTitle": "What DRK LAB is not (and what it is)",
+  "philosophyBody": "DRK LAB is not a huge factory or an endless marketplace. I’m not trying to compete with cheap plastic, but with solutions that actually get used every day. I don’t make parts that are only \"pretty\" for Instagram: they have to work on set. I’m not chasing absolute perfection, but I do care about precision so everything fits right the first time. And above all, I don’t sell hype: if something isn’t a good idea for your use case, I’ll tell you.",
+  "ctaTitle": "Got a specific problem on set?",
+  "ctaBody": "Tell me what you’re missing: a case, a mount, an adapter or something that doesn’t exist yet. Let’s see if DRK LAB is the right fit or if there’s a simpler way to solve it.",
+  "ctaPrimaryLabel": "Let’s talk about your project",
+  "ctaSecondaryLabel": "View product catalogue"
+},
   "contactPage": {
     "title": "Contact",
     "description": "Tell me what you need and I'll reply with a clear proposal: part, timings and budget tailored to your project."

@@ -190,9 +190,32 @@
     "status": "Estat"
   },
   "aboutPage": {
-    "title": "Sobre DRK LAB",
-    "description": "DRK LAB és el laboratori personal de'n Francesc Romero, tècnic audiovisual, fotògraf i impressor 3D compulsiu. Dissenyant i imprimint des del Maresme per a rodatges d'arreu."
-  },
+  "heroKicker": "DRK LAB · Enginyeria per a rodatges",
+  "heroTitle": "Enginyeria impresa per al món audiovisual",
+  "heroSubtitle": "DRK LAB neix d’una barreja perillosa: un tècnic de rental envoltat de càmeres tot el dia, una obsessió per les solucions ben fetes i una impressora 3D que gairebé no para mai. Dissenyo peces pensades per a l’ús real: robustes, funcionals i amb zero tolerància al plàstic cutre que es trenca a la primera.",
+  "whoTitle": "Qui hi ha darrere de DRK LAB?",
+  "whoBody": "DRK LAB sóc jo, en Fran: tècnic audiovisual, director de fotografia i bastant malalt del món maker. Treballo cada dia entre càmeres, òptiques i accessoris a Avisual Pro, un rental professional, i això em dona una cosa molt valuosa: veig de prop què es trenca, què falta i què podria estar millor dissenyat. DRK LAB és el meu laboratori paral·lel, on converteixo aquestes necessitats en peces reals: caixes per a targetes, protectors, suports, grips i solucions que no existeixen en catàleg però que fan la feina més fàcil al set.",
+  "howTitle": "Com treballem a DRK LAB",
+  "howItem1Title": "Escoltant problemes reals",
+  "howItem1Body": "Tot comença amb alguna cosa que molesta: una tapa que cau, un adaptador que no existeix o un accessori oficial que val massa pel que fa. A partir d’aquí definim què cal resoldre i quin és el context d’ús real.",
+  "howItem2Title": "Disseny tècnic i paramètric",
+  "howItem2Body": "Treballo amb Fusion 360 i models paramètrics. Això em permet ajustar mesures, toleràncies i variants per a diferents càmeres, rigs o flows de treball sense redissenyar des de zero cada cop.",
+  "howItem3Title": "Test en entorn de rodatge",
+  "howItem3Body": "Les peces es proven en rentals i en rodatges reals. Si alguna cosa no aguanta el ritme, es redissenya. L’objectiu no és que sigui bonica a la foto, sinó que funcioni en mans d’un tècnic amb pressa.",
+  "howItem4Title": "Producció controlada amb materials tècnics",
+  "howItem4Body": "Imprimeixo principalment amb impressores Bambu Lab i faig servir materials tècnics quan cal: PLA mat per a producte general, materials reforçats per a peces que han de suportar cops, calor o càrrega contínua.",
+  "forWhoTitle": "Per a qui és DRK LAB?",
+  "forWhoBody": "DRK LAB està pensat per a gent que viu dins del món audiovisual i necessita alguna cosa més que accessoris genèrics de catàleg.",
+  "forWhoItem1": "Rentals que volen solucions específiques per al seu parc de càmeres i monitors.",
+  "forWhoItem2": "Productores i operadors que busquen accessoris robustos adaptats al seu flux de treball.",
+  "forWhoItem3": "Tècnics que estan farts de solucionar-ho tot amb brides, cinta americana i peces que gairebé encaixen.",
+  "philosophyTitle": "El que DRK LAB no és (i el que sí és)",
+  "philosophyBody": "DRK LAB no és una fàbrica massiva ni un marketplace infinit. No vull competir amb el plàstic barat, sinó amb solucions que realment es fan servir cada dia. No faig peces només maques per a Instagram: han de funcionar al set. No busco la perfecció absoluta, però sí la precisió justa perquè tot encaixi a la primera. I, sobretot, no venc fum: si una idea no és bona per al teu cas, t’ho diré tal qual.",
+  "ctaTitle": "Tens un problema concret al set?",
+  "ctaBody": "Explica’m què et falta: una caixa, un suport, un adaptador o alguna cosa que encara no existeix. Mirem si DRK LAB és la millor opció o si hi ha una altra manera més senzilla de resoldre-ho.",
+  "ctaPrimaryLabel": "Parlem del teu projecte",
+  "ctaSecondaryLabel": "Veure catàleg de productes"
+},
   "contactPage": {
     "title": "Contacte",
     "description": "Explica'm què necessites i et respondré amb una proposta concreta: peça, timings i pressupost."
