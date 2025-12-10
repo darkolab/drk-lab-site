@@ -220,19 +220,86 @@
     "description": "Cuéntame qué necesitas y te responderé con una propuesta concreta: pieza, timings y presupuesto."
   },
   "servicesPage": {
-    "title": "Servicios",
-    "description": "DRK LAB da soporte a rentals, productoras y foquistas con diseño y fabricación de accesorios 3D para rodajes reales.",
-    "subtitle": "Qué puedo hacer para tu rodaje",
-    "items": [
-      "· Accesorios para cámaras, rigs y monitores.",
-      "· Piezas para cabezas LED y modificadores de luz.",
-      "· Diseño a medida para necesidades muy concretas."
-    ]
-  },
-  "customPage": {
-    "title": "Proyectos a medida",
-    "description": "¿Tienes una idea rara en la cabeza? DRK LAB existe precisamente para eso: piezas únicas para problemas que el catálogo estándar no resuelve."
-  },
+  "heroKicker": "Servicios DRK LAB",
+  "heroTitle": "Servicios pensados para el ritmo real de un rodaje",
+  "heroSubtitle": "DRK LAB no es solo un catálogo de piezas. Es un pequeño laboratorio para detectar problemas en el set, prototipar rápido y entregar soluciones listas para trabajar desde el primer día.",
+  "linesTitle": "¿Qué servicios ofrezco?",
+  "linesIntro": "Trabajo sobre todo con rentals, productoras y técnicos que necesitan piezas muy concretas, normalmente para ayer. Estos son los pilares de DRK LAB:",
+  "lines": [
+    {
+      "title": "Diseño 3D para rodajes",
+      "body": "Diseño de piezas pensadas para el set: tapas, protectores, adaptadores, soportes, rigs y pequeños inventos que resuelven un problema muy concreto. Todo parte de un uso real, no de un catálogo teórico."
+    },
+    {
+      "title": "Prototipado rápido para rentals y equipos",
+      "body": "Desde una idea o un problema hasta una pieza funcional en muy poco tiempo. Podemos iterar rápido hasta encontrar el encaje perfecto: ni demasiado apretado ni demasiado suelto."
+    },
+    {
+      "title": "Producción en materiales técnicos",
+      "body": "Impresión con materiales adaptados a cada caso: PLA mate para producto general, materiales reforzados para piezas que tienen que soportar golpes, temperatura o carga continuada."
+    },
+    {
+      "title": "Merch funcional para el sector audiovisual",
+      "body": "Llaves-herra­mienta, mini accesorios y piezas útiles con el logo integrado. Merch pensado para vivir en el set, no para quedarse olvidado en un cajón."
+    }
+  ],
+  "casesTitle": "Casos típicos que suelen llegar",
+  "casesIntro": "Si alguna de estas situaciones te suena, es bastante probable que DRK LAB pueda ayudarte:",
+  "cases": [
+    "Tenéis un parque de cámaras o monitores y os falta una pieza muy concreta para protegerlos o montarlos.",
+    "Necesitáis sustituir piezas que ya no se fabrican, pero el kit todavía tiene vida por delante.",
+    "Queréis cajas de tarjetas adaptadas exactamente a vuestro kit de cámara o a una producción concreta.",
+    "Buscáis merch útil para un rental, una productora o una escuela: piezas pequeñas, pero que se usen cada día.",
+    "Habéis resuelto algo \"de fortuna\" con bridas o cinta y queréis convertirlo en una pieza como toca."
+  ],
+  "rentalsTitle": "Soporte específico para rentals",
+  "rentalsBody": "Viniendo del mundo del rental conozco bien el ritmo de las jornadas y la realidad del material que entra y sale cada día. DRK LAB puede ayudar a estandarizar soluciones, reducir improvisaciones en almacén y alargar la vida de equipos que siguen funcionando, aunque el fabricante ya no piense tanto en ellos.",
+  "ctaTitle": "¿Tienes una necesidad concreta?",
+  "ctaBody": "Cuéntame qué pasa: qué cámara, monitor o foco es, qué pieza falta y cómo se usa el kit. A partir de ahí vemos si hace falta una pieza nueva, una adaptación de algo existente o si hay otra vía más sencilla.",
+  "ctaPrimaryLabel": "Contar un proyecto",
+  "ctaSecondaryLabel": "Ver proyectos a medida"
+},
+ "customPage": {
+  "heroKicker": "Proyectos a medida",
+  "heroTitle": "Ingeniería 3D para problemas concretos en rodaje.",
+  "heroSubtitle": "Cuando el catálogo estándar no llega, entra DRK LAB. Piezas diseñadas desde la experiencia en rental y rodajes reales, con tolerancias ajustadas y materiales técnicos.",
+
+  "processTitle": "¿Cómo funcionan los proyectos a medida?",
+  "processIntro": "No hace falta venir con un plano técnico. Basta con que me cuentes qué te pasa en el set y con qué cámara, monitor o foco trabajas.",
+
+  "processSteps": [
+    {
+      "title": "1 · Brief rápido y contexto",
+      "body": "Me explicas el problema: qué equipo usas, qué se rompe, qué se pierde o qué es incómodo. Fotos o un vídeo del set ayudan muchísimo."
+    },
+    {
+      "title": "2 · Diseño y prototipo 3D",
+      "body": "Creo el modelo en Fusion 360, pensando en tolerancias reales y en cómo se montará en el set. Podemos hacer una o dos iteraciones de prueba hasta que encaje como debe."
+    },
+    {
+      "title": "3 · Producción en material técnico",
+      "body": "Cuando el prototipo está validado, produzco las piezas finales en materiales como PAHT CF, PA12 o TPU, según si tienen que aguantar golpes, temperatura o flexión."
+    }
+  ],
+
+  "examplesTitle": "¿Qué tipo de piezas suelo hacer?",
+  "examplesIntro": "La mayoría de proyectos vienen de rentals, operadores de cámara y técnicos que necesitan algo muy concreto que no existe en catálogo.",
+  "examples": [
+    "Adaptadores y soportes para cámaras, monitores y receptores inalámbricos.",
+    "Protecciones para cabezas LED, parasoles y modificadores de luz.",
+    "Cajas de media y organizadores para tarjetas, baterías y accesorios pequeños.",
+    "Recambios descatalogados o piezas débiles rediseñadas para durar más.",
+    "Handles, raíles y piezas de rigging pensadas para aguantar el día a día."
+  ],
+
+  "materialsTitle": "Materiales pensados para trabajar, no solo para la foto bonita.",
+  "materialsBody": "Trabajo principalmente con impresoras Bambu Lab y materiales técnicos: PAHT CF y PA12 para estructuras rígidas, TPU para zonas flexibles y PLA de calidad cuando no hace falta ir tan al límite. Siempre priorizando durabilidad, tolerancia y mantenimiento fácil en rental.",
+
+  "ctaTitle": "¿Tienes un problema concreto en el set?",
+  "ctaBody": "Si tienes una cámara, soporte, adaptador o pieza que aún no existe, podemos ver si tiene sentido convertirlo en una pieza DRK LAB.",
+  "ctaPrimaryLabel": "Cuéntame tu proyecto",
+  "ctaSecondaryLabel": "Ver catálogo de productos"
+},
   "productCopy": {
     "drk-cap-led": {
       "name": "DRK-CAP LED · Tapa de protección Bowens",

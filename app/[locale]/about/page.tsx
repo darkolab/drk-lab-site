@@ -1,12 +1,12 @@
-// app/[locale]/about/page.tsx
 import { getDictionary, resolveLocale } from "@/lib/i18n";
 
 export default async function AboutPage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const locale = resolveLocale(params.locale);
+  const { locale: rawLocale } = await params;
+  const locale = resolveLocale(rawLocale);
   const dictionary = await getDictionary(locale);
   const t = dictionary.aboutPage;
 
@@ -27,13 +27,13 @@ export default async function AboutPage({
         </div>
       </section>
 
-      {/* QUIÉN HAY DETRÁS */}
+      {/* QUI HI HA / QUIÉN HAY DETRÁS */}
       <section className="border-b border-slate-900 bg-[#050509] py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-6 space-y-4">
           <h2 className="text-lg font-semibold text-white md:text-xl">
             {t.whoTitle}
           </h2>
-          <p className="max-w-3xl text-sm leading-relaxed text-slate-300 md:text-base">
+          <p className="max-w-3xl text-sm text-slate-300 md:text-base">
             {t.whoBody}
           </p>
         </div>
@@ -45,44 +45,48 @@ export default async function AboutPage({
           <h2 className="text-lg font-semibold text-white md:text-xl">
             {t.howTitle}
           </h2>
-          <div className="mt-6 grid gap-8 md:grid-cols-2">
-            <div className="space-y-2">
-              <h3 className="text-sm font-semibold text-slate-100 uppercase tracking-wide">
+
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <article className="rounded-3xl border border-slate-800 bg-black/40 p-5">
+              <h3 className="text-sm font-semibold text-slate-50 md:text-base">
                 {t.howItem1Title}
               </h3>
-              <p className="text-sm text-slate-300 md:text-base">
+              <p className="mt-2 text-sm text-slate-300 md:text-[0.95rem]">
                 {t.howItem1Body}
               </p>
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-sm font-semibold text-slate-100 uppercase tracking-wide">
+            </article>
+
+            <article className="rounded-3xl border border-slate-800 bg-black/40 p-5">
+              <h3 className="text-sm font-semibold text-slate-50 md:text-base">
                 {t.howItem2Title}
               </h3>
-              <p className="text-sm text-slate-300 md:text-base">
+              <p className="mt-2 text-sm text-slate-300 md:text-[0.95rem]">
                 {t.howItem2Body}
               </p>
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-sm font-semibold text-slate-100 uppercase tracking-wide">
+            </article>
+
+            <article className="rounded-3xl border border-slate-800 bg-black/40 p-5">
+              <h3 className="text-sm font-semibold text-slate-50 md:text-base">
                 {t.howItem3Title}
               </h3>
-              <p className="text-sm text-slate-300 md:text-base">
+              <p className="mt-2 text-sm text-slate-300 md:text-[0.95rem]">
                 {t.howItem3Body}
               </p>
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-sm font-semibold text-slate-100 uppercase tracking-wide">
+            </article>
+
+            <article className="rounded-3xl border border-slate-800 bg-black/40 p-5">
+              <h3 className="text-sm font-semibold text-slate-50 md:text-base">
                 {t.howItem4Title}
               </h3>
-              <p className="text-sm text-slate-300 md:text-base">
+              <p className="mt-2 text-sm text-slate-300 md:text-[0.95rem]">
                 {t.howItem4Body}
               </p>
-            </div>
+            </article>
           </div>
         </div>
       </section>
 
-      {/* PARA QUIÉN ES DRK LAB */}
+      {/* PARA QUIÉN ES */}
       <section className="border-b border-slate-900 bg-[#050509] py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-lg font-semibold text-white md:text-xl">
@@ -111,7 +115,7 @@ export default async function AboutPage({
         </div>
       </section>
 
-      {/* CTA FINAL */}
+      {/* CTA */}
       <section className="bg-[#050509] py-14 md:py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="rounded-3xl border border-red-900/40 bg-gradient-to-br from-red-900/20 via-black to-red-950/40 px-6 py-8 md:px-8 md:py-10">
