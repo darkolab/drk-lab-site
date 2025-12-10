@@ -216,9 +216,51 @@
   "ctaSecondaryLabel": "Ver catálogo de productos"
 },
   "contactPage": {
-    "title": "Contacto",
-    "description": "Cuéntame qué necesitas y te responderé con una propuesta concreta: pieza, timings y presupuesto."
-  },
+  "heroKicker": "DRK LAB · Ingeniería para rodajes",
+  "title": "Contacto",
+  "description": "Cuéntame qué necesitas y te responderé con una propuesta concreta: pieza, timings y presupuesto. DRK LAB trabaja principalmente bajo pedido para rentals, productoras y técnicos.",
+
+  "projectsTitle": "¿Para qué tipo de proyectos tiene sentido contactar con DRK LAB?",
+  "projectsIntro": "Si tienes un problema muy concreto en el set, probablemente se pueda convertir en una pieza o sistema que te haga la vida más fácil.",
+  "projectTypes": [
+    "Rentals que necesitan accesorios robustos para su parque de cámaras, luces y monitores.",
+    "Productoras que quieren solventar un problema recurrente en rodajes o giras.",
+    "Técnicos freelance que buscan piezas fiables para su kit (cámara, sonido, gaffer…).",
+    "Equipos que quieren mejorar la organización de media, baterías y pequeños accesorios.",
+    "Recambios y piezas que ya no se fabrican pero siguen siendo necesarias."
+  ],
+
+  "workflowTitle": "¿Cómo trabajaremos tu proyecto?",
+  "workflowIntro": "La idea es ir rápido, pero sin perder el punto técnico. Siempre con pruebas en la realidad, no solo en el 3D.",
+  "workflowSteps": [
+    {
+      "title": "Brief inicial",
+      "body": "Me envías un correo explicando qué pasa, con qué equipos trabajas y, si puedes, alguna foto o vídeo del problema en el set."
+    },
+    {
+      "title": "Diseño y validación",
+      "body": "Te propongo una pieza o sistema, hacemos las iteraciones necesarias y validamos que encaja y aguanta el ritmo de trabajo."
+    },
+    {
+      "title": "Producción y entrega",
+      "body": "Una vez validado, se fabrican las piezas en material técnico y acordamos cantidades, plazos y envío."
+    }
+  ],
+
+  "panelTitle": "Hablemos de tu proyecto",
+  "panelBody": "No hace falta que tengas la solución clara. Cuéntame el contexto y vemos si tiene sentido convertirlo en una pieza DRK LAB o si hay una alternativa más sencilla.",
+  "emailLabel": "Correo de contacto",
+  "email": "info@drklab.studio",
+  "emailHelper": "Puedes escribirme en castellano, catalán o inglés.",
+  "emailSubject": "Proyecto DRK LAB · Consulta",
+
+  "ctaPrimaryLabel": "Enviar correo",
+  "ctaSecondaryLabel": "Ver catálogo de productos",
+
+  "responseTimeNote": "Intento responder todos los correos en un plazo de 24–48 h laborables, según volumen de rodajes y producciones.",
+  "footerKicker": "Antes de escribir",
+  "footerBody": "Si tienes claro con qué cámaras, ópticas, monitores o cabezas de luz trabajas, inclúyelo en el correo. Cuanto más concreto sea el contexto, más fácil será plantear una solución útil a la primera."
+},
   "servicesPage": {
   "heroKicker": "Servicios DRK LAB",
   "heroTitle": "Servicios pensados para el ritmo real de un rodaje",

@@ -217,9 +217,51 @@
   "ctaSecondaryLabel": "Veure catàleg de productes"
 },
   "contactPage": {
-    "title": "Contacte",
-    "description": "Explica'm què necessites i et respondré amb una proposta concreta: peça, timings i pressupost."
-  },
+  "heroKicker": "DRK LAB · Enginyeria per a rodatges",
+  "title": "Contacte",
+  "description": "Explica'm què necessites i et respondré amb una proposta concreta: peça, timings i pressupost. DRK LAB treballa principalment sota comanda per a rentals, productores i tècnics.",
+
+  "projectsTitle": "Per a quin tipus de projectes té sentit contactar DRK LAB?",
+  "projectsIntro": "Si tens un problema molt concret al set, probablement es pot convertir en una peça o sistema que et faci la vida més fàcil.",
+  "projectTypes": [
+    "Rentals que necessiten accessoris robustos per al seu parc de càmeres, llum i monitors.",
+    "Productores que volen solucionar un problema recurrent en rodatges o tours.",
+    "Tècnics freelance que busquen peces fiables per al seu kit (càmera, so, gaffer…).",
+    "Equips que volen millorar l’organització de media, bateries i petits accessoris.",
+    "Recanvis i peces que ja no es fabriquen però que cal seguir utilitzant."
+  ],
+
+  "workflowTitle": "Com treballarem el teu projecte?",
+  "workflowIntro": "La idea és anar ràpid però sense perdre el punt tècnic. Sempre amb proves a la realitat, no només al 3D.",
+  "workflowSteps": [
+    {
+      "title": "Brief inicial",
+      "body": "M’envies un correu explicant què passa, amb quins equips treballes i, si pots, alguna foto o vídeo del problema al set."
+    },
+    {
+      "title": "Disseny i validació",
+      "body": "Et proposo una peça o sistema, fem les iteracions que calguin i validem que encaixa i aguanta el ritme de feina."
+    },
+    {
+      "title": "Producció i entrega",
+      "body": "Un cop validat, es fabriquen les peces en material tècnic i acordem quantitats, terminis i enviament."
+    }
+  ],
+
+  "panelTitle": "Parlem del teu projecte",
+  "panelBody": "No cal que tinguis la solució clara. Explica’m el context i mirem si té sentit convertir-ho en una peça DRK LAB o si hi ha una alternativa més senzilla.",
+  "emailLabel": "Correu de contacte",
+  "email": "info@drklab.studio",
+  "emailHelper": "Pots escriure’m en català, castellà o anglès.",
+  "emailSubject": "Projecte DRK LAB · Consulta",
+
+  "ctaPrimaryLabel": "Enviar correu",
+  "ctaSecondaryLabel": "Veure catàleg de productes",
+
+  "responseTimeNote": "Intento respondre tots els correus en un termini de 24–48 h laborables, segons volum de rodatges i produccions.",
+  "footerKicker": "Abans d’escriure",
+  "footerBody": "Si tens clar amb quines càmeres, òptiques, monitors o caps de llum treballes, inclou-ho al correu. Com més concret sigui el context, més fàcil serà plantejar una solució útil a la primera."
+},
   "servicesPage": {
   "heroKicker": "Serveis DRK LAB",
   "heroTitle": "Serveis pensats per al ritme d’un rodatge real",
