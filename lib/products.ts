@@ -39,7 +39,7 @@ export const products: Product[] = [
       "Tapes de protecció per a caps LED Bowens (Aputure, Forza, SmallRig...). Protegeixen el COB durant transport i magatzem.",
     longDescription:
       "Tapes de protecció dissenyades específicament per a caps LED amb muntura Bowens. Ajust precís, interior suau i opció de personalització amb logo del rental o productora. Pensades per aguantar el ritme de maletes, furgonetes i rodatges intensius.",
-    image: "/products/drk-cap-led/drk-cap-led-01.JPG",
+    image: "/products/drk-cap-led/drk-cap-led-01.jpg",
     features: [
       "Compatible amb muntura Bowens estàndard",
       "Opció de logo personalitzat",
