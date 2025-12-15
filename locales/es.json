@@ -343,26 +343,31 @@
   "ctaSecondaryLabel": "Ver catálogo de productos"
 },
   "productCopy": {
-    "drk-cap-led": {
-      "name": "DRK-CAP LED · Tapa de protección Bowens",
-      "longDescription": "Tapa de protección para cabezas LED con montura Bowens, pensada para viajar en flightcases y aguantar el trote diario de un rental.",
-      "features": [
-        "Compatible con la mayoría de focos COB con montura Bowens S",
-        "Protege la superficie del LED y la óptica frontal durante el transporte",
-        "Cuerpo 3D en material técnico con labio frontal reforzado"
-      ],
-      "technicalSpecs": [
-        { "label": "Montura", "value": "Bowens S" },
-        {
-          "label": "Material",
-          "value": "Filamento técnico (PAHT CF / PLA Pro según tirada)"
-        },
-        { "label": "Acabado", "value": "Negro mate DRK LAB" }
-      ],
-      "status": "Prototipo en uso diario en rental",
-      "category": "Luz",
-      "notes": "Diseñada a partir de uso real en un rental profesional; se pueden adaptar medidas y modelos bajo pedido."
-    },
+  "drk-cap-led": {
+  "name": "DRK-CAP LED · Tapa de protección Bowens",
+  "image": "/products/drk-cap-led/drk-cap-led-01.jpg",
+  "longDescription": "Tapa de protección para cabezas LED con montura Bowens, impresa en PETG translúcido con acabado semi-transparente. Diseñada para proteger el COB y la óptica frontal durante transporte, almacenamiento y el ritmo diario de un rental.",
+  "features": [
+    "PETG translúcido semi-transparente: protección visualmente limpia.",
+    "Protege el COB y la óptica frontal durante el transporte en flightcases y el trabajo en set",
+    "Compatibilidad probada con cabezas Bowens de primeras marcas (lista en especificaciones)",
+    "Opción de translúcido tintado y logo personalizado en varios colores",
+    "Diseñada desde el uso real en rental: encaje práctico, robusto y rápido, como la original"
+  ],
+  "technicalSpecs": [
+    { "label": "Montura", "value": "Bowens (S)" },
+    { "label": "Material", "value": "PETG translúcido (semi-transparente)" },
+    { "label": "Personalización", "value": "Translúcido tintado + logo en varios colores (bajo pedido)" },
+    { "label": "Compatibilidad probada", "value": "Aputure 600C/D, 1200D/X/C · Nanlite Forza 300/500/720 B/C · Amaran 300/150C · Nanlux Evoke 600C · SmallRig 120/220B" },
+    { "label": "Temperatura máxima recomendada", "value": "80 ºC" },
+    { "label": "Peso", "value": "47,75 g" },
+    { "label": "Notas de material", "value": "El PETG ofrece buena resistencia a impactos y estabilidad dimensional, con mejor tolerancia al calor que el PLA. Mantiene un acabado translúcido ideal para identificar rápidamente la cabeza y aportar un look premium." },
+    { "label": "Alternativas high-temp", "value": "Puede fabricarse en materiales con mayor resistencia térmica si se requiere (normalmente perdiendo translucidez), según el uso y la cabeza LED." }
+  ],
+  "status": "En producción bajo pedido",
+  "category": "Luz",
+  "notes": "Compatibilidad probable con otras cabezas Bowens de las mismas marcas, pero los modelos indicados son los testados y asegurados."
+},
     "drk-case-media": {
       "name": "DRK-CASE Media · Cajas para tarjetas",
       "longDescription": "Sistema modular de cajas para organizar y proteger tarjetas SD, CFexpress B y CFast. Interiores configurables, pensados para encajar en flightcases y soportar el ritmo de un rental.",

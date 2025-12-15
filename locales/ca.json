@@ -345,25 +345,30 @@
 },
   "productCopy": {
     "drk-cap-led": {
-      "name": "DRK-CAP LED · Tapa de protecció Bowens",
-      "longDescription": "Tapa de protecció per a caps LED amb muntura Bowens, pensada per viatjar en flightcases i aguantar el ritme diari d'un rental.",
-      "features": [
-        "Compatible amb la majoria de focus COB amb muntura Bowens S",
-        "Protegeix la superfície del LED i l'òptica frontal durant el transport",
-        "Cos 3D en material tècnic amb vora frontal reforçada"
-      ],
-      "technicalSpecs": [
-        { "label": "Montura", "value": "Bowens" },
-        {
-          "label": "Material",
-          "value": "PETG Translúcid"
-        },
-        { "label": "Acabat", "value": "Translúcid semi-transparent" }
-      ],
-      "status": "Prototip en ús diari a rental",
-      "category": "Llum",
-      "notes": "Dissenyada a partir d'ús real en un rental professional; es poden adaptar mesures i models sota comanda."
-    },
+  "name": "DRK-CAP LED · Tapa de protecció Bowens",
+  "image": "/products/drk-cap-led/drk-cap-led-01.jpg",
+  "longDescription": "Tapa de protecció per a caps LED amb muntura Bowens, impresa en PETG translúcid amb acabat semi-transparent. Pensada per protegir el COB i l’òptica frontal durant transport, storage i el ritme diari d’un rental.",
+  "features": [
+    "PETG translúcid semi-transparent: protecció visualment neta.",
+    "Protegeix el COB i l’òptica frontal durant transport en flightcases i feina en set",
+    "Compatibilitat provada amb caps Bowens de primeres marques (llista a especificacions)",
+    "Opció de translúcid tintat i logo personalitzat en diversos colors",
+    "Dissenyada des d’ús real en rental: encaix pràctic, robust i ràpid"
+  ],
+  "technicalSpecs": [
+    { "label": "Muntura", "value": "Bowens (S)" },
+    { "label": "Material", "value": "PETG translúcid (semi-transparent)" },
+    { "label": "Personalització", "value": "Translúcid tintat + logo en diversos colors (sota comanda)" },
+    { "label": "Compatibilitat provada", "value": "Aputure 600C/D, 1200D/X/C · Nanlite Forza 300/500/720 B/C · Amaran 300/150C · Nanlux Evoke 600C · SmallRig 120/220B" },
+    { "label": "Temperatura màxima recomanada", "value": "80 ºC" },
+    { "label": "Pes", "value": "47,75 g" },
+    { "label": "Notes de material", "value": "El PETG ofereix bona resistència a impacte i estabilitat, amb millor tolerància a calor que PLA. Manté un acabat translúcid ideal per a identificar ràpidament el cap i per a un look premium." },
+    { "label": "Alternatives high-temp", "value": "Es pot fabricar en materials amb més resistència tèrmica si cal (habitualment perdent translucidesa), segons l’ús i el cap LED." }
+  ],
+  "status": "En producció sota comanda",
+  "category": "Llum",
+  "notes": "Compatibilitat probable amb altres caps Bowens de les mateixes marques, però els models indicats són els testats i assegurats."
+},
     "drk-case-media": {
       "name": "DRK-CASE Media · Caixes per a targetes",
       "longDescription": "Sistema modular de caixes per organitzar i protegir targetes SD, CFexpress B i CFast. Interiors configurables, pensats per cabre en flightcases i aguantar el ritme d'un rental.",

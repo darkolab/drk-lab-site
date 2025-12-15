@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Product } from "@/lib/products";
@@ -40,10 +41,15 @@ export type ProductsDictionary = {
 };
 
 function getStatusStyle(status: string) {
-  const normalized = status.toLowerCase();
+  const normalized = (status || "").toLowerCase();
   if (normalized.includes("prototip") || normalized.includes("prototype")) return statusStyles.prototype;
-  if (normalized.includes("producció") || normalized.includes("produccion") || normalized.includes("production"))
+  if (
+    normalized.includes("producció") ||
+    normalized.includes("produccion") ||
+    normalized.includes("production")
+  ) {
     return statusStyles.production;
+  }
   return statusStyles.default;
 }
 
@@ -53,6 +59,15 @@ function getCategoryKey(categoryKey?: string, category?: string) {
 
 function getCategoryLabel(key: string, categories: Record<string, string>) {
   return categories[key] || key.charAt(0).toUpperCase() + key.slice(1);
+}
+
+function isSafePublicPath(src?: string) {
+  if (!src) return false;
+  // Aceptamos solo rutas locales de /public (ej: /products/...)
+  if (!src.startsWith("/")) return false;
+  // Evita cosas raras como //dominio.com
+  if (src.startsWith("//")) return false;
+  return true;
 }
 
 export function ProductsCatalog({
@@ -102,7 +117,7 @@ export function ProductsCatalog({
       </section>
 
       <section className="bg-[#050509] py-16">
-        <div className="mx-auto max-w-7xl px-6 space-y-12">
+        <div className="mx-auto max-w-7xl space-y-12 px-6">
           <div className="flex flex-wrap gap-3">
             {categoryFilters.map((filter) => (
               <button
@@ -128,30 +143,41 @@ export function ProductsCatalog({
 
               const translated = catalogItems[product.slug] ?? {};
               const displayName = translated.name ?? product.shortName ?? product.name;
-              const displayDescription =
-                translated.description ?? product.shortDescription ?? product.longDescription;
+              const displayDescription = translated.description ?? product.shortDescription ?? product.longDescription;
+
+              const href = withLocale(`/products/${product.slug}`);
+              const imageSrc = isSafePublicPath(product.image) ? product.image : null;
 
               return (
                 <article
                   key={product.slug}
                   className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-900/80 bg-gradient-to-br from-[#0a0a12] via-[#050509] to-black p-6 shadow-[0_32px_80px_-42px_rgba(0,0,0,0.8)]"
                 >
+                  {/* VISUAL */}
                   <div className="relative h-80 overflow-hidden rounded-2xl border border-slate-800/70 bg-gradient-to-b from-slate-950 via-[#0a0a14] to-[#03030a]">
-                    <div className="absolute inset-0 overflow-hidden" aria-hidden>
-                      <div
-                        className={`absolute inset-0 scale-100 bg-cover bg-center opacity-75 transition duration-700 ease-out group-hover:scale-[1.08] group-hover:opacity-100 ${
-                          product.image ? "" : "bg-gradient-to-br from-slate-900 via-slate-950 to-black"
-                        }`}
-                        style={product.image ? { backgroundImage: `url(${product.image})` } : undefined}
+                    {/* Imagen real */}
+                    {imageSrc ? (
+                      <Image
+                        src={imageSrc}
+                        alt={displayName}
+                        fill
+                        sizes="(min-width: 1024px) 50vw, 100vw"
+                        className="object-cover opacity-90 transition duration-700 ease-out group-hover:scale-[1.04] group-hover:opacity-100"
+                        priority={product.slug === "drk-cap-led"} // la primera ficha que estás currando
                       />
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/45 to-[#050509]/95" />
-                      <div className="absolute inset-x-6 top-6 h-px bg-white/10" />
-                      <div className="absolute inset-x-10 bottom-8 h-px bg-white/5" />
-                      <div className="absolute left-6 top-1/2 h-16 w-px -translate-y-1/2 bg-white/10" />
-                      <div className="absolute right-6 top-1/2 h-16 w-px -translate-y-1/2 bg-white/10" />
-                      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#050509]/90 via-black/40 to-transparent" />
-                    </div>
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black" />
+                    )}
 
+                    {/* Overlays / look DRK */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-[#050509]/95" />
+                    <div className="absolute inset-x-6 top-6 h-px bg-white/10" />
+                    <div className="absolute inset-x-10 bottom-8 h-px bg-white/5" />
+                    <div className="absolute left-6 top-1/2 h-16 w-px -translate-y-1/2 bg-white/10" />
+                    <div className="absolute right-6 top-1/2 h-16 w-px -translate-y-1/2 bg-white/10" />
+                    <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#050509]/90 via-black/40 to-transparent" />
+
+                    {/* Labels */}
                     <div className="relative z-10 flex h-full flex-col justify-between p-6 text-slate-100">
                       <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-slate-200">
                         <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-3 py-1 backdrop-blur">
@@ -170,6 +196,7 @@ export function ProductsCatalog({
                     </div>
                   </div>
 
+                  {/* BODY */}
                   <div className="relative mt-6 flex flex-1 flex-col justify-between rounded-2xl border border-slate-800 bg-gradient-to-br from-black/80 via-[#0b0b13]/90 to-[#050509]/90 p-6 shadow-inner transition duration-500 ease-out group-hover:-translate-y-1 group-hover:border-slate-700 group-hover:shadow-[0_28px_48px_-34px_rgba(0,0,0,0.8)]">
                     <div className="space-y-4">
                       <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-slate-400">
@@ -182,16 +209,14 @@ export function ProductsCatalog({
 
                       <div className="space-y-2">
                         <h2 className="text-xl font-semibold text-white md:text-2xl">
-                          <Link href={withLocale(`/products/${product.slug}`)} className="transition hover:text-red-400">
+                          <Link href={href} className="transition hover:text-red-400">
                             {displayName}
                           </Link>
                         </h2>
                         <p className="text-xs uppercase tracking-[0.2em] text-slate-500">{product.status}</p>
                       </div>
 
-                      <p className="text-sm leading-relaxed text-slate-200/90 md:text-base">
-                        {displayDescription}
-                      </p>
+                      <p className="text-sm leading-relaxed text-slate-200/90 md:text-base">{displayDescription}</p>
                     </div>
 
                     <div className="mt-6 flex items-center justify-between pt-4 text-sm">
@@ -208,7 +233,7 @@ export function ProductsCatalog({
                       })()}
 
                       <Link
-                        href={withLocale(`/products/${product.slug}`)}
+                        href={href}
                         className="inline-flex items-center gap-2 rounded-2xl border border-red-500/60 bg-black/20 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-red-200 transition duration-300 hover:translate-x-[2px] hover:border-red-500 hover:bg-red-500 hover:text-white hover:shadow-[0_12px_30px_-18px_rgba(248,113,113,0.7)]"
                       >
                         {dictionary.viewSheet}

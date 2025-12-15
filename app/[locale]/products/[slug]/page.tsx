@@ -1,21 +1,16 @@
 // app/[locale]/products/[slug]/page.tsx
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
-import {
-  getDictionary,
-  resolveLocale,
-  type Locale,
-  locales,
-} from "@/lib/i18n";
+import { getDictionary, resolveLocale, type Locale, locales } from "@/lib/i18n";
 import { products } from "@/lib/products";
 
 type ProductDetailPageProps = {
-  // OJO: aquí volvemos a usar Promise, como en la versión que te funcionaba
   params: Promise<{ locale: string; slug: string }>;
 };
 
-// Para que Next genere las rutas estáticas /ca/products/slug, /es/..., /en/...
+// Para que Next genere rutas estáticas: /ca/products/slug, /es/..., /en/...
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     products.map((product) => ({
@@ -25,7 +20,6 @@ export function generateStaticParams() {
   );
 }
 
-// Tipo auxiliar para la copia traducible
 type ProductCopy = {
   name?: string;
   longDescription?: string;
@@ -34,25 +28,21 @@ type ProductCopy = {
   status?: string;
   category?: string;
   notes?: string;
+  image?: string; // opcional: override por idioma
 };
 
 export default async function ProductDetailPage({
   params,
 }: ProductDetailPageProps) {
-  // Desestructuramos desde la Promise, como antes
   const { locale: rawLocale, slug } = await params;
   const locale: Locale = resolveLocale(rawLocale);
 
-  if (!slug) {
-    return notFound();
-  }
+  if (!slug) return notFound();
 
   const dictionary = await getDictionary(locale);
-
   const product = products.find((p) => p.slug === slug);
 
   if (!product) {
-    // Estado de "producto no encontrado", con debugging de slugs
     return (
       <main className="min-h-screen bg-[#050509] text-slate-100">
         <div className="mx-auto max-w-4xl space-y-6 px-6 py-16">
@@ -91,13 +81,10 @@ export default async function ProductDetailPage({
     );
   }
 
-  // --- Capa de traducción por slug ---
-  // Espera que en el diccionario haya algo tipo:
-  // "productCopy": { "drk-cap-led": { name: "...", longDescription: "...", ... } }
+  // Copia traducible por slug (si existe)
   const productCopy =
-    (dictionary as any).productCopy?.[
-      slug as keyof (typeof dictionary)["productCopy"]
-    ] as ProductCopy | undefined;
+    ((dictionary as any).productCopy?.[slug] as ProductCopy | undefined) ??
+    undefined;
 
   const name = productCopy?.name ?? product.name;
   const longDescription =
@@ -108,7 +95,15 @@ export default async function ProductDetailPage({
   const status = productCopy?.status ?? product.status;
   const category = productCopy?.category ?? product.category;
   const notes = productCopy?.notes ?? product.notes;
+
   const categoryLabel = category ? category.toUpperCase() : "";
+
+  // Fuente de imagen: primero override por idioma, luego product.image
+  const imageSrc = productCopy?.image ?? product.image;
+
+  const mailTo = `mailto:info@drklab.studio?subject=${encodeURIComponent(
+    `Info / pressupost · ${product.code}`,
+  )}`;
 
   return (
     <main className="min-h-screen bg-[#050509]">
@@ -120,8 +115,7 @@ export default async function ProductDetailPage({
           </p>
 
           <h1 className="mt-4 text-2xl font-semibold text-white md:text-3xl">
-            {product.code} ·{" "}
-            <span className="text-slate-100">{name}</span>
+            {product.code} · <span className="text-slate-100">{name}</span>
           </h1>
 
           <p className="mt-3 max-w-3xl text-sm text-slate-300 md:text-base">
@@ -136,15 +130,48 @@ export default async function ProductDetailPage({
           {/* IZQUIERDA */}
           <div className="space-y-8">
             {/* FOTO / VISUAL */}
-            <div className="relative h-72 overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 to-black shadow-2xl md:h-80">
-              <div className="absolute inset-4 rounded-3xl border border-slate-700/80" />
-              <div className="flex h-full items-end justify-between px-8 pb-7">
-                <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-                  {dictionary.productDetail.imagePending}
-                </p>
-                <p className="text-[0.65rem] text-slate-500">
-                  {dictionary.productDetail.prototype}
-                </p>
+            <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-black/30 shadow-2xl">
+              <div className="relative aspect-[16/10] w-full">
+                {imageSrc ? (
+                  <>
+                    <Image
+                      src={imageSrc}
+                      alt={`${product.code} · ${name}`}
+                      fill
+                      className="object-cover object-center md:object-[50%_40%]"
+                      priority
+                    />
+                    {/* Overlay suave para legibilidad (uno solo) */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/25" />
+                  </>
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-black" />
+                    <div className="absolute inset-4 rounded-3xl border border-slate-700/80" />
+                    <div className="absolute inset-0 flex items-end justify-between px-8 pb-7">
+                      <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
+                        {dictionary.productDetail.imagePending}
+                      </p>
+                      <p className="text-[0.65rem] text-slate-500">
+                        {dictionary.productDetail.prototype}
+                      </p>
+                    </div>
+                  </>
+                )}
+
+                {/* Etiquetas inferiores (solo si hay imagen, para no duplicar texto con el placeholder) */}
+                {imageSrc && (
+                  <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-8 pb-7">
+                    <p className="text-xs uppercase tracking-[0.2em] text-slate-200">
+                      {product.code}
+                    </p>
+                    {status && (
+                      <p className="text-[0.7rem] text-slate-200/80">
+                        {status}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -167,7 +194,7 @@ export default async function ProductDetailPage({
                 <ul className="space-y-2 text-sm text-slate-200 md:text-base">
                   {features.map((feature) => (
                     <li key={feature} className="flex gap-2">
-                      <span className="mt-1 h-1 w-1 rounded-full bg-red-500" />
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-red-500" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -190,21 +217,17 @@ export default async function ProductDetailPage({
                       <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
                         {spec.label}
                       </p>
-                      <p className="font-medium text-slate-100">
-                        {spec.value}
-                      </p>
+                      <p className="font-medium text-slate-100">{spec.value}</p>
                     </div>
                   ))}
                 </div>
               </div>
             )}
 
-            {notes && (
-              <p className="text-xs text-slate-500">{notes}</p>
-            )}
+            {notes && <p className="text-xs text-slate-500">{notes}</p>}
           </div>
 
-          {/* DERECHA: estado + CTA */}
+          {/* DERECHA */}
           <aside className="space-y-4">
             <div className="space-y-4 rounded-2xl border border-slate-800 bg-black/40 p-5">
               <h2 className="text-sm font-semibold text-slate-100">
@@ -222,17 +245,13 @@ export default async function ProductDetailPage({
                   <p className="text-[0.7rem] uppercase tracking-[0.18em] text-slate-500">
                     {dictionary.productDetail.code}
                   </p>
-                  <p className="font-medium text-slate-100">
-                    {product.code}
-                  </p>
+                  <p className="font-medium text-slate-100">{product.code}</p>
                 </div>
                 <div className="space-y-1">
                   <p className="text-[0.7rem] uppercase tracking-[0.18em] text-slate-500">
                     {dictionary.productDetail.category}
                   </p>
-                  <p className="font-medium text-slate-100">
-                    {category}
-                  </p>
+                  <p className="font-medium text-slate-100">{category}</p>
                 </div>
               </div>
             </div>
@@ -247,9 +266,7 @@ export default async function ProductDetailPage({
 
               <div className="mt-2 flex flex-wrap gap-3">
                 <a
-                  href={`mailto:fdrarkstudio@gmail.com?subject=${encodeURIComponent(
-                    `Info / pressupost · ${product.code}`,
-                  )}`}
+                  href={mailTo}
                   className="rounded-full bg-red-500 px-5 py-2 text-xs font-medium text-white transition hover:bg-red-600 md:text-sm"
                 >
                   {dictionary.productDetail.cta}
