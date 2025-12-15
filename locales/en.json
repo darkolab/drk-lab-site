@@ -343,26 +343,31 @@
   "ctaSecondaryLabel": "View product catalogue"
 },
   "productCopy": {
-    "drk-cap-led": {
-      "name": "DRK-CAP LED · Protective Bowens cap",
-      "longDescription": "Protective cap for Bowens-mount LED heads, designed to travel inside flightcases and survive daily rental abuse.",
-      "features": [
-        "Compatible with most Bowens-mount COB LED fixtures",
-        "Protects the LED surface and front optics during transport",
-        "Impact-resistant 3D-printed body with reinforced front lip"
-      ],
-      "technicalSpecs": [
-        { "label": "Mount", "value": "Bowens S" },
-        {
-          "label": "Material",
-          "value": "Technical filament (PAHT CF / PLA Pro depending on batch)"
-        },
-        { "label": "Finish", "value": "DRK LAB matte black" }
-      ],
-      "status": "Prototype in daily rental use",
-      "category": "Light",
-      "notes": "Designed from real-world use at a professional rental; dimensions and fit can be adapted for other fixtures on request."
-    },
+   "drk-cap-led": {
+  "name": "DRK-CAP LED · Bowens Protection Cap",
+  "image": "/products/drk-cap-led/drk-cap-led-01.jpg",
+  "longDescription": "Protective cap for LED heads with Bowens mount, 3D printed in translucent PETG with a semi-transparent finish. Designed to protect the COB and front optics during transport, storage, and the daily workload of a rental environment.",
+  "features": [
+    "Semi-transparent translucent PETG: visually clean protection.",
+    "Protects the COB and front optics during transport in flightcases and on-set operation",
+    "Compatibility tested with Bowens-mount heads from leading brands (see specifications)",
+    "Option for tinted translucency and custom logo in multiple colors",
+    "Designed from real rental use: practical, robust and fast-fitting"
+  ],
+  "technicalSpecs": [
+    { "label": "Mount", "value": "Bowens (S)" },
+    { "label": "Material", "value": "Translucent PETG (semi-transparent)" },
+    { "label": "Customization", "value": "Tinted translucency + custom logo in multiple colors (on request)" },
+    { "label": "Tested compatibility", "value": "Aputure 600C/D, 1200D/X/C · Nanlite Forza 300/500/720 B/C · Amaran 300/150C · Nanlux Evoke 600C · SmallRig 120/220B" },
+    { "label": "Recommended max temperature", "value": "80 ºC" },
+    { "label": "Weight", "value": "47.75 g" },
+    { "label": "Material notes", "value": "PETG offers good impact resistance and dimensional stability, with higher heat tolerance than PLA. Its translucent finish makes it easy to quickly identify the head while providing a premium look." },
+    { "label": "High-temp alternatives", "value": "Can be manufactured in higher temperature-resistant materials if required (typically losing translucency), depending on the use case and LED head." }
+  ],
+  "status": "Made to order",
+  "category": "Light",
+  "notes": "Likely compatible with other Bowens-mount heads from the same brands, but only the listed models have been tested and validated."
+},
     "drk-case-media": {
       "name": "DRK-CASE Media · Card cases",
       "longDescription": "Modular case system to organise and protect SD, CFexpress B and CFast cards. Configurable inserts, built to slot into flightcases and handle rental life.",
