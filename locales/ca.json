@@ -89,6 +89,7 @@
           "text": "Del problema a la peça funcional en pocs dies, amb iteracions ràpides fins a trobar l'encaix perfecte."
         }
       ]
+      
     },
     "featured": {
       "title": "Productes destacats",
@@ -116,7 +117,53 @@
       "emailLabel": "Correu:",
       "email": "info@drklab.studio",
       "tagline": "Fet a Catalunya per a rodatges d'arreu."
+    },
+    "why": {
+  "title": "Per a quin tipus de projectes té sentit contactar amb DRK LAB?",
+  "description": "Si tens un problema molt concret al set, probablement es pot convertir en una peça o sistema que et faci la vida més fàcil.",
+  "bullets": [
+    "Rentals que necessiten accessoris robustos per al seu parc de càmeres, llums i monitors.",
+    "Productores que volen resoldre un problema recurrent en rodatges o gires.",
+    "Tècnics freelance que busquen peces fiables per al seu kit (càmera, so, gaffer…).",
+    "Equips que volen millorar l’organització de media, bateries i petits accessoris.",
+    "Recambis i peces que ja no es fabriquen però continuen sent necessàries."
+  ],
+  "ctaPrimary": "Explica’m el teu cas",
+  "ctaSecondary": "Veure serveis"
+},
+"process": {
+  "kicker": "COM TREBALLAREM EL TEU PROJECTE?",
+  "title": "Ràpid, però sense perdre el punt tècnic",
+  "description": "Sempre amb proves a la realitat, no només al 3D.",
+  "steps": [
+    {
+      "number": "1",
+      "title": "Brief inicial",
+      "text": "M’envies un correu explicant què passa, amb quins equips treballes i, si pots, alguna foto o vídeo del problema al set."
+    },
+    {
+      "number": "2",
+      "title": "Disseny i validació",
+      "text": "Et proposo una peça o sistema, fem les iteracions necessàries i validem que encaixa i aguanta el ritme de feina."
+    },
+    {
+      "number": "3",
+      "title": "Producció i entrega",
+      "text": "Un cop validat, fabriquem en material tècnic i acordem quantitats, terminis i enviament."
     }
+  ]
+},
+"explore": {
+  "title": "Explora DRK LAB",
+  "description": "Si vols entrar al detall, aquí tens el camí curt cap a cada secció.",
+  "linkLabel": "Obrir",
+  "items": [
+    { "title": "Serveis", "text": "Disseny i solucions pensades per a rodatge: robustes, pràctiques i testades.", "href": "/services" },
+    { "title": "Productes", "text": "Catàleg d’accessoris ja dissenyats, amb fitxes i especificacions.", "href": "/products" },
+    { "title": "A mida", "text": "Tens un problema real al set? Fem una peça que el resolgui.", "href": "/custom" },
+    { "title": "Sobre DRK LAB", "text": "Qui hi ha al darrere, com treballem i per què ho fem així.", "href": "/about" }
+  ]
+}
   },
   "productsPage": {
     "title": "Catàleg de productes DRK LAB",
@@ -166,7 +213,53 @@
         "name": "Frontissa Lastolite",
         "description": "Frontissa de recanvi per a panells Lastolite amb rosca reforçada i encaix 100% compatible."
       }
+    },
+    "why": {
+  "title": "Per a quin tipus de projectes té sentit contactar amb DRK LAB?",
+  "description": "Si tens un problema molt concret al set, probablement es pot convertir en una peça o sistema que et faci la vida més fàcil.",
+  "bullets": [
+    "Rentals que necessiten accessoris robustos per al seu parc de càmeres, llums i monitors.",
+    "Productores que volen resoldre un problema recurrent en rodatges o gires.",
+    "Tècnics freelance que busquen peces fiables per al seu kit (càmera, so, gaffer…).",
+    "Equips que volen millorar l’organització de media, bateries i petits accessoris.",
+    "Recambis i peces que ja no es fabriquen però continuen sent necessàries."
+  ],
+  "ctaPrimary": "Explica’m el teu cas",
+  "ctaSecondary": "Veure serveis"
+},
+"process": {
+  "kicker": "COM TREBALLAREM EL TEU PROJECTE?",
+  "title": "Ràpid, però sense perdre el punt tècnic",
+  "description": "Sempre amb proves a la realitat, no només al 3D.",
+  "steps": [
+    {
+      "number": "1",
+      "title": "Brief inicial",
+      "text": "M’envies un correu explicant què passa, amb quins equips treballes i, si pots, alguna foto o vídeo del problema al set."
+    },
+    {
+      "number": "2",
+      "title": "Disseny i validació",
+      "text": "Et proposo una peça o sistema, fem les iteracions necessàries i validem que encaixa i aguanta el ritme de feina."
+    },
+    {
+      "number": "3",
+      "title": "Producció i entrega",
+      "text": "Un cop validat, fabriquem en material tècnic i acordem quantitats, terminis i enviament."
     }
+  ]
+},
+"explore": {
+  "title": "Explora DRK LAB",
+  "description": "Si vols entrar al detall, aquí tens el camí curt cap a cada secció.",
+  "linkLabel": "Obrir",
+  "items": [
+    { "title": "Serveis", "text": "Disseny i solucions pensades per a rodatge: robustes, pràctiques i testades.", "href": "/services" },
+    { "title": "Productes", "text": "Catàleg d’accessoris ja dissenyats, amb fitxes i especificacions.", "href": "/products" },
+    { "title": "A mida", "text": "Tens un problema real al set? Fem una peça que el resolgui.", "href": "/custom" },
+    { "title": "Sobre DRK LAB", "text": "Qui hi ha al darrere, com treballem i per què ho fem així.", "href": "/about" }
+  ]
+}
   },
   "productDetail": {
     "notFoundTitle": "Producte no trobat",

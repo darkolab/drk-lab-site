@@ -115,7 +115,69 @@
       "emailLabel": "Correo:",
       "email": "info@drklab.studio",
       "tagline": "Hecho en Catalunya para rodajes de todas partes."
+    },
+    "why": {
+  "title": "¿Para qué tipo de proyectos tiene sentido contactar con DRK LAB?",
+  "description": "Si tienes un problema muy concreto en el set, probablemente se pueda convertir en una pieza o sistema que te haga la vida más fácil.",
+  "bullets": [
+    "Rentals que necesitan accesorios robustos para su parque de cámaras, luces y monitores.",
+    "Productoras que quieren solucionar un problema recurrente en rodajes o giras.",
+    "Técnicos freelance que buscan piezas fiables para su kit (cámara, sonido, gaffer…).",
+    "Equipos que quieren mejorar la organización de media, baterías y pequeños accesorios.",
+    "Recambios y piezas que ya no se fabrican pero siguen siendo necesarias."
+  ],
+  "ctaPrimary": "Cuéntame tu caso",
+  "ctaSecondary": "Ver servicios"
+},
+"process": {
+  "kicker": "¿CÓMO TRABAJAMOS TU PROYECTO?",
+  "title": "Rápido, pero sin perder el punto técnico",
+  "description": "Siempre con pruebas en la realidad, no solo en el 3D.",
+  "steps": [
+    {
+      "number": "1",
+      "title": "Brief inicial",
+      "text": "Me envías un correo explicando qué pasa, con qué equipos trabajas y, si puedes, alguna foto o vídeo del problema en el set."
+    },
+    {
+      "number": "2",
+      "title": "Diseño y validación",
+      "text": "Te propongo una pieza o sistema, hacemos las iteraciones necesarias y validamos que encaja y aguanta el ritmo de trabajo."
+    },
+    {
+      "number": "3",
+      "title": "Producción y entrega",
+      "text": "Una vez validado, fabricamos en material técnico y acordamos cantidades, plazos y envío."
     }
+  ]
+},
+"explore": {
+  "title": "Explora DRK LAB",
+  "description": "Si quieres entrar al detalle, aquí tienes el acceso directo a cada sección.",
+  "linkLabel": "Abrir",
+  "items": [
+    {
+      "title": "Servicios",
+      "text": "Diseño y soluciones pensadas para rodaje: robustas, prácticas y testadas.",
+      "href": "/services"
+    },
+    {
+      "title": "Productos",
+      "text": "Catálogo de accesorios ya diseñados, con fichas y especificaciones.",
+      "href": "/products"
+    },
+    {
+      "title": "A medida",
+      "text": "¿Tienes un problema real en el set? Creamos una pieza que lo resuelva.",
+      "href": "/custom"
+    },
+    {
+      "title": "Sobre DRK LAB",
+      "text": "Quién hay detrás, cómo trabajamos y por qué lo hacemos así.",
+      "href": "/about"
+    }
+  ]
+}
   },
   "productsPage": {
     "title": "Catálogo de productos DRK LAB",
