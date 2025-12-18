@@ -176,11 +176,11 @@ export const products: Product[] = [
     categoryKey: "merch",
     status: "Sota comanda",
     shortDescription:
-      "Llavors, eines i accessoris personalitzats amb logo: merch útil pensat per a tècnics, no per oblidar en un calaix.",
+      "Clauers, eines i accessoris personalitzats amb logo: merch útil pensat per a tècnics, no per oblidar en un calaix.",
     longDescription:
       "DRK MERCH PRO és una línia de merchandising funcional dissenyada per rentals, productores i escoles de cinema que volen regalar alguna cosa que realment serveixi. No és merch decoratiu: són peces útils, creades per tècnics i per al dia a dia en un set. Clauers-eina per cargols 1/4'', plaques d’identificació, suports personalitzats, eines ràpides o accessoris amb el logo del teu equip. Tot es fabrica sota comanda i pot adaptar-se a qualsevol workflow.",
     features: [
-      "Llavors-eina 1/4'' i 3/8'' personalitzades amb logo",
+      "Clauers-eina 1/4'' i 3/8'' personalitzades amb logo",
       "Mini eines per càmera i accessoris",
       "Peces útils per a rental amb logotip gravat o integrat",
       "Disseny totalment personalitzat per equip, productora o escola",

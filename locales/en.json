@@ -115,7 +115,69 @@
       "emailLabel": "Email:",
       "email": "info@drklab.studio",
       "tagline": "Built in Catalonia for shoots everywhere."
+    },
+    "why": {
+  "title": "What kind of projects is DRK LAB a good fit for?",
+  "description": "If you have a very specific problem on set, it can probably be turned into a part or system that makes your life easier.",
+  "bullets": [
+    "Rental houses that need robust accessories for their camera, lighting and monitor inventory.",
+    "Production companies looking to solve a recurring problem on shoots or tours.",
+    "Freelance technicians who want reliable parts for their kit (camera, sound, gaffer…).",
+    "Teams aiming to improve the organisation of media, batteries and small accessories.",
+    "Spare parts and components that are no longer manufactured but are still needed."
+  ],
+  "ctaPrimary": "Tell me your case",
+  "ctaSecondary": "View services"
+},
+"process": {
+  "kicker": "HOW DO WE WORK ON YOUR PROJECT?",
+  "title": "Fast, without losing the technical edge",
+  "description": "Always tested in real-world conditions, not just in 3D.",
+  "steps": [
+    {
+      "number": "1",
+      "title": "Initial brief",
+      "text": "You send me an email explaining the issue, the equipment you use and, if possible, a photo or video of the problem on set."
+    },
+    {
+      "number": "2",
+      "title": "Design & validation",
+      "text": "I propose a part or system, we iterate as needed and validate that it fits and withstands real working conditions."
+    },
+    {
+      "number": "3",
+      "title": "Production & delivery",
+      "text": "Once validated, the parts are manufactured in technical materials and we agree on quantities, lead times and shipping."
     }
+  ]
+},
+"explore": {
+  "title": "Explore DRK LAB",
+  "description": "If you want to dive deeper, here’s the direct path to each section.",
+  "linkLabel": "Open",
+  "items": [
+    {
+      "title": "Services",
+      "text": "Design and solutions built for real sets: robust, practical and tested.",
+      "href": "/services"
+    },
+    {
+      "title": "Products",
+      "text": "Catalogue of ready-made accessories with detailed specs.",
+      "href": "/products"
+    },
+    {
+      "title": "Custom work",
+      "text": "Got a real problem on set? We’ll design a part that solves it.",
+      "href": "/custom"
+    },
+    {
+      "title": "About DRK LAB",
+      "text": "Who’s behind it, how we work and why we do it this way.",
+      "href": "/about"
+    }
+  ]
+}
   },
   "productsPage": {
     "title": "DRK LAB product catalogue",
