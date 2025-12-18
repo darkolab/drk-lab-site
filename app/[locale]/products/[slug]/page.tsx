@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 import { getDictionary, resolveLocale, type Locale, locales } from "@/lib/i18n";
 import { products } from "@/lib/products";
@@ -31,9 +32,105 @@ type ProductCopy = {
   image?: string; // opcional: override por idioma
 };
 
-export default async function ProductDetailPage({
-  params,
-}: ProductDetailPageProps) {
+/**
+ * Helpers SEO
+ */
+function getSiteUrl() {
+  // Recomendado: define NEXT_PUBLIC_SITE_URL en Vercel y en .env.local
+  // Ej: https://drklab.studio
+  return (process.env.NEXT_PUBLIC_SITE_URL || "https://drklab.studio").replace(/\/$/, "");
+}
+
+function absUrl(pathOrUrl: string) {
+  if (!pathOrUrl) return getSiteUrl();
+  if (pathOrUrl.startsWith("http")) return pathOrUrl;
+  return `${getSiteUrl()}${pathOrUrl.startsWith("/") ? "" : "/"}${pathOrUrl}`;
+}
+
+function toPlainText(input?: string) {
+  return (input || "").replace(/\s+/g, " ").trim();
+}
+
+function pickSpec(technicalSpecs: { label: string; value: string }[], labelIncludes: string) {
+  const found = technicalSpecs.find((s) =>
+    (s.label || "").toLowerCase().includes(labelIncludes.toLowerCase()),
+  );
+  return found?.value;
+}
+
+/**
+ * ✅ SEO por producto (title/description/OG/Twitter/canonical/alternates/robots)
+ */
+export async function generateMetadata({ params }: ProductDetailPageProps): Promise<Metadata> {
+  const { locale: rawLocale, slug } = await params;
+  const locale: Locale = resolveLocale(rawLocale);
+
+  const dictionary = await getDictionary(locale);
+  const product = products.find((p) => p.slug === slug);
+
+  // Si no existe, no indexamos (evitas basura SEO)
+  if (!product) {
+    return {
+      title: dictionary.productDetail?.notFoundTitle ?? "Product not found",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const productCopy =
+    ((dictionary as any).productCopy?.[slug] as ProductCopy | undefined) ?? undefined;
+
+  const name = productCopy?.name ?? product.name;
+  const descriptionRaw = productCopy?.longDescription ?? product.longDescription ?? "";
+  const description = toPlainText(descriptionRaw).slice(0, 160);
+
+  const imageSrc = productCopy?.image ?? product.image;
+  const ogImage = imageSrc ? absUrl(imageSrc) : absUrl("/og.jpg"); // fallback global
+  const url = `${getSiteUrl()}/${locale}/products/${slug}`;
+
+  // Alternates por idioma (muy importante para i18n)
+  const alternatesLanguages = Object.fromEntries(
+    locales.map((l) => [l, `${getSiteUrl()}/${l}/products/${slug}`]),
+  ) as Record<string, string>;
+
+  const title = `${product.code} · ${name} | DRK LAB`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+      languages: alternatesLanguages,
+    },
+    openGraph: {
+  type: "website", // <- Next valida este, "product" no
+  url,
+  title,
+  description,
+  siteName: "DRK LAB",
+  locale,
+  images: [
+    {
+      url: ogImage,
+      width: 1200,
+      height: 630,
+      alt: `${product.code} · ${name}`,
+    },
+  ],
+},
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
+
+export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
   const { locale: rawLocale, slug } = await params;
   const locale: Locale = resolveLocale(rawLocale);
 
@@ -58,9 +155,7 @@ export default async function ProductDetailPage({
           </p>
 
           <div className="space-y-2 text-sm">
-            <p className="text-slate-400">
-              {dictionary.productDetail.availableSlugs}
-            </p>
+            <p className="text-slate-400">{dictionary.productDetail.availableSlugs}</p>
             <ul className="ml-4 list-disc space-y-1">
               {products.map((p) => (
                 <li key={p.slug} className="font-mono text-xs">
@@ -83,15 +178,12 @@ export default async function ProductDetailPage({
 
   // Copia traducible por slug (si existe)
   const productCopy =
-    ((dictionary as any).productCopy?.[slug] as ProductCopy | undefined) ??
-    undefined;
+    ((dictionary as any).productCopy?.[slug] as ProductCopy | undefined) ?? undefined;
 
   const name = productCopy?.name ?? product.name;
-  const longDescription =
-    productCopy?.longDescription ?? product.longDescription;
+  const longDescription = productCopy?.longDescription ?? product.longDescription;
   const features = productCopy?.features ?? product.features ?? [];
-  const technicalSpecs =
-    productCopy?.technicalSpecs ?? product.technicalSpecs ?? [];
+  const technicalSpecs = productCopy?.technicalSpecs ?? product.technicalSpecs ?? [];
   const status = productCopy?.status ?? product.status;
   const category = productCopy?.category ?? product.category;
   const notes = productCopy?.notes ?? product.notes;
@@ -105,8 +197,86 @@ export default async function ProductDetailPage({
     `Info / pressupost · ${product.code}`,
   )}`;
 
+  /**
+   * ✅ JSON-LD (Product + Organization) — base sólida sin inventar precios/stock
+   * Nota: si aún no vendes online, esto sigue siendo útil para “Product” informativo.
+   */
+  const siteUrl = getSiteUrl();
+  const pageUrl = `${siteUrl}/${locale}/products/${slug}`;
+
+  const mount = pickSpec(technicalSpecs, "muntura") || pickSpec(technicalSpecs, "mount");
+  const material = pickSpec(technicalSpecs, "material");
+  const weight = pickSpec(technicalSpecs, "pes") || pickSpec(technicalSpecs, "weight");
+
+    const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${pageUrl}#product`,
+    name: `${product.code} · ${name}`,
+    description: toPlainText(longDescription),
+    sku: product.code,
+    url: pageUrl,
+    inLanguage: locale,
+    image: imageSrc ? [absUrl(imageSrc)] : [absUrl("/og.jpg")],
+
+    brand: {
+      "@type": "Brand",
+      name: "DRK LAB",
+    },
+
+    manufacturer: {
+      "@type": "Organization",
+      "@id": `${siteUrl}#organization`,
+      name: "DRK LAB",
+      url: siteUrl,
+      email: "info@drklab.studio",
+    },
+
+    // category en Schema.org puede ser texto; lo mantenemos si existe
+    category: category || undefined,
+
+    // material: texto (si lo tenemos)
+    material: material || undefined,
+
+    // Propiedades técnicas extra (limpias y sin nulls)
+    additionalProperty: [
+      mount
+        ? {
+            "@type": "PropertyValue",
+            name: "Mount",
+            value: mount,
+          }
+        : null,
+
+      weight
+        ? {
+            "@type": "PropertyValue",
+            name: "Weight",
+            value: weight,
+          }
+        : null,
+
+      status
+        ? {
+            "@type": "PropertyValue",
+            name: "Status",
+            value: status,
+          }
+        : null,
+    ].filter(Boolean),
+
+    // Para evitar “rich results” falsos: NO añadimos offers (precio/stock) de momento.
+  };
+
   return (
     <main className="min-h-screen bg-[#050509]">
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* CABECERA */}
       <section className="border-b border-slate-900 bg-gradient-to-b from-black to-[#050509]">
         <div className="mx-auto max-w-6xl px-6 py-10">
@@ -165,11 +335,7 @@ export default async function ProductDetailPage({
                     <p className="text-xs uppercase tracking-[0.2em] text-slate-200">
                       {product.code}
                     </p>
-                    {status && (
-                      <p className="text-[0.7rem] text-slate-200/80">
-                        {status}
-                      </p>
-                    )}
+                    {status && <p className="text-[0.7rem] text-slate-200/80">{status}</p>}
                   </div>
                 )}
               </div>
@@ -180,9 +346,7 @@ export default async function ProductDetailPage({
               <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
                 {dictionary.productDetail.description}
               </h2>
-              <p className="text-sm text-slate-200 md:text-base">
-                {longDescription}
-              </p>
+              <p className="text-sm text-slate-200 md:text-base">{longDescription}</p>
             </div>
 
             {/* CARACTERÍSTICAS */}
@@ -260,9 +424,7 @@ export default async function ProductDetailPage({
               <h2 className="text-sm font-semibold text-slate-100">
                 {dictionary.productDetail.wantProduct}
               </h2>
-              <p className="text-sm text-slate-300">
-                {dictionary.productDetail.ctaDescription}
-              </p>
+              <p className="text-sm text-slate-300">{dictionary.productDetail.ctaDescription}</p>
 
               <div className="mt-2 flex flex-wrap gap-3">
                 <a
